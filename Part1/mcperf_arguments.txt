@@ -1,0 +1,14 @@
+-s  Memcached server hostname[:port[-end_port]]
+-a  Enlist remote agent, with optional agent port
+    to support multiple agents per host
+-T  Number of threads to spawn.  (default=`1')
+-C  Master client connections per server, overrides
+    --connections
+-D  Set master client connection depth.
+-Q  Explicitly set master client QPS, spread across
+    threads and connections.
+-c  Connections to establish per server.
+    (default=`1')
+-w  Warmup time before starting measurement.
+-t  Maximum time to run (seconds).  (default=`5')
+--scan  Scan latency across QPS rates from min to max.
