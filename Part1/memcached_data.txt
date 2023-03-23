@@ -1,2 +1,2 @@
 NAME             READY   STATUS    RESTARTS   AGE   IP           NODE                   NOMINATED NODE   READINESS GATES
-some-memcached   1/1     Running   0          61s   100.96.2.4   memcache-server-clsj   <none>           <none>
+some-memcached   1/1     Running   0          60s   100.96.2.2   memcache-server-z4jb   <none>           <none>
