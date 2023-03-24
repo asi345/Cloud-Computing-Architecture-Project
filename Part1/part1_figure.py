@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
+# ------------------ CONFIG ------------------
 plt.rcParams.update({
     "text.usetex": True,
     "font.family": "sans-serif",
@@ -20,7 +21,17 @@ FILE_NAMES = ['data/memcached_interference_ibench_cpu.txt', 'data/memcached_no_i
 
 RUNS = 5
 
+MARKERS = ['o', '<', '^', 'v', 's', 'X', 'D']
+COLORS = ['darkgreen', 'tab:olive', 'darkblue', 'purple', 'red', 'darkorange', 'aqua']
+LABELS = [r'$\texttt{--interference-ibench-cpu}$', R'$\texttt{--no-interference}$',
+          r'$\texttt{--interference-ibench-l1d}$', r'$\texttt{--interference-ibench-l1i}$',
+          r'$\texttt{--interference-ibench-llc}$', r'$\texttt{--interference-ibench-membw}$',
+          r'$\texttt{--interference-ibench-l2}$']
 
+PRIORITY = [2, 7, 3, 4, 5, 6, 5]  # zorder for error bars and lines
+
+
+# ------------------ FUNCTIONS ------------------
 def preprocess_data(file_name) -> pd.DataFrame:
     """
     :param file_name: relative path to file
@@ -63,7 +74,7 @@ def get_data() -> List[pd.DataFrame]:
     return data
 
 
-def array_to_string(arr):
+def array_to_string(arr) -> np.ndarray:
     """
     convert a list of float values to a list of formatted strings e.g. 7000 becomes 7k
     :param arr: numpy array of float values
@@ -95,10 +106,9 @@ def get_xticks(data) -> Tuple[np.ndarray, np.ndarray]:
 def prepare_data(data):
     # y-axis should be between 0 and 8 ms
     # measurements currently in microseconds
-    # don't include QPS column when converting
     # sort by QPS
     qps = data['QPS']
-    # data = data.sort_values(by='QPS')
+    data = data.sort_values(by='QPS')
     data = data.iloc[:, :-1] / 1000
     data['QPS'] = qps
     return data
@@ -108,25 +118,16 @@ def create_plot(xticks, xtick_labels, measured_statistics, flags, name):
     # generate plot
     plt.figure(figsize=(12, 12))
     error_bars = []
-    markers = ['o', '*', '^', 'v', 's', 'X', 'D']
-    colors = ['tab:olive', 'darkgreen', 'darkblue', 'darkorange', 'red', 'purple', 'aqua']
-    labels = [r'$\texttt{--interference-ibench-cpu}$', R'$\texttt{--no-interference}$',
-              r'$\texttt{--interference-ibench-l1d}$', r'$\texttt{--interference-ibench-l1i}$',
-              r'$\texttt{--interference-ibench-llc}$', r'$\texttt{--interference-ibench-membw}$',
-              r'$\texttt{--interference-ibench-l2}$']
-
-    priority = [2, 7, 3, 4, 5, 6, 5] # zorder for error bars and lines
 
     for i, s in enumerate(measured_statistics):
-        error_bar = plt.errorbar(s['QPS'], s['p95'], yerr=s['std'], fmt=markers[i], color=colors[i],
-                                 label=labels[i], capsize=4, capthick=2, elinewidth=1, markersize=7,
-                                 markeredgewidth=1, markeredgecolor='black', zorder=priority[i])
-        # add line to connect markers, add black border to line
-        plt.plot(s['QPS'], s['p95'], color=colors[i], linewidth=2, linestyle='-', zorder=priority[i])
-
-
+        error_bar = plt.errorbar(s['QPS'], s['p95'], yerr=s['std'], fmt=MARKERS[i], color=COLORS[i],
+                                 label=LABELS[i], capthick=2, elinewidth=1, markersize=7,
+                                 markeredgewidth=1, markeredgecolor='black', zorder=PRIORITY[i])
+        # add line to connect markers
+        plt.plot(s['QPS'], s['p95'], color=COLORS[i], linewidth=2, zorder=PRIORITY[i])
         error_bars.append(error_bar)
 
+    # border on error bars
     for error_bar in error_bars:
         error_bar[1][0].set_path_effects([path_effects.Stroke(linewidth=4, foreground='black'),
                                           path_effects.Normal()])
@@ -165,15 +166,15 @@ def create_plot(xticks, xtick_labels, measured_statistics, flags, name):
     plt.grid(axis='y', color='white', linewidth=2.0)
     plt.grid(axis='x', color='white', linewidth=2.0)
     plt.savefig('plot_1_' + name + '.pdf')
+    plt.close()
 
 
-# return array from 0 to index-1
 def take_subset(array, start, end):
     assert end <= len(array) and start >= 0
     return array[start:end]
 
 
-def compute_metrics(s1):
+def compute_metrics(s1) -> pd.DataFrame:
     assert len(s1) == RUNS
     tail_latencies = [s['p95'].to_numpy() for s in s1]
     qps = [s['QPS'].to_numpy() for s in s1]
@@ -186,13 +187,26 @@ def compute_metrics(s1):
     average_qps = np.mean(qpses, axis=1)
     # compute standard deviation
     std = np.std(tail_latencies, axis=1)
+
+    # create a mask of indices to drop
+    mask = np.zeros(len(average_tail_latency), dtype=bool)
+    for i in range(1, len(average_tail_latency)):
+        if (average_qps[i] - average_qps[
+            i - 1] < 1000):  # and np.abs(average_tail_latency[i] - average_tail_latency[i - 1]) < 0.01:
+            mask[i] = True
+
+    # drop rows
+    average_tail_latency = np.ma.masked_array(average_tail_latency, mask=mask)
+    average_qps = np.ma.masked_array(average_qps, mask=mask)
+    std = np.ma.masked_array(std, mask=mask)
+
     # package everything back into a dataframe
     df = pd.DataFrame(
         {'QPS': average_qps,
          'p95': average_tail_latency,
          'std': std
          })
-
+    df.dropna(inplace=True)
     return df
 
 
@@ -209,7 +223,7 @@ def main():
             s1 = compute_metrics(s1)
             measured_statistics.append(s1)
 
-        create_plot(xticks, xticks_labels, measured_statistics, "flags", "no-sort")
+        create_plot(xticks, xticks_labels, measured_statistics, "flags", "sort-drop")
     except ValueError:
         print("Not enough dataframes")
 
