@@ -1,0 +1,41 @@
+Launching splash2x.radix...
+[PARSEC] Benchmarks to run:  splash2x.radix
+
+[PARSEC] [========== Running benchmark splash2x.radix [1] ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] No archive for input 'native' available, skipping input setup.
+[PARSEC] Running 'time /parsec/ext/splash2x/kernels/radix/inst/amd64-linux.gcc/bin/run.sh 1 native':
+[PARSEC] [---------- Beginning of output ----------]
+Generating input file ...
+Running /parsec/ext/splash2x/kernels/radix/inst/amd64-linux.gcc/bin/radix -p1 -r4096 -n268435456 -m2147483647:
+
+Integer Radix Sort
+     268435456 Keys
+     1 Processors
+     Radix = 4096
+     Max key = 2147483647
+
+
+                 PROCESS STATISTICS
+               Total            Rank            Sort
+ Proc          Time             Time            Time
+    0       39977809         2424895        37552900
+
+                 TIMING INFORMATION
+Start time                        : 1680129501389061
+Initialization finish time        : 1680129543682643
+Overall finish time               : 1680129583660452
+Total time with initialization    :         82271391
+Total time without initialization :         39977809
+
+
+real	1m22.926s
+user	1m14.773s
+sys	0m5.185s
+[PARSEC] [----------    End of output    ----------]
+[PARSEC]
+[PARSEC] BIBLIOGRAPHY
+[PARSEC]
+[PARSEC] [1] Woo et al. The SPLASH-2 Programs: Characterization and Methodological Considerations. ISCA, 1995.
+[PARSEC]
+[PARSEC] Done.
