@@ -7,7 +7,7 @@ kops validate cluster --wait 10m
 
 #n = 1
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-blackscholes.yaml
-sleep 120
+sleep 180
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -16,7 +16,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-canneal.yaml
-sleep 120
+sleep 360
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -34,7 +34,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-ferret.yaml
-sleep 120
+sleep 360
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -43,7 +43,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-freqmine.yaml
-sleep 120
+sleep 600
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -61,7 +61,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-vips.yaml
-sleep 300
+sleep 360
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -70,17 +70,17 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 
-sudo sed -i 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-blackscholes.yaml
-sudo sed -i 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-canneal.yaml
-sudo sed -i 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-dedup.yaml
-sudo sed -i 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-ferret.yaml
-sudo sed -i 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-freqmine.yaml
-sudo sed -i 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-radix.yaml
-sudo sed -i 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-vips.yaml
+sudo sed -i '' -e 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-blackscholes.yaml
+sudo sed -i '' -e 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-canneal.yaml
+sudo sed -i '' -e 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-dedup.yaml
+sudo sed -i '' -e 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-ferret.yaml
+sudo sed -i '' -e 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-freqmine.yaml
+sudo sed -i '' -e 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-radix.yaml
+sudo sed -i '' -e 's/native -n 1/native -n 2/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-vips.yaml
 
 #n = 2
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-blackscholes.yaml
-sleep 120
+sleep 180
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -89,7 +89,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-canneal.yaml
-sleep 120
+sleep 360
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -107,7 +107,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-ferret.yaml
-sleep 120
+sleep 360
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -116,7 +116,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-freqmine.yaml
-sleep 120
+sleep 600
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -134,7 +134,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-vips.yaml
-sleep 300
+sleep 360
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -143,17 +143,17 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 
-sudo sed -i 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-blackscholes.yaml
-sudo sed -i 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-canneal.yaml
-sudo sed -i 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-dedup.yaml
-sudo sed -i 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-ferret.yaml
-sudo sed -i 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-freqmine.yaml
-sudo sed -i 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-radix.yaml
-sudo sed -i 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-vips.yaml
+sudo sed -i '' -e 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-blackscholes.yaml
+sudo sed -i '' -e 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-canneal.yaml
+sudo sed -i '' -e 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-dedup.yaml
+sudo sed -i '' -e 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-ferret.yaml
+sudo sed -i '' -e 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-freqmine.yaml
+sudo sed -i '' -e 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-radix.yaml
+sudo sed -i '' -e 's/native -n 2/native -n 4/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-vips.yaml
 
 #n = 4
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-blackscholes.yaml
-sleep 120
+sleep 180
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -162,7 +162,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-canneal.yaml
-sleep 120
+sleep 360
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -180,7 +180,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-ferret.yaml
-sleep 120
+sleep 360
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -189,7 +189,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-freqmine.yaml
-sleep 120
+sleep 600
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -207,7 +207,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-vips.yaml
-sleep 300
+sleep 360
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -216,17 +216,17 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 
-sudo sed -i 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-blackscholes.yaml
-sudo sed -i 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-canneal.yaml
-sudo sed -i 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-dedup.yaml
-sudo sed -i 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-ferret.yaml
-sudo sed -i 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-freqmine.yaml
-sudo sed -i 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-radix.yaml
-sudo sed -i 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-vips.yaml
+sudo sed -i '' -e 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-blackscholes.yaml
+sudo sed -i '' -e 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-canneal.yaml
+sudo sed -i '' -e 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-dedup.yaml
+sudo sed -i '' -e 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-ferret.yaml
+sudo sed -i '' -e 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-freqmine.yaml
+sudo sed -i '' -e 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-radix.yaml
+sudo sed -i '' -e 's/native -n 4/native -n 8/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-vips.yaml
 
 #n = 8
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-blackscholes.yaml
-sleep 120
+sleep 180
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -235,7 +235,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-canneal.yaml
-sleep 120
+sleep 360
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -253,7 +253,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-ferret.yaml
-sleep 120
+sleep 360
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -262,7 +262,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-freqmine.yaml
-sleep 120
+sleep 600
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -280,7 +280,7 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 kubectl create -f ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-vips.yaml
-sleep 300
+sleep 360
 kubectl get jobs > jobs.txt
 python3 job_name.py
 source job_vars.txt
@@ -289,12 +289,12 @@ kubectl delete jobs --all
 kubectl delete pods --all
 
 
-sudo sed -i 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-blackscholes.yaml
-sudo sed -i 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-canneal.yaml
-sudo sed -i 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-dedup.yaml
-sudo sed -i 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-ferret.yaml
-sudo sed -i 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-freqmine.yaml
-sudo sed -i 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-radix.yaml
-sudo sed -i 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-vips.yaml
+sudo sed -i '' -e 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-blackscholes.yaml
+sudo sed -i '' -e 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-canneal.yaml
+sudo sed -i '' -e 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-dedup.yaml
+sudo sed -i '' -e 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-ferret.yaml
+sudo sed -i '' -e 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-freqmine.yaml
+sudo sed -i '' -e 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-radix.yaml
+sudo sed -i '' -e 's/native -n 8/native -n 1/' ../Part1/cloud-comp-arch-project/parsec-benchmarks/part2b/parsec-vips.yaml
 
 kops delete cluster part2b.k8s.local --yes

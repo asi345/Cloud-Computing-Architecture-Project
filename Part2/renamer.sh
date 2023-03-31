@@ -1,1 +1,0 @@
-for f in *; do mv "$f" $(echo "$f" | sed 's/.txt/_0.txt/g'); done

@@ -1,2 +1,2 @@
-PARSEC_NAME="parsec-server-hg2b"
+PARSEC_NAME="parsec-server-qz6m"
 PARSEC_IP="35.198.126.240"

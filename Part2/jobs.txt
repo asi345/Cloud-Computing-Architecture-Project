@@ -1,2 +1,2 @@
 NAME          COMPLETIONS   DURATION   AGE
-parsec-vips   1/1           3m8s       5m
+parsec-vips   1/1           48s        6m1s
