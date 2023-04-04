@@ -41,14 +41,14 @@ def create_plot(xticks, xtick_labels, response_times, name):
     plt.ylabel(r'\bf{Speedup}', rotation=0, size=15)
     ax.yaxis.set_label_coords(0.0, 1.03)
     plt.title(r"\bf{Measured Parsec Parallel Speedup}", loc='left', pad=60, size=18)
-    plt.legend(prop={'size': 14.5}, loc='upper left')
+    plt.legend(prop={'size': 14.5}, loc='upper left', title=r'\bf{Job type}')
     plt.tight_layout()
 
     # axes adjustments
     plt.ylim([0, 7])
 
     # plt.yscale('linear')
-    plt.xscale('log', base=2)
+    # plt.xscale('log', base=2)
     # coordinates diplayed on axes
     ax.set_xticks(xticks)
     ax.set_xticklabels(xtick_labels, fontsize=14)
@@ -79,12 +79,12 @@ def main():
     radix = np.array([53.043, 30.083, 15.014, 9.585], dtype=np.float64)
     vips = np.array([99.068, 52.883, 26.044, 22.201], dtype=np.float64)
     xticks = [1, 2, 4, 8]
-    # xtick_labels = [1, 2, 4, 8]
-    xtick_labels = [r'$2^0$', r'$2^1$', r'$2^2$', r'$2^3$']
+    xtick_labels = [1, 2, 4, 8]
+    # xtick_labels = [r'$2^0$', r'$2^1$', r'$2^2$', r'$2^3$']
     response_times = np.stack((black_scholes, canneal, dedup, ferret, freqmine, radix, vips), axis=0)
     response_times = compute_normalized_speedup(response_times)
     print(response_times)
-    create_plot(xticks, xtick_labels, response_times, 'speedup')
+    create_plot(xticks, xtick_labels, response_times, 'speedup-linear')
 
 
 if __name__ == "__main__":
