@@ -527,7 +527,7 @@ PARSEC Benchmark Suite Version 3.0-beta-20150206
 (256,256)
 QUERY TIME: 13.355 seconds
 
-real  	0m13.528s
+real	0m13.528s
 user	0m12.514s
 sys	0m0.222s
 [PARSEC] [----------    End of output    ----------]

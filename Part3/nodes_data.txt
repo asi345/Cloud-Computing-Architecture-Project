@@ -1,0 +1,8 @@
+NAME                         STATUS   ROLES                AGE   VERSION    INTERNAL-IP   EXTERNAL-IP      OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME
+client-agent-a-dvws          Ready    node                 11m   v1.23.16   10.0.16.5     34.159.221.215   Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+client-agent-b-x9c4          Ready    node                 11m   v1.23.16   10.0.16.6     34.159.21.42     Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+client-measure-8k51          Ready    node                 11m   v1.23.16   10.0.16.7     34.89.154.199    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+master-europe-west3-a-pnls   Ready    control-plane,node   14m   v1.23.16   10.0.16.8     34.159.108.226   Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+node-a-2core-pknv            Ready    node                 11m   v1.23.16   10.0.16.2     34.107.37.177    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+node-b-4core-4p44            Ready    node                 11m   v1.23.16   10.0.16.3     34.107.83.121    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+node-c-8core-c32s            Ready    node                 11m   v1.23.16   10.0.16.4     35.242.249.244   Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
