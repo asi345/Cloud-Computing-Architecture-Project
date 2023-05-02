@@ -12,7 +12,7 @@ with open('nodes_data.txt') as f:
     out.write('MEASURE_INT_IP="' + line[5] + '"\n')
     f.readline()
     line = f.readline().split()
-    out.write('NODE_A2__NAME="' + line[0] + '"\n')
+    out.write('NODE_A2_NAME="' + line[0] + '"\n')
     line = f.readline().split()
     out.write('NODE_B4_NAME="' + line[0] + '"\n')
     line = f.readline().split()

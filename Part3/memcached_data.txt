@@ -1,0 +1,2 @@
+NAME             READY   STATUS    RESTARTS   AGE     IP           NODE                NOMINATED NODE   READINESS GATES
+some-memcached   1/1     Running   0          3m59s   100.96.1.5   node-c-8core-453r   <none>           <none>
