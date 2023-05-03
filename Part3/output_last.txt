@@ -1,0 +1,44 @@
+Job:  parsec-blackscholes
+Node:  node-c-8core-1q73
+Start time:  2023-05-03 15:41:07
+Finish time:  2023-05-03 15:42:02
+Job time:  0:00:55
+
+Job:  parsec-canneal
+Node:  node-c-8core-1q73
+Start time:  2023-05-03 15:40:53
+Finish time:  2023-05-03 15:43:06
+Job time:  0:02:13
+
+Job:  parsec-dedup
+Node:  node-a-2core-wgmh
+Start time:  2023-05-03 15:41:17
+Finish time:  2023-05-03 15:41:40
+Job time:  0:00:23
+
+Job:  parsec-ferret
+Node:  node-a-2core-wgmh
+Start time:  2023-05-03 15:40:54
+Finish time:  2023-05-03 15:43:20
+Job time:  0:02:26
+
+Job:  parsec-freqmine
+Node:  node-b-4core-0htb
+Start time:  2023-05-03 15:40:54
+Finish time:  2023-05-03 15:44:00
+Job time:  0:03:06
+
+Job:  parsec-radix
+Node:  node-c-8core-1q73
+Start time:  2023-05-03 15:41:07
+Finish time:  2023-05-03 15:41:26
+Job time:  0:00:19
+
+Job:  parsec-vips
+Node:  node-b-4core-0htb
+Start time:  2023-05-03 15:41:32
+Finish time:  2023-05-03 15:43:32
+Job time:  0:02:00
+
+Job:  memcached
+Total time: 0:03:07

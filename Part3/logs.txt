@@ -1,0 +1,1859 @@
+
+Created cluster/part3.k8s.local
+Created instancegroup/master-europe-west3-a
+Created instancegroup/client-measure
+Created instancegroup/client-agent-a
+Created instancegroup/client-agent-b
+Created instancegroup/node-a-2core
+Created instancegroup/node-b-4core
+Created instancegroup/node-c-8core
+
+To deploy these resources, run: kops update cluster --name part3.k8s.local --yes
+
+
+*********************************************************************************
+
+A new kubernetes version is available: 1.23.17
+Upgrading is recommended (try kops upgrade cluster)
+
+More information: https://github.com/kubernetes/kops/blob/master/permalinks/upgrade_k8s.md#1.23.17
+
+*********************************************************************************
+
+kOps has set your kubectl context to part3.k8s.local
+
+Cluster is starting.  It should be ready in a few minutes.
+
+Suggestions:
+ * validate cluster: kops validate cluster --wait 10m
+ * list nodes: kubectl get nodes --show-labels
+ * ssh to a control-plane node: ssh -i ~/.ssh/id_rsa ubuntu@api.part3.k8s.local
+ * the ubuntu user is specific to Ubuntu. If not using Ubuntu please use the appropriate user based on your OS.
+ * read about installing addons at: https://kops.sigs.k8s.io/addons.
+
+Validating cluster part3.k8s.local
+
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME	ROLE	READY
+
+VALIDATION ERRORS
+KIND	NAME																MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/master-europe-west3-a-1s9q	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/master-europe-west3-a-1s9q" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	False
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Node	master-europe-west3-a-1s9q												node "master-europe-west3-a-1s9q" of role "control-plane" is not ready
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	False
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Node	master-europe-west3-a-1s9q												node "master-europe-west3-a-1s9q" of role "control-plane" is not ready
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	False
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Node	master-europe-west3-a-1s9q												node "master-europe-west3-a-1s9q" of role "control-plane" is not ready
+Pod	kube-system/etcd-manager-events-master-europe-west3-a-1s9q								system-cluster-critical pod "etcd-manager-events-master-europe-west3-a-1s9q" is pending
+Pod	kube-system/kube-proxy-master-europe-west3-a-1s9q									system-node-critical pod "kube-proxy-master-europe-west3-a-1s9q" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	False
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Node	master-europe-west3-a-1s9q												node "master-europe-west3-a-1s9q" of role "control-plane" is not ready
+Pod	kube-system/kube-controller-manager-master-europe-west3-a-1s9q								system-cluster-critical pod "kube-controller-manager-master-europe-west3-a-1s9q" is not ready (kube-controller-manager)
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	False
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Node	master-europe-west3-a-1s9q												node "master-europe-west3-a-1s9q" of role "control-plane" is not ready
+Pod	kube-system/etcd-manager-main-master-europe-west3-a-1s9q								system-cluster-critical pod "etcd-manager-main-master-europe-west3-a-1s9q" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Node	master-europe-west3-a-1s9q												node "master-europe-west3-a-1s9q" of role "control-plane" is not ready
+Pod	kube-system/coredns-5d479c4f64-4gdzw											system-cluster-critical pod "coredns-5d479c4f64-4gdzw" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-lj5lj										system-cluster-critical pod "coredns-autoscaler-557ccb4c66-lj5lj" is pending
+Pod	kube-system/dns-controller-776bc7555-zzhqk										system-cluster-critical pod "dns-controller-776bc7555-zzhqk" is pending
+Pod	kube-system/kops-controller-87wjp											system-cluster-critical pod "kops-controller-87wjp" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Node	master-europe-west3-a-1s9q												control-plane node "master-europe-west3-a-1s9q" is missing kube-apiserver pod
+Node	master-europe-west3-a-1s9q												control-plane node "master-europe-west3-a-1s9q" is missing kube-scheduler pod
+Pod	kube-system/coredns-5d479c4f64-4gdzw											system-cluster-critical pod "coredns-5d479c4f64-4gdzw" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-lj5lj										system-cluster-critical pod "coredns-autoscaler-557ccb4c66-lj5lj" is pending
+Pod	kube-system/dns-controller-776bc7555-zzhqk										system-cluster-critical pod "dns-controller-776bc7555-zzhqk" is pending
+Pod	kube-system/kube-apiserver-master-europe-west3-a-1s9q									system-cluster-critical pod "kube-apiserver-master-europe-west3-a-1s9q" is pending
+Pod	kube-system/metadata-proxy-v0.12-zvqd8											system-node-critical pod "metadata-proxy-v0.12-zvqd8" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Node	master-europe-west3-a-1s9q												control-plane node "master-europe-west3-a-1s9q" is missing kube-scheduler pod
+Pod	kube-system/coredns-5d479c4f64-4gdzw											system-cluster-critical pod "coredns-5d479c4f64-4gdzw" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-lj5lj										system-cluster-critical pod "coredns-autoscaler-557ccb4c66-lj5lj" is pending
+Pod	kube-system/metadata-proxy-v0.12-zvqd8											system-node-critical pod "metadata-proxy-v0.12-zvqd8" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Pod	kube-system/coredns-5d479c4f64-4gdzw											system-cluster-critical pod "coredns-5d479c4f64-4gdzw" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-lj5lj										system-cluster-critical pod "coredns-autoscaler-557ccb4c66-lj5lj" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Pod	kube-system/coredns-5d479c4f64-4gdzw											system-cluster-critical pod "coredns-5d479c4f64-4gdzw" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-lj5lj										system-cluster-critical pod "coredns-autoscaler-557ccb4c66-lj5lj" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Pod	kube-system/coredns-5d479c4f64-4gdzw											system-cluster-critical pod "coredns-5d479c4f64-4gdzw" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-lj5lj										system-cluster-critical pod "coredns-autoscaler-557ccb4c66-lj5lj" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Pod	kube-system/coredns-5d479c4f64-4gdzw											system-cluster-critical pod "coredns-5d479c4f64-4gdzw" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-lj5lj										system-cluster-critical pod "coredns-autoscaler-557ccb4c66-lj5lj" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Pod	kube-system/coredns-5d479c4f64-4gdzw											system-cluster-critical pod "coredns-5d479c4f64-4gdzw" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-lj5lj										system-cluster-critical pod "coredns-autoscaler-557ccb4c66-lj5lj" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Pod	kube-system/coredns-5d479c4f64-4gdzw											system-cluster-critical pod "coredns-5d479c4f64-4gdzw" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-lj5lj										system-cluster-critical pod "coredns-autoscaler-557ccb4c66-lj5lj" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-1s9q	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-a-mmwl" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-xc7m" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-b-4core-0htb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-c-8core-1q73" has not yet joined cluster
+Pod	kube-system/coredns-5d479c4f64-4gdzw											system-cluster-critical pod "coredns-5d479c4f64-4gdzw" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-lj5lj										system-cluster-critical pod "coredns-autoscaler-557ccb4c66-lj5lj" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+client-agent-a-mmwl		node		True
+client-measure-xc7m		node		True
+master-europe-west3-a-1s9q	control-plane	True
+node-b-4core-0htb		node		True
+node-c-8core-1q73		node		True
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-b-w4bm" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/node-a-2core-wgmh" has not yet joined cluster
+Node	client-agent-a-mmwl													node "client-agent-a-mmwl" of role "node" is not ready
+Node	client-measure-xc7m													node "client-measure-xc7m" of role "node" is not ready
+Node	node-b-4core-0htb													node "node-b-4core-0htb" of role "node" is not ready
+Node	node-c-8core-1q73													node "node-c-8core-1q73" of role "node" is not ready
+Pod	kube-system/coredns-5d479c4f64-4gdzw											system-cluster-critical pod "coredns-5d479c4f64-4gdzw" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-lj5lj										system-cluster-critical pod "coredns-autoscaler-557ccb4c66-lj5lj" is pending
+Pod	kube-system/kube-proxy-node-c-8core-1q73										system-node-critical pod "kube-proxy-node-c-8core-1q73" is pending
+Pod	kube-system/metadata-proxy-v0.12-4st9t											system-node-critical pod "metadata-proxy-v0.12-4st9t" is pending
+Pod	kube-system/metadata-proxy-v0.12-7p4cj											system-node-critical pod "metadata-proxy-v0.12-7p4cj" is pending
+Pod	kube-system/metadata-proxy-v0.12-vpbkr											system-node-critical pod "metadata-proxy-v0.12-vpbkr" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+client-agent-a-mmwl		node		True
+client-agent-b-w4bm		node		True
+client-measure-xc7m		node		True
+master-europe-west3-a-1s9q	control-plane	True
+node-a-2core-wgmh		node		True
+node-b-4core-0htb		node		True
+node-c-8core-1q73		node		True
+
+VALIDATION ERRORS
+KIND	NAME						MESSAGE
+Node	client-agent-b-w4bm				node "client-agent-b-w4bm" of role "node" is not ready
+Node	node-a-2core-wgmh				node "node-a-2core-wgmh" of role "node" is not ready
+Pod	kube-system/coredns-5d479c4f64-4gdzw		system-cluster-critical pod "coredns-5d479c4f64-4gdzw" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-lj5lj	system-cluster-critical pod "coredns-autoscaler-557ccb4c66-lj5lj" is pending
+Pod	kube-system/metadata-proxy-v0.12-4st9t		system-node-critical pod "metadata-proxy-v0.12-4st9t" is pending
+Pod	kube-system/metadata-proxy-v0.12-7p4cj		system-node-critical pod "metadata-proxy-v0.12-7p4cj" is pending
+Pod	kube-system/metadata-proxy-v0.12-qxtxv		system-node-critical pod "metadata-proxy-v0.12-qxtxv" is pending
+Pod	kube-system/metadata-proxy-v0.12-vpbkr		system-node-critical pod "metadata-proxy-v0.12-vpbkr" is pending
+Pod	kube-system/metadata-proxy-v0.12-xrz9q		system-node-critical pod "metadata-proxy-v0.12-xrz9q" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+client-agent-a-mmwl		node		True
+client-agent-b-w4bm		node		True
+client-measure-xc7m		node		True
+master-europe-west3-a-1s9q	control-plane	True
+node-a-2core-wgmh		node		True
+node-b-4core-0htb		node		True
+node-c-8core-1q73		node		True
+
+VALIDATION ERRORS
+KIND	NAME					MESSAGE
+Pod	kube-system/metadata-proxy-v0.12-xrz9q	system-node-critical pod "metadata-proxy-v0.12-xrz9q" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent-a		Node		e2-standard-2	1	1	europe-west3
+client-agent-b		Node		e2-standard-4	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+node-a-2core		Node		t2d-standard-2	1	1	europe-west3
+node-b-4core		Node		n2d-highcpu-4	1	1	europe-west3
+node-c-8core		Node		e2-standard-8	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+client-agent-a-mmwl		node		True
+client-agent-b-w4bm		node		True
+client-measure-xc7m		node		True
+master-europe-west3-a-1s9q	control-plane	True
+node-a-2core-wgmh		node		True
+node-b-4core-0htb		node		True
+node-c-8core-1q73		node		True
+
+Your cluster part3.k8s.local is ready
+node/node-a-2core-wgmh not labeled
+node/node-b-4core-0htb not labeled
+node/node-c-8core-1q73 not labeled
+pod/some-memcached created
+service/some-memcached-11211 exposed
+NAME                   TYPE           CLUSTER-IP       EXTERNAL-IP    PORT(S)           AGE
+some-memcached-11211   LoadBalancer   100.66.109.204   35.234.113.4   11211:30514/TCP   60s
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed May  3 15:39:58 UTC 2023
+
+  System load:  0.25               Processes:              164
+  Usage of /:   2.9% of 123.88GB   Users logged in:        0
+  Memory usage: 3%                 IP address for ens4:    10.0.16.2
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+218 packages can be updated.
+176 of these updates are security updates.
+To see these additional updates run: apt list --upgradable
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed May  3 15:39:58 UTC 2023
+
+  System load:  0.29               Users logged in:        0
+  Usage of /:   3.0% of 123.88GB   IP address for ens4:    10.0.16.6
+  Memory usage: 6%                 IP address for docker0: 172.17.0.1
+  Swap usage:   0%                 IP address for cbr0:    100.96.3.1
+  Processes:    144
+
+218 packages can be updated.
+176 of these updates are security updates.
+To see these additional updates run: apt list --upgradable
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Hit:1 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed May  3 15:39:58 UTC 2023
+
+  System load:  0.28               Processes:              138
+  Usage of /:   2.9% of 123.88GB   Users logged in:        0
+  Memory usage: 5%                 IP address for ens4:    10.0.16.7
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+218 packages can be updated.
+176 of these updates are security updates.
+To see these additional updates run: apt list --upgradable
+
+
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+Hit:1 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:3 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:4 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:1 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:4 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Reading package lists...Reading package lists...Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+
+
+Reading state information...
+Reading package lists...
+Building dependency tree...The following package was automatically installed and is no longer required:
+  libnuma1
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 g++-7 gcc gcc-7
+  gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6 libc6-dev
+  libcc1-0 libcilkrts5 libevent-core-2.1-6 libevent-extra-2.1-6
+  libevent-openssl-2.1-6 libevent-pthreads-2.1-6 libgcc-7-dev libgomp1
+  libisl19 libitm1 liblsan0 libmpc3 libmpx2 libnorm1 libpgm-5.2-0 libquadmath0
+  libsodium23 libstdc++-7-dev libtsan0 libubsan0 libzmq5 linux-libc-dev
+  manpages-dev
+Suggested packages:
+  binutils-doc cpp-doc gcc-7-locales g++-multilib g++-7-multilib gcc-7-doc
+  libstdc++6-7-dbg gcc-multilib autoconf automake libtool flex bison gdb
+  gcc-doc gcc-7-multilib libgcc1-dbg libgomp1-dbg libitm1-dbg libatomic1-dbg
+  libasan4-dbg liblsan0-dbg libtsan0-dbg libubsan0-dbg libcilkrts5-dbg
+  libmpx2-dbg libquadmath0-dbg git-daemon-run | git-daemon-sysvinit git-doc
+  git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn glibc-doc
+  libstdc++-7-doc make-doc
+The following NEW packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 g++ g++-7 gcc
+  gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6-dev
+  libcc1-0 libcilkrts5 libevent-core-2.1-6 libevent-dev libevent-extra-2.1-6
+  libevent-openssl-2.1-6 libevent-pthreads-2.1-6 libgcc-7-dev libgomp1
+  libisl19 libitm1 liblsan0 libmpc3 libmpx2 libnorm1 libpgm-5.2-0 libquadmath0
+  libsodium23 libstdc++-7-dev libtsan0 libubsan0 libzmq3-dev libzmq5
+  linux-libc-dev make manpages-dev
+The following packages will be upgraded:
+  git libc6
+2 upgraded, 41 newly installed, 0 to remove and 207 not upgraded.
+Need to get 50.3 MB of archives.
+After this operation, 167 MB of additional disk space will be used.
+Get:1 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6 amd64 2.27-3ubuntu1.6 [2831 kB]
+The following package was automatically installed and is no longer required:
+  libnuma1
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 g++-7 gcc gcc-7
+  gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6 libc6-dev
+  libcc1-0 libcilkrts5 libevent-core-2.1-6 libevent-extra-2.1-6
+  libevent-openssl-2.1-6 libevent-pthreads-2.1-6 libgcc-7-dev libgomp1
+  libisl19 libitm1 liblsan0 libmpc3 libmpx2 libnorm1 libpgm-5.2-0 libquadmath0
+  libsodium23 libstdc++-7-dev libtsan0 libubsan0 libzmq5 linux-libc-dev
+  manpages-dev
+Suggested packages:
+  binutils-doc cpp-doc gcc-7-locales g++-multilib g++-7-multilib gcc-7-doc
+  libstdc++6-7-dbg gcc-multilib autoconf automake libtool flex bison gdb
+  gcc-doc gcc-7-multilib libgcc1-dbg libgomp1-dbg libitm1-dbg libatomic1-dbg
+  libasan4-dbg liblsan0-dbg libtsan0-dbg libubsan0-dbg libcilkrts5-dbg
+  libmpx2-dbg libquadmath0-dbg git-daemon-run | git-daemon-sysvinit git-doc
+  git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn glibc-doc
+  libstdc++-7-doc make-doc
+
+Reading state information...
+Get:2 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-common amd64 2.30-21ubuntu1~18.04.8 [197 kB]
+Get:3 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libbinutils amd64 2.30-21ubuntu1~18.04.8 [488 kB]
+Get:4 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-21ubuntu1~18.04.8 [1839 kB]
+The following NEW packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 g++ g++-7 gcc
+  gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6-dev
+  libcc1-0 libcilkrts5 libevent-core-2.1-6 libevent-dev libevent-extra-2.1-6
+Get:5 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils amd64 2.30-21ubuntu1~18.04.8 [3388 B]
+  libevent-openssl-2.1-6 libevent-pthreads-2.1-6 libgcc-7-dev libgomp1
+  libisl19 libitm1 liblsan0 libmpc3 libmpx2 libnorm1 libpgm-5.2-0 libquadmath0
+  libsodium23 libstdc++-7-dev libtsan0 libubsan0 libzmq3-dev libzmq5
+  linux-libc-dev make manpages-dev
+The following packages will be upgraded:
+  git libc6
+Get:6 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7-base amd64 7.5.0-3ubuntu1~18.04 [18.3 kB]
+Get:7 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libisl19 amd64 0.19-1 [551 kB]
+Get:8 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libmpc3 amd64 1.1.0-1 [40.8 kB]
+Get:9 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp-7 amd64 7.5.0-3ubuntu1~18.04 [8591 kB]
+2 upgraded, 41 newly installed, 0 to remove and 207 not upgraded.
+Need to get 50.3 MB of archives.
+After this operation, 167 MB of additional disk space will be used.
+Get:1 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6 amd64 2.27-3ubuntu1.6 [2831 kB]
+Get:2 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-common amd64 2.30-21ubuntu1~18.04.8 [197 kB]
+Get:3 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libbinutils amd64 2.30-21ubuntu1~18.04.8 [488 kB]
+Get:4 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-21ubuntu1~18.04.8 [1839 kB]
+Get:10 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp amd64 4:7.4.0-1ubuntu2.3 [27.7 kB]
+Get:11 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcc1-0 amd64 8.4.0-1ubuntu1~18.04 [39.4 kB]
+Get:12 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgomp1 amd64 8.4.0-1ubuntu1~18.04 [76.5 kB]
+Get:13 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libitm1 amd64 8.4.0-1ubuntu1~18.04 [27.9 kB]
+Get:14 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libatomic1 amd64 8.4.0-1ubuntu1~18.04 [9192 B]
+Get:15 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libasan4 amd64 7.5.0-3ubuntu1~18.04 [358 kB]
+Get:16 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 liblsan0 amd64 8.4.0-1ubuntu1~18.04 [133 kB]
+Get:17 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libtsan0 amd64 8.4.0-1ubuntu1~18.04 [288 kB]
+Get:18 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libubsan0 amd64 7.5.0-3ubuntu1~18.04 [126 kB]
+Get:19 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcilkrts5 amd64 7.5.0-3ubuntu1~18.04 [42.5 kB]
+Get:20 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmpx2 amd64 8.4.0-1ubuntu1~18.04 [11.6 kB]
+Get:5 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils amd64 2.30-21ubuntu1~18.04.8 [3388 B]
+Get:21 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libquadmath0 amd64 8.4.0-1ubuntu1~18.04 [134 kB]
+Get:22 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgcc-7-dev amd64 7.5.0-3ubuntu1~18.04 [2378 kB]
+Get:6 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7-base amd64 7.5.0-3ubuntu1~18.04 [18.3 kB]
+Get:7 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libisl19 amd64 0.19-1 [551 kB]
+Get:8 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libmpc3 amd64 1.1.0-1 [40.8 kB]
+Get:9 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp-7 amd64 7.5.0-3ubuntu1~18.04 [8591 kB]
+The following package was automatically installed and is no longer required:
+  libnuma1
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 g++-7 gcc gcc-7
+  gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6 libc6-dev
+  libcc1-0 libcilkrts5 libevent-core-2.1-6 libevent-extra-2.1-6
+  libevent-openssl-2.1-6 libevent-pthreads-2.1-6 libgcc-7-dev libgomp1
+  libisl19 libitm1 liblsan0 libmpc3 libmpx2 libnorm1 libpgm-5.2-0 libquadmath0
+  libsodium23 libstdc++-7-dev libtsan0 libubsan0 libzmq5 linux-libc-dev
+  manpages-dev
+Suggested packages:
+  binutils-doc cpp-doc gcc-7-locales g++-multilib g++-7-multilib gcc-7-doc
+  libstdc++6-7-dbg gcc-multilib autoconf automake libtool flex bison gdb
+  gcc-doc gcc-7-multilib libgcc1-dbg libgomp1-dbg libitm1-dbg libatomic1-dbg
+  libasan4-dbg liblsan0-dbg libtsan0-dbg libubsan0-dbg libcilkrts5-dbg
+  libmpx2-dbg libquadmath0-dbg git-daemon-run | git-daemon-sysvinit git-doc
+  git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn glibc-doc
+  libstdc++-7-doc make-doc
+Get:23 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7 amd64 7.5.0-3ubuntu1~18.04 [9381 kB]
+The following NEW packages will be installed:
+  binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 g++ g++-7 gcc
+  gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6-dev
+  libcc1-0 libcilkrts5 libevent-core-2.1-6 libevent-dev libevent-extra-2.1-6
+  libevent-openssl-2.1-6 libevent-pthreads-2.1-6 libgcc-7-dev libgomp1
+  libisl19 libitm1 liblsan0 libmpc3 libmpx2 libnorm1 libpgm-5.2-0 libquadmath0
+  libsodium23 libstdc++-7-dev libtsan0 libubsan0 libzmq3-dev libzmq5
+  linux-libc-dev make manpages-dev
+The following packages will be upgraded:
+  git libc6
+2 upgraded, 41 newly installed, 0 to remove and 207 not upgraded.
+Need to get 50.3 MB of archives.
+After this operation, 167 MB of additional disk space will be used.
+Get:1 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6 amd64 2.27-3ubuntu1.6 [2831 kB]
+Get:10 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp amd64 4:7.4.0-1ubuntu2.3 [27.7 kB]
+Get:11 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcc1-0 amd64 8.4.0-1ubuntu1~18.04 [39.4 kB]
+Get:12 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgomp1 amd64 8.4.0-1ubuntu1~18.04 [76.5 kB]
+Get:13 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libitm1 amd64 8.4.0-1ubuntu1~18.04 [27.9 kB]
+Get:14 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libatomic1 amd64 8.4.0-1ubuntu1~18.04 [9192 B]
+Get:15 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libasan4 amd64 7.5.0-3ubuntu1~18.04 [358 kB]
+Get:16 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 liblsan0 amd64 8.4.0-1ubuntu1~18.04 [133 kB]
+Get:17 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libtsan0 amd64 8.4.0-1ubuntu1~18.04 [288 kB]
+Get:18 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libubsan0 amd64 7.5.0-3ubuntu1~18.04 [126 kB]
+Get:19 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcilkrts5 amd64 7.5.0-3ubuntu1~18.04 [42.5 kB]
+Get:20 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmpx2 amd64 8.4.0-1ubuntu1~18.04 [11.6 kB]
+Get:21 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libquadmath0 amd64 8.4.0-1ubuntu1~18.04 [134 kB]
+Get:24 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc amd64 4:7.4.0-1ubuntu2.3 [5184 B]
+Get:25 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc-dev-bin amd64 2.27-3ubuntu1.6 [71.9 kB]
+Get:22 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgcc-7-dev amd64 7.5.0-3ubuntu1~18.04 [2378 kB]
+Get:26 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-210.221 [993 kB]
+Get:27 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6-dev amd64 2.27-3ubuntu1.6 [2587 kB]
+Get:2 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-common amd64 2.30-21ubuntu1~18.04.8 [197 kB]
+Get:3 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libbinutils amd64 2.30-21ubuntu1~18.04.8 [488 kB]
+Get:23 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7 amd64 7.5.0-3ubuntu1~18.04 [9381 kB]
+Get:4 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-21ubuntu1~18.04.8 [1839 kB]
+Get:28 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libstdc++-7-dev amd64 7.5.0-3ubuntu1~18.04 [1471 kB]
+Get:5 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils amd64 2.30-21ubuntu1~18.04.8 [3388 B]
+Get:6 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7-base amd64 7.5.0-3ubuntu1~18.04 [18.3 kB]
+Get:7 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libisl19 amd64 0.19-1 [551 kB]
+Get:29 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++-7 amd64 7.5.0-3ubuntu1~18.04 [9697 kB]
+Get:8 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libmpc3 amd64 1.1.0-1 [40.8 kB]
+Get:9 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp-7 amd64 7.5.0-3ubuntu1~18.04 [8591 kB]
+Get:24 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc amd64 4:7.4.0-1ubuntu2.3 [5184 B]
+Get:25 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc-dev-bin amd64 2.27-3ubuntu1.6 [71.9 kB]
+Get:26 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-210.221 [993 kB]
+Get:30 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++ amd64 4:7.4.0-1ubuntu2.3 [1568 B]
+Get:31 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 git amd64 1:2.17.1-1ubuntu0.18 [3990 kB]
+Get:27 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6-dev amd64 2.27-3ubuntu1.6 [2587 kB]
+Get:10 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp amd64 4:7.4.0-1ubuntu2.3 [27.7 kB]
+Get:11 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcc1-0 amd64 8.4.0-1ubuntu1~18.04 [39.4 kB]
+Get:12 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgomp1 amd64 8.4.0-1ubuntu1~18.04 [76.5 kB]
+Get:13 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libitm1 amd64 8.4.0-1ubuntu1~18.04 [27.9 kB]
+Get:14 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libatomic1 amd64 8.4.0-1ubuntu1~18.04 [9192 B]
+Get:15 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libasan4 amd64 7.5.0-3ubuntu1~18.04 [358 kB]
+Get:16 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 liblsan0 amd64 8.4.0-1ubuntu1~18.04 [133 kB]
+Get:32 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-core-2.1-6 amd64 2.1.8-stable-4build1 [85.9 kB]
+Get:28 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libstdc++-7-dev amd64 7.5.0-3ubuntu1~18.04 [1471 kB]
+Get:33 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-extra-2.1-6 amd64 2.1.8-stable-4build1 [56.2 kB]
+Get:17 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libtsan0 amd64 8.4.0-1ubuntu1~18.04 [288 kB]
+Get:34 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-pthreads-2.1-6 amd64 2.1.8-stable-4build1 [5228 B]
+Get:35 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-openssl-2.1-6 amd64 2.1.8-stable-4build1 [11.8 kB]
+Get:36 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-dev amd64 2.1.8-stable-4build1 [261 kB]
+Get:18 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libubsan0 amd64 7.5.0-3ubuntu1~18.04 [126 kB]
+Get:37 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/universe amd64 libnorm1 amd64 1.5r6+dfsg1-6 [224 kB]
+Get:19 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcilkrts5 amd64 7.5.0-3ubuntu1~18.04 [42.5 kB]
+Get:38 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/universe amd64 libpgm-5.2-0 amd64 5.2.122~dfsg-2 [157 kB]
+Get:20 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmpx2 amd64 8.4.0-1ubuntu1~18.04 [11.6 kB]
+Get:21 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libquadmath0 amd64 8.4.0-1ubuntu1~18.04 [134 kB]
+Get:39 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libsodium23 amd64 1.0.16-2 [143 kB]
+Get:22 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgcc-7-dev amd64 7.5.0-3ubuntu1~18.04 [2378 kB]
+Get:40 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libzmq5 amd64 4.2.5-1ubuntu0.2 [221 kB]
+Get:41 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libzmq3-dev amd64 4.2.5-1ubuntu0.2 [400 kB]
+Get:42 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 make amd64 4.1-9.1ubuntu1 [154 kB]
+Get:43 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 manpages-dev all 4.15-1 [2217 kB]
+Get:29 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++-7 amd64 7.5.0-3ubuntu1~18.04 [9697 kB]
+Get:23 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7 amd64 7.5.0-3ubuntu1~18.04 [9381 kB]
+Get:24 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc amd64 4:7.4.0-1ubuntu2.3 [5184 B]
+Get:25 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc-dev-bin amd64 2.27-3ubuntu1.6 [71.9 kB]
+Get:26 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-210.221 [993 kB]
+Get:27 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6-dev amd64 2.27-3ubuntu1.6 [2587 kB]
+Fetched 50.3 MB in 1s (48.9 MB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
+Preparing to unpack .../libc6_2.27-3ubuntu1.6_amd64.deb ...
+Get:28 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libstdc++-7-dev amd64 7.5.0-3ubuntu1~18.04 [1471 kB]
+Get:30 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++ amd64 4:7.4.0-1ubuntu2.3 [1568 B]
+Get:31 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 git amd64 1:2.17.1-1ubuntu0.18 [3990 kB]
+Get:29 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++-7 amd64 7.5.0-3ubuntu1~18.04 [9697 kB]
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Unpacking libc6:amd64 (2.27-3ubuntu1.6) over (2.27-3ubuntu1.4) ...
+Setting up libc6:amd64 (2.27-3ubuntu1.6) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Get:32 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-core-2.1-6 amd64 2.1.8-stable-4build1 [85.9 kB]
+Get:33 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-extra-2.1-6 amd64 2.1.8-stable-4build1 [56.2 kB]
+Get:34 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-pthreads-2.1-6 amd64 2.1.8-stable-4build1 [5228 B]
+Get:35 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-openssl-2.1-6 amd64 2.1.8-stable-4build1 [11.8 kB]
+Get:36 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-dev amd64 2.1.8-stable-4build1 [261 kB]
+Get:37 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/universe amd64 libnorm1 amd64 1.5r6+dfsg1-6 [224 kB]
+Get:38 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/universe amd64 libpgm-5.2-0 amd64 5.2.122~dfsg-2 [157 kB]
+Selecting previously unselected package binutils-common:amd64.
+(Reading database ... Get:39 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libsodium23 amd64 1.0.16-2 [143 kB]
+(Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%Get:40 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libzmq5 amd64 4.2.5-1ubuntu0.2 [221 kB]
+(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%Get:41 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libzmq3-dev amd64 4.2.5-1ubuntu0.2 [400 kB]
+(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%Get:42 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 make amd64 4.1-9.1ubuntu1 [154 kB]
+Get:43 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 manpages-dev all 4.15-1 [2217 kB]
+(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
+Preparing to unpack .../00-binutils-common_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking binutils-common:amd64 (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package libbinutils:amd64.
+Preparing to unpack .../01-libbinutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking libbinutils:amd64 (2.30-21ubuntu1~18.04.8) ...
+Get:30 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++ amd64 4:7.4.0-1ubuntu2.3 [1568 B]
+Get:31 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 git amd64 1:2.17.1-1ubuntu0.18 [3990 kB]
+Selecting previously unselected package binutils-x86-64-linux-gnu.
+Preparing to unpack .../02-binutils-x86-64-linux-gnu_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.8) ...
+Get:32 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-core-2.1-6 amd64 2.1.8-stable-4build1 [85.9 kB]
+Get:33 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-extra-2.1-6 amd64 2.1.8-stable-4build1 [56.2 kB]
+Get:34 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-pthreads-2.1-6 amd64 2.1.8-stable-4build1 [5228 B]
+Get:35 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-openssl-2.1-6 amd64 2.1.8-stable-4build1 [11.8 kB]
+Get:36 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-dev amd64 2.1.8-stable-4build1 [261 kB]
+Get:37 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/universe amd64 libnorm1 amd64 1.5r6+dfsg1-6 [224 kB]
+Get:38 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/universe amd64 libpgm-5.2-0 amd64 5.2.122~dfsg-2 [157 kB]
+Get:39 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libsodium23 amd64 1.0.16-2 [143 kB]
+Get:40 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libzmq5 amd64 4.2.5-1ubuntu0.2 [221 kB]
+Get:41 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libzmq3-dev amd64 4.2.5-1ubuntu0.2 [400 kB]
+Get:42 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 make amd64 4.1-9.1ubuntu1 [154 kB]
+Get:43 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 manpages-dev all 4.15-1 [2217 kB]
+Fetched 50.3 MB in 2s (22.1 MB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
+Preparing to unpack .../libc6_2.27-3ubuntu1.6_amd64.deb ...
+Selecting previously unselected package binutils.
+Preparing to unpack .../03-binutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking binutils (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package gcc-7-base:amd64.
+Preparing to unpack .../04-gcc-7-base_7.5.0-3ubuntu1~18.04_amd64.deb ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Unpacking gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libisl19:amd64.
+Preparing to unpack .../05-libisl19_0.19-1_amd64.deb ...
+Unpacking libisl19:amd64 (0.19-1) ...
+Fetched 50.3 MB in 2s (22.6 MB/s)
+Unpacking libc6:amd64 (2.27-3ubuntu1.6) over (2.27-3ubuntu1.4) ...
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%Selecting previously unselected package libmpc3:amd64.
+(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
+Preparing to unpack .../libc6_2.27-3ubuntu1.6_amd64.deb ...
+Preparing to unpack .../06-libmpc3_1.1.0-1_amd64.deb ...
+Unpacking libmpc3:amd64 (1.1.0-1) ...
+Selecting previously unselected package cpp-7.
+Preparing to unpack .../07-cpp-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking cpp-7 (7.5.0-3ubuntu1~18.04) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Unpacking libc6:amd64 (2.27-3ubuntu1.6) over (2.27-3ubuntu1.4) ...
+Setting up libc6:amd64 (2.27-3ubuntu1.6) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Selecting previously unselected package binutils-common:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
+Preparing to unpack .../00-binutils-common_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking binutils-common:amd64 (2.30-21ubuntu1~18.04.8) ...
+Setting up libc6:amd64 (2.27-3ubuntu1.6) ...
+Selecting previously unselected package libbinutils:amd64.
+Preparing to unpack .../01-libbinutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking libbinutils:amd64 (2.30-21ubuntu1~18.04.8) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
+Selecting previously unselected package binutils-x86-64-linux-gnu.
+Preparing to unpack .../02-binutils-x86-64-linux-gnu_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package binutils-common:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%Selecting previously unselected package cpp.
+(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%Preparing to unpack .../08-cpp_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+(Reading database ... 95%Unpacking cpp (4:7.4.0-1ubuntu2.3) ...
+(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
+Preparing to unpack .../00-binutils-common_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking binutils-common:amd64 (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package libcc1-0:amd64.
+Preparing to unpack .../09-libcc1-0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libbinutils:amd64.
+Preparing to unpack .../01-libbinutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking libbinutils:amd64 (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package libgomp1:amd64.
+Preparing to unpack .../10-libgomp1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libitm1:amd64.
+Preparing to unpack .../11-libitm1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package binutils-x86-64-linux-gnu.
+Preparing to unpack .../02-binutils-x86-64-linux-gnu_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package libatomic1:amd64.
+Selecting previously unselected package binutils.
+Preparing to unpack .../12-libatomic1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Preparing to unpack .../03-binutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Unpacking binutils (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package gcc-7-base:amd64.
+Selecting previously unselected package libasan4:amd64.
+Preparing to unpack .../04-gcc-7-base_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) ...
+Preparing to unpack .../13-libasan4_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libisl19:amd64.
+Preparing to unpack .../05-libisl19_0.19-1_amd64.deb ...
+Unpacking libisl19:amd64 (0.19-1) ...
+Selecting previously unselected package liblsan0:amd64.
+Preparing to unpack .../14-liblsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libmpc3:amd64.
+Selecting previously unselected package libtsan0:amd64.
+Preparing to unpack .../06-libmpc3_1.1.0-1_amd64.deb ...
+Preparing to unpack .../15-libtsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libmpc3:amd64 (1.1.0-1) ...
+Unpacking libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package cpp-7.
+Selecting previously unselected package binutils.
+Preparing to unpack .../03-binutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Preparing to unpack .../07-cpp-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking binutils (2.30-21ubuntu1~18.04.8) ...
+Unpacking cpp-7 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libubsan0:amd64.
+Preparing to unpack .../16-libubsan0_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Selecting previously unselected package gcc-7-base:amd64.
+Unpacking libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...
+Preparing to unpack .../04-gcc-7-base_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libisl19:amd64.
+Preparing to unpack .../05-libisl19_0.19-1_amd64.deb ...
+Unpacking libisl19:amd64 (0.19-1) ...
+Selecting previously unselected package libcilkrts5:amd64.
+Preparing to unpack .../17-libcilkrts5_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libmpx2:amd64.
+Preparing to unpack .../18-libmpx2_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libmpc3:amd64.
+Preparing to unpack .../06-libmpc3_1.1.0-1_amd64.deb ...
+Selecting previously unselected package libquadmath0:amd64.
+Unpacking libmpc3:amd64 (1.1.0-1) ...
+Preparing to unpack .../19-libquadmath0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package cpp-7.
+Preparing to unpack .../07-cpp-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking cpp-7 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libgcc-7-dev:amd64.
+Preparing to unpack .../20-libgcc-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package gcc-7.
+Preparing to unpack .../21-gcc-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking gcc-7 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package cpp.
+Preparing to unpack .../08-cpp_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+Unpacking cpp (4:7.4.0-1ubuntu2.3) ...
+Selecting previously unselected package libcc1-0:amd64.
+Preparing to unpack .../09-libcc1-0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libgomp1:amd64.
+Preparing to unpack .../10-libgomp1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libitm1:amd64.
+Preparing to unpack .../11-libitm1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libatomic1:amd64.
+Preparing to unpack .../12-libatomic1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package cpp.
+Preparing to unpack .../08-cpp_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+Unpacking cpp (4:7.4.0-1ubuntu2.3) ...
+Selecting previously unselected package libasan4:amd64.
+Preparing to unpack .../13-libasan4_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libcc1-0:amd64.
+Preparing to unpack .../09-libcc1-0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libgomp1:amd64.
+Preparing to unpack .../10-libgomp1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package liblsan0:amd64.
+Preparing to unpack .../14-liblsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libitm1:amd64.
+Selecting previously unselected package gcc.
+Preparing to unpack .../11-libitm1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Preparing to unpack .../22-gcc_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+Unpacking libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Unpacking gcc (4:7.4.0-1ubuntu2.3) ...
+Selecting previously unselected package libtsan0:amd64.
+Preparing to unpack .../15-libtsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libatomic1:amd64.
+Selecting previously unselected package libc-dev-bin.
+Preparing to unpack .../23-libc-dev-bin_2.27-3ubuntu1.6_amd64.deb ...
+Preparing to unpack .../12-libatomic1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libc-dev-bin (2.27-3ubuntu1.6) ...
+Unpacking libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libasan4:amd64.
+Selecting previously unselected package linux-libc-dev:amd64.
+Preparing to unpack .../13-libasan4_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Preparing to unpack .../24-linux-libc-dev_4.15.0-210.221_amd64.deb ...
+Unpacking libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
+Unpacking linux-libc-dev:amd64 (4.15.0-210.221) ...
+Selecting previously unselected package libubsan0:amd64.
+Preparing to unpack .../16-libubsan0_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libcilkrts5:amd64.
+Preparing to unpack .../17-libcilkrts5_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package liblsan0:amd64.
+Preparing to unpack .../14-liblsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libmpx2:amd64.
+Preparing to unpack .../18-libmpx2_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libtsan0:amd64.
+Preparing to unpack .../15-libtsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libquadmath0:amd64.
+Preparing to unpack .../19-libquadmath0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libc6-dev:amd64.
+Preparing to unpack .../25-libc6-dev_2.27-3ubuntu1.6_amd64.deb ...
+Selecting previously unselected package libgcc-7-dev:amd64.
+Unpacking libc6-dev:amd64 (2.27-3ubuntu1.6) ...
+Preparing to unpack .../20-libgcc-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libubsan0:amd64.
+Preparing to unpack .../16-libubsan0_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libcilkrts5:amd64.
+Preparing to unpack .../17-libcilkrts5_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libmpx2:amd64.
+Preparing to unpack .../18-libmpx2_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libquadmath0:amd64.
+Preparing to unpack .../19-libquadmath0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libgcc-7-dev:amd64.
+Preparing to unpack .../20-libgcc-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package gcc-7.
+Preparing to unpack .../21-gcc-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking gcc-7 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libstdc++-7-dev:amd64.
+Preparing to unpack .../26-libstdc++-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package gcc-7.
+Preparing to unpack .../21-gcc-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking gcc-7 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package g++-7.
+Preparing to unpack .../27-g++-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking g++-7 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package gcc.
+Preparing to unpack .../22-gcc_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+Unpacking gcc (4:7.4.0-1ubuntu2.3) ...
+Selecting previously unselected package libc-dev-bin.
+Preparing to unpack .../23-libc-dev-bin_2.27-3ubuntu1.6_amd64.deb ...
+Unpacking libc-dev-bin (2.27-3ubuntu1.6) ...
+Selecting previously unselected package linux-libc-dev:amd64.
+Preparing to unpack .../24-linux-libc-dev_4.15.0-210.221_amd64.deb ...
+Unpacking linux-libc-dev:amd64 (4.15.0-210.221) ...
+Selecting previously unselected package gcc.
+Preparing to unpack .../22-gcc_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+Unpacking gcc (4:7.4.0-1ubuntu2.3) ...
+Selecting previously unselected package libc-dev-bin.
+Selecting previously unselected package g++.
+Preparing to unpack .../23-libc-dev-bin_2.27-3ubuntu1.6_amd64.deb ...
+Preparing to unpack .../28-g++_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+Unpacking libc-dev-bin (2.27-3ubuntu1.6) ...
+Unpacking g++ (4:7.4.0-1ubuntu2.3) ...
+Selecting previously unselected package libc6-dev:amd64.
+Preparing to unpack .../25-libc6-dev_2.27-3ubuntu1.6_amd64.deb ...
+Unpacking libc6-dev:amd64 (2.27-3ubuntu1.6) ...
+Selecting previously unselected package linux-libc-dev:amd64.
+Preparing to unpack .../24-linux-libc-dev_4.15.0-210.221_amd64.deb ...
+Unpacking linux-libc-dev:amd64 (4.15.0-210.221) ...
+Preparing to unpack .../29-git_1%3a2.17.1-1ubuntu0.18_amd64.deb ...
+Unpacking git (1:2.17.1-1ubuntu0.18) over (1:2.17.1-1ubuntu0.7) ...
+Selecting previously unselected package libc6-dev:amd64.
+Preparing to unpack .../25-libc6-dev_2.27-3ubuntu1.6_amd64.deb ...
+Unpacking libc6-dev:amd64 (2.27-3ubuntu1.6) ...
+Selecting previously unselected package libstdc++-7-dev:amd64.
+Preparing to unpack .../26-libstdc++-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libevent-core-2.1-6:amd64.
+Preparing to unpack .../30-libevent-core-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-core-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package libevent-extra-2.1-6:amd64.
+Preparing to unpack .../31-libevent-extra-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-extra-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package libstdc++-7-dev:amd64.
+Preparing to unpack .../26-libstdc++-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package g++-7.
+Preparing to unpack .../27-g++-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Selecting previously unselected package libevent-pthreads-2.1-6:amd64.
+Unpacking g++-7 (7.5.0-3ubuntu1~18.04) ...
+Preparing to unpack .../32-libevent-pthreads-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-pthreads-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package libevent-openssl-2.1-6:amd64.
+Preparing to unpack .../33-libevent-openssl-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-openssl-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package libevent-dev.
+Preparing to unpack .../34-libevent-dev_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-dev (2.1.8-stable-4build1) ...
+Selecting previously unselected package libnorm1:amd64.
+Preparing to unpack .../35-libnorm1_1.5r6+dfsg1-6_amd64.deb ...
+Unpacking libnorm1:amd64 (1.5r6+dfsg1-6) ...
+Selecting previously unselected package libpgm-5.2-0:amd64.
+Preparing to unpack .../36-libpgm-5.2-0_5.2.122~dfsg-2_amd64.deb ...
+Unpacking libpgm-5.2-0:amd64 (5.2.122~dfsg-2) ...
+Selecting previously unselected package g++-7.
+Preparing to unpack .../27-g++-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking g++-7 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libsodium23:amd64.
+Preparing to unpack .../37-libsodium23_1.0.16-2_amd64.deb ...
+Unpacking libsodium23:amd64 (1.0.16-2) ...
+Selecting previously unselected package libzmq5:amd64.
+Preparing to unpack .../38-libzmq5_4.2.5-1ubuntu0.2_amd64.deb ...
+Unpacking libzmq5:amd64 (4.2.5-1ubuntu0.2) ...
+Selecting previously unselected package libzmq3-dev:amd64.
+Preparing to unpack .../39-libzmq3-dev_4.2.5-1ubuntu0.2_amd64.deb ...
+Unpacking libzmq3-dev:amd64 (4.2.5-1ubuntu0.2) ...
+Selecting previously unselected package make.
+Preparing to unpack .../40-make_4.1-9.1ubuntu1_amd64.deb ...
+Unpacking make (4.1-9.1ubuntu1) ...
+Selecting previously unselected package manpages-dev.
+Preparing to unpack .../41-manpages-dev_4.15-1_all.deb ...
+Unpacking manpages-dev (4.15-1) ...
+Selecting previously unselected package g++.
+Preparing to unpack .../28-g++_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+Unpacking g++ (4:7.4.0-1ubuntu2.3) ...
+Preparing to unpack .../29-git_1%3a2.17.1-1ubuntu0.18_amd64.deb ...
+Setting up libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libpgm-5.2-0:amd64 (5.2.122~dfsg-2) ...
+Setting up libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up make (4.1-9.1ubuntu1) ...
+Setting up libevent-core-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Unpacking git (1:2.17.1-1ubuntu0.18) over (1:2.17.1-1ubuntu0.7) ...
+Setting up libevent-openssl-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up linux-libc-dev:amd64 (4.15.0-210.221) ...
+Setting up liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libnorm1:amd64 (1.5r6+dfsg1-6) ...
+Setting up gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up binutils-common:amd64 (2.30-21ubuntu1~18.04.8) ...
+Setting up libsodium23:amd64 (1.0.16-2) ...
+Setting up libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libevent-pthreads-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up libmpc3:amd64 (1.1.0-1) ...
+Setting up libc-dev-bin (2.27-3ubuntu1.6) ...
+Setting up manpages-dev (4.15-1) ...
+Setting up libc6-dev:amd64 (2.27-3ubuntu1.6) ...
+Selecting previously unselected package g++.
+Preparing to unpack .../28-g++_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+Unpacking g++ (4:7.4.0-1ubuntu2.3) ...
+Preparing to unpack .../29-git_1%3a2.17.1-1ubuntu0.18_amd64.deb ...
+Setting up git (1:2.17.1-1ubuntu0.18) ...
+Setting up libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libevent-extra-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up libisl19:amd64 (0.19-1) ...
+Setting up libzmq5:amd64 (4.2.5-1ubuntu0.2) ...
+Setting up libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libbinutils:amd64 (2.30-21ubuntu1~18.04.8) ...
+Unpacking git (1:2.17.1-1ubuntu0.18) over (1:2.17.1-1ubuntu0.7) ...
+Setting up libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libzmq3-dev:amd64 (4.2.5-1ubuntu0.2) ...
+Setting up libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up cpp-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libevent-dev (2.1.8-stable-4build1) ...
+Setting up binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.8) ...
+Setting up cpp (4:7.4.0-1ubuntu2.3) ...
+Setting up binutils (2.30-21ubuntu1~18.04.8) ...
+Setting up gcc-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up g++-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up gcc (4:7.4.0-1ubuntu2.3) ...
+Setting up g++ (4:7.4.0-1ubuntu2.3) ...
+update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Selecting previously unselected package libevent-core-2.1-6:amd64.
+Preparing to unpack .../30-libevent-core-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-core-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package libevent-extra-2.1-6:amd64.
+Preparing to unpack .../31-libevent-extra-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-extra-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package libevent-pthreads-2.1-6:amd64.
+Preparing to unpack .../32-libevent-pthreads-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-pthreads-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package libevent-openssl-2.1-6:amd64.
+Preparing to unpack .../33-libevent-openssl-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-openssl-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package libevent-dev.
+Preparing to unpack .../34-libevent-dev_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-dev (2.1.8-stable-4build1) ...
+Selecting previously unselected package libevent-core-2.1-6:amd64.
+Preparing to unpack .../30-libevent-core-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-core-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package libnorm1:amd64.
+Preparing to unpack .../35-libnorm1_1.5r6+dfsg1-6_amd64.deb ...
+Unpacking libnorm1:amd64 (1.5r6+dfsg1-6) ...
+Selecting previously unselected package libevent-extra-2.1-6:amd64.
+Preparing to unpack .../31-libevent-extra-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-extra-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package libevent-pthreads-2.1-6:amd64.Selecting previously unselected package libpgm-5.2-0:amd64.
+Preparing to unpack .../36-libpgm-5.2-0_5.2.122~dfsg-2_amd64.deb ...
+Unpacking libpgm-5.2-0:amd64 (5.2.122~dfsg-2) ...
+Selecting previously unselected package libsodium23:amd64.
+Preparing to unpack .../37-libsodium23_1.0.16-2_amd64.deb ...
+Unpacking libsodium23:amd64 (1.0.16-2) ...
+
+Preparing to unpack .../32-libevent-pthreads-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-pthreads-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package libevent-openssl-2.1-6:amd64.
+Preparing to unpack .../33-libevent-openssl-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-openssl-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Selecting previously unselected package libevent-dev.
+Preparing to unpack .../34-libevent-dev_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-dev (2.1.8-stable-4build1) ...
+Selecting previously unselected package libzmq5:amd64.
+Preparing to unpack .../38-libzmq5_4.2.5-1ubuntu0.2_amd64.deb ...
+Unpacking libzmq5:amd64 (4.2.5-1ubuntu0.2) ...
+Selecting previously unselected package libnorm1:amd64.
+Preparing to unpack .../35-libnorm1_1.5r6+dfsg1-6_amd64.deb ...
+Unpacking libnorm1:amd64 (1.5r6+dfsg1-6) ...
+Selecting previously unselected package libzmq3-dev:amd64.
+Preparing to unpack .../39-libzmq3-dev_4.2.5-1ubuntu0.2_amd64.deb ...
+Unpacking libzmq3-dev:amd64 (4.2.5-1ubuntu0.2) ...
+Selecting previously unselected package libpgm-5.2-0:amd64.
+Preparing to unpack .../36-libpgm-5.2-0_5.2.122~dfsg-2_amd64.deb ...
+Unpacking libpgm-5.2-0:amd64 (5.2.122~dfsg-2) ...
+Selecting previously unselected package make.
+Preparing to unpack .../40-make_4.1-9.1ubuntu1_amd64.deb ...
+Unpacking make (4.1-9.1ubuntu1) ...
+Selecting previously unselected package libsodium23:amd64.
+Preparing to unpack .../37-libsodium23_1.0.16-2_amd64.deb ...
+Unpacking libsodium23:amd64 (1.0.16-2) ...
+Selecting previously unselected package manpages-dev.
+Preparing to unpack .../41-manpages-dev_4.15-1_all.deb ...
+Unpacking manpages-dev (4.15-1) ...
+Selecting previously unselected package libzmq5:amd64.
+Preparing to unpack .../38-libzmq5_4.2.5-1ubuntu0.2_amd64.deb ...
+Unpacking libzmq5:amd64 (4.2.5-1ubuntu0.2) ...
+Selecting previously unselected package libzmq3-dev:amd64.
+Preparing to unpack .../39-libzmq3-dev_4.2.5-1ubuntu0.2_amd64.deb ...
+Unpacking libzmq3-dev:amd64 (4.2.5-1ubuntu0.2) ...
+Selecting previously unselected package make.
+Preparing to unpack .../40-make_4.1-9.1ubuntu1_amd64.deb ...
+Unpacking make (4.1-9.1ubuntu1) ...
+Selecting previously unselected package manpages-dev.
+Preparing to unpack .../41-manpages-dev_4.15-1_all.deb ...
+Unpacking manpages-dev (4.15-1) ...
+Setting up libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libpgm-5.2-0:amd64 (5.2.122~dfsg-2) ...
+Setting up libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up make (4.1-9.1ubuntu1) ...
+Setting up libevent-core-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libevent-openssl-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up linux-libc-dev:amd64 (4.15.0-210.221) ...
+Setting up liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libnorm1:amd64 (1.5r6+dfsg1-6) ...
+Setting up gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up binutils-common:amd64 (2.30-21ubuntu1~18.04.8) ...
+Setting up libsodium23:amd64 (1.0.16-2) ...
+Setting up libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libevent-pthreads-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up libmpc3:amd64 (1.1.0-1) ...
+Setting up libc-dev-bin (2.27-3ubuntu1.6) ...
+Setting up manpages-dev (4.15-1) ...
+Setting up libc6-dev:amd64 (2.27-3ubuntu1.6) ...
+Setting up git (1:2.17.1-1ubuntu0.18) ...
+Setting up libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libevent-extra-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libpgm-5.2-0:amd64 (5.2.122~dfsg-2) ...
+Setting up libisl19:amd64 (0.19-1) ...
+Setting up libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libzmq5:amd64 (4.2.5-1ubuntu0.2) ...
+Setting up libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up make (4.1-9.1ubuntu1) ...
+Setting up libbinutils:amd64 (2.30-21ubuntu1~18.04.8) ...
+Setting up libevent-core-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libevent-openssl-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up libzmq3-dev:amd64 (4.2.5-1ubuntu0.2) ...
+Setting up linux-libc-dev:amd64 (4.15.0-210.221) ...
+Setting up libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up cpp-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up libnorm1:amd64 (1.5r6+dfsg1-6) ...
+Setting up gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up binutils-common:amd64 (2.30-21ubuntu1~18.04.8) ...
+Setting up libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libevent-dev (2.1.8-stable-4build1) ...
+Setting up binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.8) ...
+Setting up libsodium23:amd64 (1.0.16-2) ...
+Setting up libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up cpp (4:7.4.0-1ubuntu2.3) ...
+Setting up libevent-pthreads-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up libmpc3:amd64 (1.1.0-1) ...
+Setting up binutils (2.30-21ubuntu1~18.04.8) ...
+Setting up libc-dev-bin (2.27-3ubuntu1.6) ...
+Setting up gcc-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up manpages-dev (4.15-1) ...
+Setting up g++-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up libc6-dev:amd64 (2.27-3ubuntu1.6) ...
+Setting up gcc (4:7.4.0-1ubuntu2.3) ...
+Setting up git (1:2.17.1-1ubuntu0.18) ...
+Setting up g++ (4:7.4.0-1ubuntu2.3) ...
+Setting up libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Setting up libevent-extra-2.1-6:amd64 (2.1.8-stable-4build1) ...
+update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Setting up libisl19:amd64 (0.19-1) ...
+Setting up libzmq5:amd64 (4.2.5-1ubuntu0.2) ...
+Setting up libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libbinutils:amd64 (2.30-21ubuntu1~18.04.8) ...
+Setting up libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libzmq3-dev:amd64 (4.2.5-1ubuntu0.2) ...
+Setting up libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up cpp-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Setting up libevent-dev (2.1.8-stable-4build1) ...
+Setting up binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.8) ...
+Setting up cpp (4:7.4.0-1ubuntu2.3) ...
+Setting up binutils (2.30-21ubuntu1~18.04.8) ...
+Setting up gcc-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up g++-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up gcc (4:7.4.0-1ubuntu2.3) ...
+Setting up g++ (4:7.4.0-1ubuntu2.3) ...
+update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
+Reading package lists...
+Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o mcperf.o mcperf.cc
+Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
+Reading package lists...
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o mcperf.o mcperf.cc
+Reading package lists...
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o mcperf.o mcperf.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o cmdline.o cmdline.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o log.o log.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o distributions.o distributions.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o util.o util.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o Connection.o Connection.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o cmdline.o cmdline.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o log.o log.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o distributions.o distributions.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o Generator.o Generator.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o util.o util.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o Connection.o Connection.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o cpu_stat_thread.o cpu_stat_thread.cc
+export LD_RUN_PATH= && g++ -o mcperf  mcperf.o cmdline.o log.o distributions.o util.o Connection.o Generator.o cpu_stat_thread.o   -lzmq -levent -lpthread -lrt  
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o cmdline.o cmdline.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o log.o log.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o distributions.o distributions.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o util.o util.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o Connection.o Connection.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o Generator.o Generator.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o cpu_stat_thread.o cpu_stat_thread.cc
+export LD_RUN_PATH= && g++ -o mcperf  mcperf.o cmdline.o log.o distributions.o util.o Connection.o Generator.o cpu_stat_thread.o   -lzmq -levent -lpthread -lrt  
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o Generator.o Generator.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o cpu_stat_thread.o cpu_stat_thread.cc
+export LD_RUN_PATH= && g++ -o mcperf  mcperf.o cmdline.o log.o distributions.o util.o Connection.o Generator.o cpu_stat_thread.o   -lzmq -levent -lpthread -lrt  
+job.batch/parsec-freqmine created
+job.batch/parsec-radix created
+job.batch/parsec-ferret created
+job.batch/parsec-blackscholes created
+job.batch/parsec-canneal created
+job.batch/parsec-vips created
+job.batch/parsec-dedup created
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed May  3 15:40:48 UTC 2023
+
+  System load:  0.96               Processes:              138
+  Usage of /:   3.1% of 123.88GB   Users logged in:        0
+  Memory usage: 6%                 IP address for ens4:    10.0.16.7
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+
+216 packages can be updated.
+174 of these updates are security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.6 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed May  3 15:40:48 UTC 2023
+
+  System load:  0.5                Processes:              164
+  Usage of /:   3.1% of 123.88GB   Users logged in:        0
+  Memory usage: 3%                 IP address for ens4:    10.0.16.2
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+
+216 packages can be updated.
+174 of these updates are security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.6 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed May  3 15:40:48 UTC 2023
+
+  System load:  0.58               Users logged in:        0
+  Usage of /:   3.2% of 123.88GB   IP address for ens4:    10.0.16.6
+  Memory usage: 6%                 IP address for docker0: 172.17.0.1
+  Swap usage:   0%                 IP address for cbr0:    100.96.3.1
+  Processes:    144
+
+
+216 packages can be updated.
+174 of these updates are security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.6 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Local QPS = 9644.1 (96441 / 10.0s) - 96441.0, 0.0
+Local QPS = 19294.8 (192948 / 10.0s) - 192948.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      273.3   251.4    74.4   123.7   137.2   226.2   281.5   318.0   347.6   388.6   446.1   550.6   840.1  2853.2 10623.7   9644.1
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      299.7   221.0    74.4   129.9   144.0   250.2   322.5   369.0   403.1   444.1   498.8   598.7   922.7  2069.8  8109.5  19294.8
+Local QPS = 9670.5 (96705 / 10.0s) - 96705.0, 0.0
+Local QPS = 19305.3 (193053 / 10.0s) - 193053.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      288.1   302.9    74.4   117.6   129.7   217.2   282.3   328.9   370.2   429.9   509.6   656.8  1066.3  4211.4  9386.7   9670.5
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      306.5   277.6    80.4   126.3   139.0   241.1   317.3   367.7   406.4   456.2   529.3   672.4  1083.8  3118.1  8620.3  19305.3
+Local QPS = 9663.9 (96639 / 10.0s) - 96639.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      301.0   300.5    74.4   127.2   140.9   230.6   290.7   334.9   373.8   432.1   522.2   694.8  1175.4  3605.9  9578.6   9663.9
+Local QPS = 19321.8 (193218 / 10.0s) - 193218.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      316.6   275.6    80.4   132.5   146.6   247.0   318.7   368.1   407.1   458.8   538.4   714.3  1211.1  2959.9  8203.4  19321.8
+Local QPS = 9686.4 (96864 / 10.0s) - 96864.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      260.7   325.2    80.4   114.0   124.2   200.9   253.1   289.9   320.3   364.1   429.6   543.7   938.8  5623.3  9256.3   9686.4
+Local QPS = 19332.8 (193328 / 10.0s) - 193328.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      285.0   326.5    80.4   120.9   132.3   226.9   294.3   335.6   367.7   407.9   461.0   560.5   995.8  5424.3  9363.3  19332.8
+Local QPS = 9684.9 (96849 / 10.0s) - 96849.0, 0.0
+Local QPS = 19340.3 (193403 / 10.0s) - 193403.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      277.2   427.7    74.4   116.5   126.7   199.0   254.8   295.2   332.5   385.8   470.0   612.3  1091.1  8028.7 13368.8   9684.9
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      305.9   412.6    80.4   123.2   134.7   223.6   298.8   349.4   391.3   443.3   516.1   677.9  1210.1  7609.2 13086.2  19340.3
+Local QPS = 9676.4 (96764 / 10.0s) - 96764.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      270.5   283.8    80.4   119.6   131.3   211.9   265.7   303.4   335.7   382.3   456.7   593.9   983.8  3495.8  8828.2   9676.4
+Local QPS = 19366.1 (193662 / 10.0s) - 193662.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      296.4   266.2    80.4   128.3   141.1   239.2   307.1   350.9   387.3   432.7   497.3   622.4  1029.1  2337.4  8854.0  19366.1
+Local QPS = 19411.7 (194117 / 10.0s) - 194117.0, 0.0
+Local QPS = 9656.2 (96562 / 10.0s) - 96562.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      307.9   432.3    74.4   118.6   132.8   232.8   294.4   335.3   368.4   414.4   484.3   634.3  1419.4  7352.7 11601.2   9656.2
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      284.8   232.3    80.4   127.1   141.0   238.3   299.7   338.2   369.0   407.2   460.1   558.0   934.6  2386.2 10301.2  19411.7
+Local QPS = 9627.7 (96277 / 10.0s) - 96277.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      286.6   303.0    74.4   119.6   131.4   214.5   274.4   320.8   365.4   425.7   512.7   671.2  1100.5  3198.1 11316.4   9627.7
+Local QPS = 19318.5 (193185 / 10.0s) - 193185.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      294.4   229.3    80.4   129.4   142.6   243.3   310.2   352.9   387.2   429.7   488.0   604.6   963.7  2350.1  7152.2  19318.5
+Local QPS = 9707.5 (97075 / 10.0s) - 97075.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      254.3   248.2    74.4   116.5   127.9   203.6   252.2   284.8   311.1   346.6   405.4   533.3   951.1  3786.4  7823.8   9707.5
+Local QPS = 19392.5 (193925 / 10.0s) - 193925.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      292.1   233.5    74.4   127.5   140.9   240.2   308.3   348.6   380.9   421.4   478.3   587.6  1018.3  2620.6  7522.6  19392.5
+Local QPS = 19354.9 (193550 / 10.0s) - 193550.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      299.3   224.6    74.4   130.1   144.4   248.0   316.6   358.5   392.0   434.1   494.8   616.3  1011.3  2082.1  8295.7  19354.9
+Local QPS = 9619.0 (96190 / 10.0s) - 96190.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      280.4   262.1    74.4   124.1   138.1   223.7   277.5   316.0   349.9   397.6   471.5   606.2   994.7  3253.1  7813.8   9619.0
+Local QPS = 9657.5 (96575 / 10.0s) - 96575.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      246.9   208.8    74.4   118.7   131.5   212.6   258.0   286.9   309.1   337.3   379.2   460.4   705.3  2735.1  8393.4   9657.5
+Local QPS = 19288.2 (192882 / 10.0s) - 192882.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      273.6   188.3    74.4   129.7   144.1   239.1   297.2   332.4   358.6   390.9   431.8   500.7   720.4  1654.4  6571.7  19288.2
+Local QPS = 19329.5 (193295 / 10.0s) - 193295.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      291.1   236.5    74.4   124.0   139.3   232.3   296.8   336.8   367.3   406.6   472.8   647.5  1140.0  2106.6  7852.4  19329.5
+Local QPS = 9750.7 (97507 / 10.0s) - 97507.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      320.8   359.1    74.4   122.0   138.6   232.2   289.7   332.8   374.9   450.3   614.0   857.6  1330.6  5231.2 10275.7   9750.7
+Local QPS = 9687.6 (96876 / 10.0s) - 96876.0, 0.0
+Local QPS = 19393.4 (193934 / 10.0s) - 193934.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      248.2   214.0    68.9   122.3   138.1   221.0   263.5   289.6   309.6   335.1   371.8   436.0   612.6  2383.6  8633.3   9687.6
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      269.3   156.0    80.4   129.0   146.0   243.5   297.0   329.0   352.6   380.6   417.3   473.6   635.4  1315.4  5606.6  19393.4
+Local QPS = 9699.2 (96992 / 10.0s) - 96992.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      262.8   232.0    74.4   123.2   138.2   222.5   268.1   297.4   321.8   357.0   407.0   512.4   861.4  2502.6  9254.5   9699.2
+Local QPS = 19346.5 (193465 / 10.0s) - 193465.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      285.2   193.9    80.4   132.8   149.1   248.1   306.8   340.9   367.0   399.4   445.7   533.8   864.4  1619.1  8113.0  19346.5
+Local QPS = 9679.8 (96798 / 10.0s) - 96798.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      252.7   203.6    80.4   124.7   140.3   224.5   268.1   294.9   316.4   344.3   383.1   448.1   628.5  2274.3  9574.6   9679.8
+Local QPS = 19287.9 (192879 / 10.0s) - 192879.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      279.0   204.9    80.4   134.6   151.8   251.1   305.5   337.6   361.6   390.5   427.6   485.9   660.7  1564.8  8666.1  19287.9
+Local QPS = 19420.1 (194201 / 10.0s) - 194201.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      278.8   181.6    80.4   139.5   156.2   250.7   303.7   335.9   360.3   389.5   426.3   485.2   647.4  1707.4  6794.5  19420.1
+Local QPS = 9720.1 (97201 / 10.0s) - 97201.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      262.6   243.1    80.4   132.3   147.4   231.3   274.4   301.8   323.2   351.9   393.7   460.9   640.4  2948.4  8888.7   9720.1
+Local QPS = 9652.8 (96528 / 10.0s) - 96528.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      269.4   259.5    74.4   130.6   146.1   233.4   279.7   309.2   333.0   364.5   408.0   484.0   707.0  3421.9  9834.6   9652.8
+Local QPS = 19397.5 (193975 / 10.0s) - 193975.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      284.6   191.7    80.4   135.7   153.6   257.4   312.8   344.8   369.2   398.3   435.9   498.4   680.5  1473.9  8738.5  19397.5
+Local QPS = 19333.2 (193332 / 10.0s) - 193332.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      286.6   177.6    80.4   132.1   148.8   251.7   312.4   346.8   373.4   406.4   452.4   535.7   797.7  1650.0  5493.8  19333.2
+Local QPS = 9733.0 (97330 / 10.0s) - 97330.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      259.4   221.7    74.4   120.4   133.9   218.2   266.4   297.9   324.9   362.4   417.7   519.2   805.5  2477.2  8852.9   9733.0
+Local QPS = 19390.3 (193904 / 10.0s) - 193904.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      274.9   247.6    80.4   133.0   149.7   245.7   300.1   332.4   356.0   385.2   422.8   479.1   637.6  1446.1 10993.2  19390.3
+Local QPS = 9706.1 (97061 / 10.0s) - 97061.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      252.4   271.2    74.4   125.1   139.9   220.8   263.3   290.2   311.9   339.9   378.5   445.6   637.8  3262.5 11203.4   9706.1
+Local QPS = 9656.5 (96565 / 10.0s) - 96565.0, 0.0
+Local QPS = 19422.9 (194229 / 10.0s) - 194229.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      245.1   212.2    74.4   120.2   135.6   217.5   259.7   286.2   307.1   334.2   371.2   435.8   606.2  2207.4 10762.0   9656.5
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      274.2   170.1    80.4   136.4   152.5   246.4   300.7   333.0   356.8   385.2   420.9   474.1   626.5  1734.9  6017.0  19422.9
+Local QPS = 19403.6 (194036 / 10.0s) - 194036.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      280.5   157.7    80.4   132.9   149.7   252.5   309.0   341.4   366.3   396.4   436.0   501.2   697.2  1448.4  5339.9  19403.6
+Local QPS = 9707.8 (97078 / 10.0s) - 97078.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      265.5   206.8    80.4   128.6   144.2   230.2   275.6   306.7   331.6   365.3   414.1   500.1   719.0  2652.6  7881.7   9707.8
+Local QPS = 9693.3 (96933 / 10.0s) - 96933.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      279.3   248.7    74.4   130.7   148.4   240.5   288.9   320.5   346.9   382.0   431.0   520.8   794.0  3114.1  9193.5   9693.3
+Local QPS = 19409.0 (194090 / 10.0s) - 194090.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      298.7   217.9    80.4   138.8   156.6   264.4   321.4   357.0   383.8   417.4   463.0   543.1   808.2  2312.3  8528.9  19409.0
+Local QPS = 9696.9 (96969 / 10.0s) - 96969.0, 0.0
+Local QPS = 19379.3 (193793 / 10.0s) - 193793.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      254.5   214.8    74.4   126.1   140.0   222.9   267.7   295.3   317.8   347.1   391.1   463.0   658.5  2288.2  8739.9   9696.9
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      278.2   165.7    74.4   137.9   154.2   251.6   305.2   335.7   358.8   386.7   423.7   485.9   661.2  1558.1  6773.0  19379.3
+Local QPS = 19421.6 (194216 / 10.0s) - 194216.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      273.6   163.8    74.4   130.5   146.2   243.2   300.1   332.9   357.4   387.6   428.2   497.4   690.0  1522.8  6627.7  19421.6
+Local QPS = 9747.0 (97470 / 10.0s) - 97470.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      250.5   223.4    74.4   120.5   135.1   215.6   259.0   287.2   310.5   341.3   385.9   465.0   719.2  2833.4  9589.6   9747.0
+Local QPS = 9696.8 (96968 / 10.0s) - 96968.0, 0.0
+Local QPS = 19392.3 (193923 / 10.0s) - 193923.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      269.7  1212.7    80.4   127.1   141.6   226.5   272.7   303.4   328.0   360.2   406.1   485.1   706.7  3113.7  9723.8   9696.8
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      283.1   164.8    80.4   134.7   151.8   255.2   310.9   343.1   368.1   398.2   436.7   504.2   710.6  1475.3  4048.3  19392.3
+Local QPS = 19315.7 (193157 / 10.0s) - 193157.0, 0.0
+Local QPS = 9689.5 (96895 / 10.0s) - 96895.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      250.7   204.8    80.4   124.4   138.8   220.9   263.8   290.2   311.5   339.4   380.3   450.6   648.6  2829.4  8826.7   9689.5
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      275.9   161.5    74.4   136.1   152.5   250.0   302.4   333.4   356.4   383.9   420.5   480.8   658.5  1597.0  4517.7  19315.7
+Local QPS = 9650.2 (96502 / 10.0s) - 96502.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      262.9   203.3    74.4   127.3   143.5   231.0   275.2   304.3   326.8   357.6   402.2   480.2   695.2  2826.5  7739.7   9650.2
+Local QPS = 19277.8 (192778 / 10.0s) - 192778.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      286.8   156.6    80.4   141.6   159.5   259.7   313.6   345.5   370.0   399.3   437.6   503.7   690.1  1581.6  6328.2  19277.8
+Local QPS = 19463.9 (194639 / 10.0s) - 194639.0, 0.0
+Local QPS = 9695.6 (96956 / 10.0s) - 96956.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      252.8   221.3    74.4   119.6   134.7   220.0   264.2   292.1   315.1   346.1   393.7   467.3   662.4  3831.7  7487.7   9695.6
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      280.1   188.7    74.4   132.3   149.6   251.2   308.0   341.0   365.6   394.8   431.9   493.4   674.0  1903.8  7037.9  19463.9
+Local QPS = 19454.3 (194543 / 10.0s) - 194543.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      277.5   156.8    74.4   137.0   153.9   250.5   304.7   336.9   361.3   390.6   428.1   485.9   635.0  1453.5  5846.6  19454.3
+Local QPS = 9709.4 (97094 / 10.0s) - 97094.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      250.2   198.2    74.4   122.6   137.8   221.8   265.4   291.9   313.0   340.0   378.7   448.6   625.2  2732.0  7795.6   9709.4
+Local QPS = 9719.8 (97198 / 10.0s) - 97198.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      260.4   248.0    74.4   120.1   137.0   228.1   273.4   301.7   324.7   354.3   397.8   473.9   680.1  3652.8  8672.2   9719.8
+Local QPS = 19457.3 (194573 / 10.0s) - 194573.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      291.1   173.7    80.4   141.3   159.6   263.4   318.4   351.9   376.8   406.2   446.8   511.2   701.0  1420.5  7053.8  19457.3
+Local QPS = 9698.2 (96982 / 10.0s) - 96982.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      227.4   179.2    74.4   115.3   128.3   202.5   242.5   267.2   285.6   308.7   341.4   397.1   532.5  2340.8  7471.3   9698.2
+Local QPS = 19418.4 (194184 / 10.0s) - 194184.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      263.5   148.7    74.4   128.0   142.6   232.9   290.2   327.6   354.4   384.3   420.9   471.7   587.8  1331.7  5305.6  19418.4
+Local QPS = 19433.5 (194335 / 10.0s) - 194335.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      284.9   194.2    74.4   139.4   156.3   255.8   310.9   343.1   367.9   397.5   435.5   499.8   680.8  1770.4  8603.6  19433.5
+Local QPS = 9746.1 (97461 / 10.0s) - 97461.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      254.3   220.3    80.4   125.2   140.3   223.1   266.7   294.1   316.9   346.7   389.0   458.0   658.2  2753.4  9810.9   9746.1
+Local QPS = 19411.5 (194115 / 10.0s) - 194115.0, 0.0
+Local QPS = 9744.3 (97443 / 10.0s) - 97443.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      256.6   262.8    74.4   119.6   133.9   219.4   266.8   296.9   321.4   354.5   399.5   480.6   715.1  3099.2 10715.5   9744.3
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      287.9   171.5    80.4   140.2   157.7   259.3   313.5   345.1   369.9   399.9   439.4   508.6   725.7  1609.9  7558.4  19411.5
+Local QPS = 9699.9 (96999 / 10.0s) - 96999.0, 0.0
+Local QPS = 19436.1 (194361 / 10.0s) - 194361.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      244.7   227.0    80.4   122.8   137.5   216.4   257.3   282.4   302.2   328.0   366.0   429.6   595.4  2668.5  9001.3   9699.9
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      265.8   165.2    74.4   130.4   146.0   237.1   290.7   322.1   345.8   375.0   413.0   469.0   632.1  1526.4  5789.3  19436.1
+Local QPS = 9761.4 (97614 / 10.0s) - 97614.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      272.8   229.7    80.4   130.3   145.9   235.7   284.1   315.0   341.4   375.4   425.7   512.3   753.8  2706.4  9538.8   9761.4
+Local QPS = 19460.2 (194603 / 10.0s) - 194603.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      287.2   181.3    80.4   134.3   151.3   256.2   314.0   347.8   373.7   404.3   446.8   521.9   743.3  1722.9  7053.3  19460.2
+Local QPS = 9735.7 (97357 / 10.0s) - 97357.0, 0.0
+Local QPS = 19437.7 (194377 / 10.0s) - 194377.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      257.5   219.3    80.4   126.4   141.1   225.8   270.1   298.0   320.7   350.7   392.9   465.2   657.6  3185.1  8486.2   9735.7
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      283.9   191.5    80.4   139.1   155.4   253.9   309.6   343.3   368.4   398.1   436.6   501.0   676.1  1751.1  8072.5  19437.7
+Local QPS = 9749.0 (97490 / 10.0s) - 97490.0, 0.0
+Local QPS = 19478.3 (194783 / 10.0s) - 194783.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      251.2   228.7    74.4   119.2   134.1   218.3   262.7   291.3   314.3   344.5   387.2   461.1   665.8  2882.4  9273.8   9749.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      280.5   162.7    80.4   134.7   151.6   252.6   309.2   342.2   366.7   395.4   431.9   493.6   675.7  1761.4  5762.9  19478.3
+Local QPS = 19500.5 (195005 / 10.0s) - 195005.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      284.8   189.2    80.4   137.9   154.6   255.1   311.1   343.8   369.3   399.6   438.3   502.8   696.7  1655.7  7950.7  19500.5
+Local QPS = 9716.4 (97164 / 10.0s) - 97164.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      256.3   235.9    74.4   120.6   136.2   222.6   267.5   296.3   319.9   350.0   393.2   465.8   677.2  3359.1  8609.6   9716.4
+Local QPS = 9718.9 (97189 / 10.0s) - 97189.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      252.3   191.4    74.4   121.7   136.2   219.9   265.0   293.9   317.8   348.5   394.3   472.6   680.5  2078.5  6681.9   9718.9
+Local QPS = 19405.1 (194052 / 10.0s) - 194052.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      282.9   176.2    80.4   135.1   152.3   255.0   310.8   343.1   367.7   397.4   435.3   500.8   689.0  1642.3  6189.5  19405.1
+Local QPS = 9784.5 (97845 / 10.0s) - 97845.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      253.5   250.3    74.4   121.9   137.0   220.6   264.4   291.9   314.5   344.3   386.2   458.5   641.5  3242.2  9575.3   9784.5
+Local QPS = 19505.9 (195059 / 10.0s) - 195059.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      276.0   177.7    74.4   130.2   147.5   248.2   303.6   335.7   360.1   389.5   428.0   490.7   662.5  1695.9  5926.5  19505.9
+Local QPS = 9701.9 (97019 / 10.0s) - 97019.0, 0.0
+Local QPS = 19499.0 (194991 / 10.0s) - 194991.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      249.1   213.0    80.4   121.7   136.5   219.2   262.2   289.8   312.4   341.6   383.2   454.4   638.8  1870.1 10068.3   9701.9
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      266.9   154.8    80.4   129.3   144.8   239.7   295.0   326.6   349.7   376.7   412.5   470.0   648.9  1271.7  4844.3  19499.0
+Local QPS = 19463.5 (194635 / 10.0s) - 194635.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      286.2   217.5    80.4   134.3   150.6   255.3   313.6   346.5   371.8   401.9   443.6   517.3   732.0  1526.2  9384.9  19463.5
+Local QPS = 9677.4 (96774 / 10.0s) - 96774.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      265.9   233.5    80.4   129.6   144.7   228.9   275.3   307.3   333.2   367.4   414.6   498.6   724.6  2477.9  9198.6   9677.4
+Local QPS = 19485.8 (194858 / 10.0s) - 194858.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      275.5   178.1    80.4   131.3   147.3   245.7   301.0   334.2   358.9   388.9   428.3   496.3   709.1  1377.8  6228.6  19485.8
+Local QPS = 9688.5 (96885 / 10.0s) - 96885.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      259.3   238.0    68.9   123.1   139.1   224.3   270.0   299.7   324.4   357.6   402.3   481.4   697.3  2378.5  9825.5   9688.5
+Local QPS = 9753.0 (97530 / 10.0s) - 97530.0, 0.0
+Local QPS = 19459.8 (194598 / 10.0s) - 194598.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      259.6   208.1    80.4   127.8   143.3   228.1   272.7   302.1   325.6   356.8   399.7   470.9   664.9  2601.4  9251.5   9753.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      278.0   191.1    80.4   134.6   151.2   250.5   305.9   338.5   362.7   391.2   427.3   487.1   666.8  1295.3  7617.7  19459.8
+Local QPS = 19504.6 (195046 / 10.0s) - 195046.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      271.7   151.7    80.4   132.0   149.0   244.1   297.7   329.8   353.6   381.7   419.0   478.0   651.4  1732.3  4660.9  19504.6
+Local QPS = 9719.2 (97192 / 10.0s) - 97192.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      248.8   199.5    74.4   122.9   138.2   218.4   261.7   288.9   310.7   339.1   378.9   449.0   650.0  2319.0  8417.1   9719.2
+Local QPS = 19446.3 (194464 / 10.0s) - 194464.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      267.2   206.1    74.4   125.0   139.9   232.9   289.3   321.8   346.6   377.5   419.7   494.8   714.4  1649.4  7921.1  19446.3
+Local QPS = 9733.5 (97336 / 10.0s) - 97336.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      259.3   227.4    74.4   120.0   134.1   215.5   263.2   295.2   322.6   362.1   422.1   537.6   813.9  1952.9 10382.8   9733.5
+Local QPS = 9788.6 (97886 / 10.0s) - 97886.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      252.9   216.6    80.4   128.8   143.8   224.6   265.6   291.4   312.7   340.1   377.2   442.1   607.3  2674.3  8623.9   9788.6
+Local QPS = 19379.0 (193790 / 10.0s) - 193790.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      268.0   175.7    80.4   132.9   148.8   239.6   293.7   325.4   348.6   377.0   413.8   469.3   627.4  1447.7  6131.1  19379.0
+Local QPS = 9816.1 (98161 / 10.0s) - 98161.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      271.6   241.4    74.4   123.9   141.0   233.5   282.1   313.8   339.2   372.2   421.8   509.1   780.0  2916.5  9350.0   9816.1
+Local QPS = 19500.8 (195009 / 10.0s) - 195009.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      297.3   199.6    80.4   140.1   158.8   262.9   319.7   353.8   380.0   412.8   457.9   541.6   809.7  2233.0  7416.6  19500.8
+Local QPS = 9746.0 (97460 / 10.0s) - 97460.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      246.4   193.3    74.4   118.8   133.5   216.3   260.2   288.0   310.8   340.4   382.0   450.0   632.2  2416.0  7725.3   9746.0
+Local QPS = 19506.0 (195060 / 10.0s) - 195060.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      273.6   155.8    74.4   131.8   148.8   248.5   302.9   334.4   357.5   384.9   420.4   476.6   630.6  1610.0  5384.9  19506.0
+Local QPS = 19502.0 (195020 / 10.0s) - 195020.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      284.9   174.1    80.4   137.7   153.6   254.5   311.8   344.4   369.1   398.6   438.7   511.6   727.3  1560.4  6317.4  19502.0
+Local QPS = 9728.2 (97282 / 10.0s) - 97282.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      255.8   237.3    74.4   119.3   133.9   217.6   263.0   293.2   318.0   351.7   400.8   489.2   752.8  3021.4  9735.0   9728.2

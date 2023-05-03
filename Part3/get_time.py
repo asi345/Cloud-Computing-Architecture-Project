@@ -20,9 +20,14 @@ for item in json_file['items']:
             completion_time = datetime.strptime(
                     item['status']['containerStatuses'][0]['state']['terminated']['finishedAt'],
                     time_format)
+            node = item['spec']['nodeName']
+            print("Node: ", node)
+            print("Start time: ", start_time)
+            print("Finish time: ", completion_time)
             print("Job time: ", completion_time - start_time)
             start_times.append(start_time)
             completion_times.append(completion_time)
+            print()
         except KeyError:
             print("Job {0} has not completed....".format(name))
             sys.exit(0)
