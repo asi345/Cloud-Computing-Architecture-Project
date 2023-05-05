@@ -1,8 +1,8 @@
 NAME                         STATUS   ROLES                AGE     VERSION    INTERNAL-IP   EXTERNAL-IP      OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME
-client-agent-a-mmwl          Ready    node                 39s     v1.23.16   10.0.16.6     34.89.154.199    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
-client-agent-b-w4bm          Ready    node                 35s     v1.23.16   10.0.16.2     34.159.105.49    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
-client-measure-xc7m          Ready    node                 39s     v1.23.16   10.0.16.7     35.198.133.9     Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
-master-europe-west3-a-1s9q   Ready    control-plane,node   3m37s   v1.23.16   10.0.16.5     34.159.108.226   Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
-node-a-2core-wgmh            Ready    node                 33s     v1.23.16   10.0.16.4     34.159.168.221   Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
-node-b-4core-0htb            Ready    node                 38s     v1.23.16   10.0.16.3     34.107.98.169    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
-node-c-8core-1q73            Ready    node                 39s     v1.23.16   10.0.16.8     34.89.193.29     Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+client-agent-a-rq8h          Ready    node                 53s     v1.23.16   10.0.16.6     35.246.154.85    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+client-agent-b-ppk8          Ready    node                 49s     v1.23.16   10.0.16.7     34.141.97.147    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+client-measure-qhnd          Ready    node                 56s     v1.23.16   10.0.16.4     34.89.173.112    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+master-europe-west3-a-7flp   Ready    control-plane,node   3m18s   v1.23.16   10.0.16.5     34.141.36.249    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+node-a-2core-hz48            Ready    node                 53s     v1.23.16   10.0.16.3     34.89.143.218    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+node-b-4core-5r51            Ready    node                 50s     v1.23.16   10.0.16.2     35.246.233.236   Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+node-c-8core-w887            Ready    node                 52s     v1.23.16   10.0.16.8     34.159.108.226   Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
