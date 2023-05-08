@@ -19,7 +19,6 @@ plt.rcParams.update({
 
 FILE_NAMES = ['memcached_output.txt']
 RESULTS_METADATA = 'results'
-COLORS = ['darkgreen', 'tab:olive', 'darkblue', 'purple', 'red', 'darkorange', 'aqua']
 
 MACHINE_JOB_ALLOCATIONS = {
     'dedup': 'node-a-2core',
@@ -32,13 +31,56 @@ MACHINE_JOB_ALLOCATIONS = {
     'memcached': 'node-c-8core',
 }
 
+JOB_COLORS = {
+    'dedup': '#CCACCA',
+    'ferret': '#AACCCA',
+    'freqmine': '#0CCA00',
+    'vips': '#CC0A00',
+    'canneal': '#CCCCAA',
+    'blackscholes': '#CCA000',
+    'radix': '#00CCA0'
+}
 XY_LABELS = [
-    [(0.1225, 0.015), (0, 0.015), (0, 0.015), (0, 0.015), (0, 0.015), (0, 0.015), (0, 0.015), (0, 0.015)],
-    [(0.1225, 0.015), (0, 0.), (0, 0.), (0, 0.)],
-    [(0.1225, 0.015), (0, 0.), (0, 0.), (0, 0.)],
+    [
+        [(0.118608, 0.015), (0.1635, 0.015), (0.1635, 0.015), (0.22233, 0.015), (0.3352, 0.015), (0.536551, 0.015)],
+        [(0.122, 0.015), (0.2415, 0.015), (0.6183, 0.015), (0.706169, 0.015)],
+        [(0.122, 0.015), (0.1941, 0.015), (0.2659, 0.015), (0.5805, 0.015)],
+    ],
+    [
+        [(0.0941, 0.015), (0.107, 0.015), (0.1534, 0.015), (0.1565, 0.015), (0.3142, 0.015), (0.5071, 0.015)],
+        [(0.107, 0.015), (0.48, 0.015), (0.631, 0.015), (0.71, 0.015)],
+        [(0.107, 0.015), (0.182, 0.015), (0.2575, 0.015), (0.565, 0.015)],
+    ],
+    [
+        [(0.1306, 0.015), (0.1635, 0.015), (0.1635, 0.015), (0.1885, 0.015), (0.288, 0.015), (0.5685, 0.015)],
+        [(0.197, 0.015), (0.22, 0.015), (0.615, 0.015), (0.709, 0.015)],
+        [(0.141, 0.015), (0.182, 0.015), (0.192, 0.015), (0.596, 0.015)],
+    ]
 ]
-NODE_POS = [(0.25, -0.6), (0.25, -0.4), (0.25, -0.2)]
-RUNS = 4
+
+for runs in XY_LABELS:
+    for node in runs:
+        for i in range(len(node)):
+            node[i] = (node[i][0] + 0.016, node[i][1])
+
+
+NODE_POS = [
+    (0.25, -0.6),
+    (0.25, -0.4),
+    (0.25, -0.2)
+]
+
+JOB_STR_OFFSETS = {
+    'dedup': (0.15, -0.2),
+    'ferret': (0.1, -0.2),
+    'freqmine': (0.14, -0.4),
+    'vips': (0.085, -0.4),
+    'canneal': (0., -0.6),
+    'blackscholes': (0.125, -0.6),
+    'radix': (0.055, -0.6)
+}
+
+RUNS = 3
 
 
 # ------------------ FUNCTIONS ------------------
@@ -99,7 +141,6 @@ def create_plots(xticks, runs):
         # get the xtick for the run
         xtick = xticks[i]
         create_plot(xtick, data, i)
-        break
 
 
 def make_patch_spines_invisible(ax):
@@ -135,19 +176,35 @@ def compute_xtick_labels(xtick_bounds):
     return labels
 
 
+def generate_horizontal_line(ax, x1, x2, y, color=None):
+    ax.annotate('', xy=(x1, y), xytext=(x2, y),
+                arrowprops=dict(color=color, arrowstyle='-', lw=2))
+
+
 def create_plot(xtick, data, run_number):
-    print(data)
     fig, ax = plt.subplots(figsize=(15, 10))
     fig.subplots_adjust(bottom=0.32)
     x = data['cumulative_time']
+    x = x - x[0] / 2
     y = data['p95']
     width = data['elapsed_time'].mean()
+    xy_labels = XY_LABELS[run_number]
     ax.bar(x, y, width=width, edgecolor='black', linewidth=1.5)
-    ax.set_xlabel('Elapsed Time (s)')
+    ax.set_xlabel(r'\bf{Elapsed Time (s)}')
     ax.set_ylabel(r'$\bf{95}^{th}$ \bf{Percentile Latency (ms)}')
     ax.set_ylim((0., 2.))
     # plot vertical line at y = 1.
-    ax.axhline(y=1., color='r', linestyle='--', linewidth=2)
+    ax.axhline(y=1., color='red', linestyle='--', linewidth=2)
+    ax.annotate(r'\bf{SLO Objective}', xy=(260, 1.15), xytext=(260, 1.1), color='black', fontfamily='sans-serif')
+    # Add a horizontal line at y=0.5
+    # ax.annotate('', xy=(-.5, 0), xytext=(289.5, 0),
+    #             arrowprops=dict(color='red', arrowstyle='-', lw=2))
+    generate_horizontal_line(ax, -0.5, 289.5, 0., color='red')
+    ax.annotate('[', xy=(-0.45, 0.015), xytext=(-0.45, -0.015), color='red')
+    ax.annotate(']', xy=(288.45, 0.015), xytext=(288.45, -0.015), color='red')
+    ax.annotate(r'\bf{289}', xy=(286, 0.0), xytext=(286, -0.09), color='red', fontfamily='sans-serif')
+    # ax.spines['bottom'].set_color('red')
+    # ax.axvspan(0, 300, color='red', alpha=0.2)
     # # Create a new twinx axis for each node
     axes = [ax]
     nodes = xtick.__reversed__()
@@ -161,7 +218,6 @@ def create_plot(xtick, data, run_number):
         collocated_jobs = xticks['collocated_jobs']
 
         offset = xticks['offset']
-        print(xtick_bounds)
         # if memcached is collocated with another job don't count it
         if 'memcached' in collocated_jobs:
             memcached_index = collocated_jobs.index('memcached')
@@ -191,28 +247,50 @@ def create_plot(xtick, data, run_number):
             new_ax.spines["bottom"].set_bounds(xtick_bounds[0], xtick_bounds[-1])
             new_ax.tick_params(axis='x', which='major', reset=True, labelsize=12, colors=colors[i])
 
-
             for k, xtick_label in enumerate(xtick_labels):
-                print(k)
-                x_position = NODE_POS[i][0] + XY_LABELS[i][k][0]
-                y_position = NODE_POS[i][1] + XY_LABELS[i][k][1]
+                x_position = NODE_POS[i][0] + xy_labels[i][k][0]
+                y_position = NODE_POS[i][1] + xy_labels[i][k][1]
                 position = (x_position, y_position)
                 new_ax.annotate(xtick_label, xy=position, textcoords='offset points',
-                                xycoords='axes fraction', ha='center', va='top', size=12)
+                                xycoords='axes fraction', ha='center', va='top', size=12,
+                                color=colors[i])
+
+            if run_number == 1:
+                if node == 'node-c-8core':
+                    new_ax.set_xticks([100, 104, 120, 170, 232])
+                    for tick in plt.gca().xaxis.get_ticklabels():
+                        tick.set_rotation(45)
+
+            if run_number == 2:
+                if node == 'node-a-2core':
+                    new_ax.set_xticks([115, 130, 260])
 
         # place annotation for node
         node_str = r'$\texttt{' + node + '}$'
         ax.annotate(node_str, xy=NODE_POS[i], xycoords='axes fraction',
                     textcoords='offset points', size=15, ha='center', va='center',
                     bbox=dict(boxstyle='round', fc='white', alpha=0.5),
-
+                    color=colors[i],
                     # arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=0.5', color=colors[i])
                     )
 
     ax.set_facecolor((0.92, 0.92, 0.92))
     # plt.grid(axis='y', color='white', linewidth=2.0)
-    # plt.grid(axis='x', color='white', linewidth=2.0)
+    plt.grid(axis='y', color='grey', linewidth=2.0, alpha=0.3)
+    y_grid_lines = [0.25, 0.5, 0.75, 1.25, 1.5, 1.75]
+    for y_grid_line in y_grid_lines:
+        ax.axhline(y=y_grid_line, color='grey', linestyle='-', linewidth=2, alpha=0.3)
+    jobs = JOB_COLORS.keys()
+    for i, job in enumerate(jobs):
+        ax.annotate(job, xy=JOB_STR_OFFSETS[job], xytext=(JOB_STR_OFFSETS[job][0], 0.5), xycoords='axes fraction',
+                    textcoords='offset points', size=15, ha='center', va='center',
+                    bbox=dict(boxstyle='round', fc='white', alpha=0.5),
+                    color=JOB_COLORS[job],
+                    # arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=0.5', color=colors[i])
+                    )
+    plt.title(r'\bf{Memcached Latency (Top) and Collocated Jobs (Bottom)}', fontsize=20)
     plt.tight_layout()
+
     plt.savefig('plot_' + str(run_number) + '.pdf')
     plt.close()
 
@@ -301,37 +379,46 @@ def compute_offsets_from_machine_job_allocations():
     return machine_job_counts
 
 
+def compute_metrics(normalized_job_run_times):
+    print("Computing metrics...")
+    # for each run, compute execution_time of each job
+    for i, df in enumerate(normalized_job_run_times):
+        df['execution_time'] = df['finish_time'] - df['start_time']
+
+    # Create a dictionary to hold the mean and standard deviation for each PARSEC application
+    results = {}
+
+    # Loop over each application in the MACHINE_JOB_ALLOCATIONS mapping
+    for application in MACHINE_JOB_ALLOCATIONS.keys():
+        # Create an empty list to hold the execution times for each run
+        execution_times = []
+        # Loop over each dataframe
+        for df in normalized_job_run_times:
+            # Subset the dataframe to only include rows for the current application
+            subset = df[df['job'] == application]
+            execution_times.append(subset['execution_time'])
+        # Compute the mean and standard deviation of the execution times for the current application
+        mean_execution_time = np.mean(execution_times)
+        std_execution_time = np.std(execution_times)
+        # Add the mean and standard deviation to the results dictionary
+        results[application] = {
+            'mean_execution_time': mean_execution_time,
+            'std_execution_time': std_execution_time
+        }
+    return results
+
 def main():
     memcached_runs = get_data_memcached()
-    print("memcached runs: ", memcached_runs)
     job_run_times = get_job_run_times()
 
     memcached_runs_total_time = [df['cumulative_time'].max() for df in memcached_runs]
     normalized_job_run_times = normalize_job_run_times(job_run_times, memcached_runs_total_time)
-    print("normalized job run times: ", normalized_job_run_times)
-    #
-    # print("xticks: ", xticks)
-    # print("xticks_labels: ", xticks_labels)
+
     machine_job_offsets = compute_offsets_from_machine_job_allocations()
     xticks = compute_xticks(normalized_job_run_times, machine_job_offsets)
     create_plots(xticks, memcached_runs)
-    print(xticks[0])
-    exit(0)
-    xticks, xticks_labels = get_xticks(data[0].to_numpy())  # we assume all dataframes have the same size
-    data = [prepare_data(df) for df in data]
-
-    # unpack dataframes, #RUNS dataframes for each file contiguously
-    measured_statistics = []
-    try:
-        for i in range(0, len(FILE_NAMES)):
-            s1 = take_subset(data, i * RUNS, (i + 1) * RUNS)
-            s1 = compute_metrics(s1)
-            measured_statistics.append(s1)
-
-        create_plot(xticks, xticks_labels, measured_statistics, "flags", "sort-drop")
-    except ValueError:
-        print("Not enough dataframes")
-
+    results = compute_metrics(normalized_job_run_times)
+    print(results)
 
 if __name__ == "__main__":
     main()
