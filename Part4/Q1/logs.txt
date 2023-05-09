@@ -1,0 +1,309 @@
+
+Created cluster/part4.k8s.local
+Created instancegroup/master-europe-west3-a
+Created instancegroup/memcache-server
+Created instancegroup/client-measure
+Created instancegroup/client-agent
+
+To deploy these resources, run: kops update cluster --name part4.k8s.local --yes
+
+
+*********************************************************************************
+
+A new kubernetes version is available: 1.23.17
+Upgrading is recommended (try kops upgrade cluster)
+
+More information: https://github.com/kubernetes/kops/blob/master/permalinks/upgrade_k8s.md#1.23.17
+
+*********************************************************************************
+
+kOps has set your kubectl context to part4.k8s.local
+
+Cluster is starting.  It should be ready in a few minutes.
+
+Suggestions:
+ * validate cluster: kops validate cluster --wait 10m
+ * list nodes: kubectl get nodes --show-labels
+ * ssh to a control-plane node: ssh -i ~/.ssh/id_rsa ubuntu@api.part4.k8s.local
+ * the ubuntu user is specific to Ubuntu. If not using Ubuntu please use the appropriate user based on your OS.
+ * read about installing addons at: https://kops.sigs.k8s.io/addons.
+
+Validating cluster part4.k8s.local
+
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-0jsg	control-plane	False
+
+VALIDATION ERRORS
+KIND	NAME																MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl" has not yet joined cluster
+Node	master-europe-west3-a-0jsg													node "master-europe-west3-a-0jsg" of role "control-plane" is not ready
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-0jsg	control-plane	False
+
+VALIDATION ERRORS
+KIND	NAME																MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl" has not yet joined cluster
+Node	master-europe-west3-a-0jsg													node "master-europe-west3-a-0jsg" of role "control-plane" is not ready
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-0jsg	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME																MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl" has not yet joined cluster
+Node	master-europe-west3-a-0jsg													node "master-europe-west3-a-0jsg" of role "control-plane" is not ready
+Pod	kube-system/coredns-5d479c4f64-ncj6c												system-cluster-critical pod "coredns-5d479c4f64-ncj6c" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-s75gk											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-s75gk" is pending
+Pod	kube-system/dns-controller-776bc7555-ppgsj											system-cluster-critical pod "dns-controller-776bc7555-ppgsj" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-0jsg	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME																MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl" has not yet joined cluster
+Node	master-europe-west3-a-0jsg													control-plane node "master-europe-west3-a-0jsg" is missing kube-apiserver pod
+Node	master-europe-west3-a-0jsg													control-plane node "master-europe-west3-a-0jsg" is missing kube-controller-manager pod
+Node	master-europe-west3-a-0jsg													control-plane node "master-europe-west3-a-0jsg" is missing kube-scheduler pod
+Pod	kube-system/coredns-5d479c4f64-ncj6c												system-cluster-critical pod "coredns-5d479c4f64-ncj6c" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-s75gk											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-s75gk" is pending
+Pod	kube-system/dns-controller-776bc7555-ppgsj											system-cluster-critical pod "dns-controller-776bc7555-ppgsj" is pending
+Pod	kube-system/metadata-proxy-v0.12-2ql29												system-node-critical pod "metadata-proxy-v0.12-2ql29" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-0jsg	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME																MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl" has not yet joined cluster
+Node	master-europe-west3-a-0jsg													control-plane node "master-europe-west3-a-0jsg" is missing kube-apiserver pod
+Node	master-europe-west3-a-0jsg													control-plane node "master-europe-west3-a-0jsg" is missing kube-controller-manager pod
+Pod	kube-system/coredns-5d479c4f64-ncj6c												system-cluster-critical pod "coredns-5d479c4f64-ncj6c" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-s75gk											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-s75gk" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-0jsg	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME																MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl" has not yet joined cluster
+Node	master-europe-west3-a-0jsg													control-plane node "master-europe-west3-a-0jsg" is missing kube-apiserver pod
+Node	master-europe-west3-a-0jsg													control-plane node "master-europe-west3-a-0jsg" is missing kube-controller-manager pod
+Pod	kube-system/coredns-5d479c4f64-ncj6c												system-cluster-critical pod "coredns-5d479c4f64-ncj6c" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-s75gk											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-s75gk" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-0jsg	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME																MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl" has not yet joined cluster
+Node	master-europe-west3-a-0jsg													control-plane node "master-europe-west3-a-0jsg" is missing kube-apiserver pod
+Node	master-europe-west3-a-0jsg													control-plane node "master-europe-west3-a-0jsg" is missing kube-controller-manager pod
+Pod	kube-system/coredns-5d479c4f64-ncj6c												system-cluster-critical pod "coredns-5d479c4f64-ncj6c" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-s75gk											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-s75gk" is pending
+Pod	kube-system/kube-apiserver-master-europe-west3-a-0jsg										system-cluster-critical pod "kube-apiserver-master-europe-west3-a-0jsg" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-0jsg	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME																MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl" has not yet joined cluster
+Node	master-europe-west3-a-0jsg													control-plane node "master-europe-west3-a-0jsg" is missing kube-controller-manager pod
+Pod	kube-system/coredns-5d479c4f64-ncj6c												system-cluster-critical pod "coredns-5d479c4f64-ncj6c" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-s75gk											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-s75gk" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-0jsg	control-plane	True
+
+VALIDATION ERRORS
+KIND	NAME																MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-b6zl" has not yet joined cluster
+Node	master-europe-west3-a-0jsg													control-plane node "master-europe-west3-a-0jsg" is missing kube-controller-manager pod
+Pod	kube-system/coredns-5d479c4f64-ncj6c												system-cluster-critical pod "coredns-5d479c4f64-ncj6c" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-s75gk											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-s75gk" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+master-europe-west3-a-0jsg	control-plane	True
+memcache-server-b6zl		node		False
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-2bxb" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-8zqt" has not yet joined cluster
+Node	memcache-server-b6zl													node "memcache-server-b6zl" of role "node" is not ready
+Pod	kube-system/coredns-5d479c4f64-ncj6c											system-cluster-critical pod "coredns-5d479c4f64-ncj6c" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-s75gk										system-cluster-critical pod "coredns-autoscaler-557ccb4c66-s75gk" is pending
+Pod	kube-system/metadata-proxy-v0.12-pvm75											system-node-critical pod "metadata-proxy-v0.12-pvm75" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+client-agent-2bxb		node		True
+client-measure-8zqt		node		False
+master-europe-west3-a-0jsg	control-plane	True
+memcache-server-b6zl		node		True
+
+VALIDATION ERRORS
+KIND	NAME						MESSAGE
+Node	client-agent-2bxb				node "client-agent-2bxb" of role "node" is not ready
+Node	client-measure-8zqt				node "client-measure-8zqt" of role "node" is not ready
+Node	memcache-server-b6zl				node "memcache-server-b6zl" of role "node" is not ready
+Pod	kube-system/coredns-5d479c4f64-ncj6c		system-cluster-critical pod "coredns-5d479c4f64-ncj6c" is pending
+Pod	kube-system/coredns-autoscaler-557ccb4c66-s75gk	system-cluster-critical pod "coredns-autoscaler-557ccb4c66-s75gk" is pending
+Pod	kube-system/kube-proxy-client-measure-8zqt	system-node-critical pod "kube-proxy-client-measure-8zqt" is pending
+Pod	kube-system/metadata-proxy-v0.12-brwx2		system-node-critical pod "metadata-proxy-v0.12-brwx2" is pending
+Pod	kube-system/metadata-proxy-v0.12-t7zr8		system-node-critical pod "metadata-proxy-v0.12-t7zr8" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+client-agent-2bxb		node		True
+client-measure-8zqt		node		True
+master-europe-west3-a-0jsg	control-plane	True
+memcache-server-b6zl		node		True
+
+VALIDATION ERRORS
+KIND	NAME					MESSAGE
+Node	client-measure-8zqt			node "client-measure-8zqt" of role "node" is not ready
+Pod	kube-system/metadata-proxy-v0.12-brwx2	system-node-critical pod "metadata-proxy-v0.12-brwx2" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+client-agent-2bxb		node		True
+client-measure-8zqt		node		True
+master-europe-west3-a-0jsg	control-plane	True
+memcache-server-b6zl		node		True
+
+Your cluster part4.k8s.local is ready
