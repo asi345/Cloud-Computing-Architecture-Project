@@ -88,7 +88,14 @@ class ContainerHandler:
             return None 
         
         container.reload()
-        container.update(cpu_quoata = shares * 100000)
+        container.update(cpu_quota = shares * 100000)
+
+    def update_cores(self, container, cores="0,1,2,3"):
+        if container == None:
+            return None
+        
+        container.reload()
+        container.update(cpuset_cpus = cores)
 
 
 
