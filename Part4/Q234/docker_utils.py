@@ -10,6 +10,11 @@ class ContainerHandler:
         self.client = docker.from_env()
         self.logger = SchedulerLogger()
         self.containers = []
+        self.memcached = None 
+        while not self.get_memcached_pid(): 
+            print("Waiting for memcached to start running...")
+            for i in range(100000): pass 
+        self.memcached = psutil.Process(self.get_memcached_pid())
 
     def create_container(self, name, cpu_period=100000, cpu_quota=100000):
         config = {
@@ -115,9 +120,15 @@ class ContainerHandler:
         return None
     
     def update_memcached_cores(self, cores):
-        cmd = f"sudo taskset -a -cp {cores} {self.get_memcached_pid()}"
+        cmd = f"sudo taskset -a -cp {cores} {self.memcached.pid()}"
         subprocess.run(cmd.split(" "), stderr=subprocess.STDOUT, stdout=subprocess.STDOUT)
         return
+    
+    def get_memcached_usage(self):
+        if not self.memcached.is_running():
+            return None
+        
+        return self.memcached.cpu_percent(interval = None)
             
     
 
