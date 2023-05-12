@@ -2,6 +2,8 @@ import docker
 from scheduler_logger import SchedulerLogger, Job
 import psutil
 from jobs import images, threads, cores
+import json
+import subprocess
 
 class ContainerHandler:
     def __init__(self):
@@ -12,14 +14,14 @@ class ContainerHandler:
     def create_container(self, name, cpu_period=100000, cpu_quota=100000):
         config = {
             "name": name,
-            "cpuset_cpus": cores,
+            "cpuset_cpus": cores[name],
             "image": images[name],
-            "command": f"./bin/parsecmgmt -a run -p {cores[name]} -i native -n {threads[name]}",
+            "command": f"./bin/parsecmgmt -a run -p {name} -i native -n {threads[name]}",
             "detach": True,
             "auto_remove": False
         }
         container = self.client.containers.run(**config)
-        self.logger.job_start(Job(container.name), initial_cores=cores.split(","), initial_threads=num_threads)
+        self.logger.job_start(Job(container.name), initial_cores=cores[name].split(","), initial_threads=threads[name])
         container.reload()
         return container
 
@@ -97,7 +99,27 @@ class ContainerHandler:
         container.reload()
         container.update(cpuset_cpus = cores)
 
+    def get_container_cpu_usage(self, container):
+        try:
+            percpu_usage = next(container.stats(decode=True))["cpu_stats"]
+            return percpu_usage
+        except:
+            return None
 
+    def get_memcached_pid(self):
+        for p in psutil.process_iter():
+            if "memcache" in p.name():
+                return p.pid
+                break 
+        
+        return None
+    
+    def update_memcached_cores(self, cores):
+        cmd = f"sudo taskset -a -cp {cores} {self.get_memcached_pid()}"
+        subprocess.run(cmd.split(" "), stderr=subprocess.STDOUT, stdout=subprocess.STDOUT)
+        return
+            
+    
 
 if __name__ == "__main__":
     handler = ContainerHandler()
