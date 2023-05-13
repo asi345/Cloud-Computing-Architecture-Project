@@ -19,7 +19,7 @@ threads = {
 }
 
 cores = {
-    "dedup": "0,1,2,3",
+    "dedup": "0,1,2,3,4,5,6,7",
     "blackscholes": "0,1,2,3",
     "canneal": "0,1,2,3",
     "ferret": "0,1,2,3",
