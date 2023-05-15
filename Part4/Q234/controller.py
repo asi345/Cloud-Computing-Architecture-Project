@@ -30,3 +30,10 @@ class Scheduler:
             container.reload()
             self.parsec_handler.update_cpu_shares(container, shares * self.weights[container.name] / total_weight)
         return
+
+if __name__ == "__main__":
+    scheduler = Scheduler()
+    while not scheduler.parsec_handler.is_finished():
+        time.sleep(0.1)
+    print("Finished")
+    return
