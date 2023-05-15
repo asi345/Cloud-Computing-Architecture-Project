@@ -36,4 +36,4 @@ if __name__ == "__main__":
     while not scheduler.parsec_handler.is_finished():
         time.sleep(0.1)
     print("Finished")
-    return
+    

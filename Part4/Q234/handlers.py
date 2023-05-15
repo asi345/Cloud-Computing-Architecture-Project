@@ -171,17 +171,20 @@ class DockerContainerHandler:
 
 class MemcachedHandler:
     def __init__(self, logger: SchedulerLogger):
-        self.pid = self.get_memcached_pid
+        self.pid = self.get_memcached_pid()
         self.process = psutil.Process(self.pid)
-        self.logger = SchedulerLogger
+        self.logger = logger
 
     def get_memcached_pid(self):
         """Returns the memcached process."""
-        while not subprocess.getoutput(["pidof", "memcached"]):
-            time.sleep(0.05)
+        while True:
+            for process in psutil.process_iter():
+                if "memcached" in process.name():
+                    return process.pid
+            time.sleep(0.1)
             print("Waiting for memcached to run.")
 
-        return int(subprocess.getoutput(["pidof", "memcached"]))
+        return None
 
     def update_memcached_cores(self, cores):
         cmd = f"sudo taskset -acp {cores} {self.pid}"
