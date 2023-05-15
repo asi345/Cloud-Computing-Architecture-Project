@@ -34,7 +34,7 @@ class DockerContainerHandler:
 
     def get_all_containers_resource_usage(self) -> dict:
         """Return the resource usage of all running Docker containers."""
-        output = subprocess.getoutput(['docker', 'stats', '--no-stream'])
+        output = subprocess.getoutput('docker stats --no-stream')
         result = {}
         for line in output.splitlines()[1:]:
             line = line.split()
