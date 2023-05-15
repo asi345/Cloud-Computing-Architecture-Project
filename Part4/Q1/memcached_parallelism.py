@@ -26,10 +26,6 @@ RUNS = 3
 
 MARKERS = ['o', '<', '^', 'v', 's', 'X', 'D']
 COLORS = ['darkgreen', 'tab:olive', 'darkblue', 'purple', 'red', 'darkorange', 'aqua']
-LABELS = [r'$\texttt{--interference-ibench-cpu}$', R'$\texttt{--no-interference}$',
-          r'$\texttt{--interference-ibench-l1d}$', r'$\texttt{--interference-ibench-l1i}$',
-          r'$\texttt{--interference-ibench-llc}$', r'$\texttt{--interference-ibench-membw}$',
-          r'$\texttt{--interference-ibench-l2}$']
 
 PRIORITY = [2, 7, 3, 4, 5, 6, 5]  # zorder for error bars and lines
 
@@ -63,7 +59,7 @@ def preprocess_data(file_name) -> pd.DataFrame:
     return data
 
 
-def get_data() -> dict[str, List[pd.DataFrame]]:
+def get_data(file_names, preprocess_fn, runs) -> dict[str, List[pd.DataFrame]]:
     """
     :return:
     data: list of dataframes with curated data, #RUNS dataframes for each file contigiously
@@ -72,14 +68,14 @@ def get_data() -> dict[str, List[pd.DataFrame]]:
     data = {
     }
 
-    for file_name in FILE_NAMES:
-        for run in range(RUNS):
+    for file_name in file_names:
+        for run in range(runs):
             # append the run number to the file name
             file = file_name + f"{run}.txt"
             label = f"T{file_name[26]}_C{file_name[29]}"
             if label not in data:
                 data[label] = []
-            data[label].append(preprocess_data(file))
+            data[label].append(preprocess_fn(file))
 
     return data
 
@@ -101,9 +97,10 @@ def array_to_string(arr) -> np.ndarray:
     return arr
 
 
-def get_xticks() -> Tuple[np.ndarray, np.ndarray]:
+def get_xticks(stop=None) -> Tuple[np.ndarray, np.ndarray]:
     start = 0
-    stop = 125000
+    if stop is None:
+        stop = 125000
 
     steps = np.linspace(start, stop, 11, endpoint=True)
     steps = np.round(steps, -3)
@@ -197,8 +194,8 @@ def take_subset(array, start, end):
     return array[start:end]
 
 
-def compute_metrics(s1) -> pd.DataFrame:
-    assert len(s1) == RUNS
+def compute_metrics(s1, runs) -> pd.DataFrame:
+    assert len(s1) == runs
     tail_latencies = [s['p95'].to_numpy() for s in s1]
     qps = [s['QPS'].to_numpy() for s in s1]
     # compute means
@@ -235,12 +232,12 @@ def compute_metrics(s1) -> pd.DataFrame:
     return df
 
 
-def aggregate_data(data):
+def aggregate_data(data, compute_metrics_fn, runs):
     keys = data.keys()
     aggregated_data = {}
     for key in keys:
         runs_data = data[key]
-        aggregated_data[key] = compute_metrics(runs_data)
+        aggregated_data[key] = compute_metrics_fn(runs_data, runs)
     return aggregated_data
 
 
@@ -252,8 +249,8 @@ def label_mapping(label):
 
 
 def main():
-    data = get_data()
-    aggregated_data = aggregate_data(data)
+    data = get_data(FILE_NAMES, preprocess_data, RUNS)
+    aggregated_data = aggregate_data(data, compute_metrics, RUNS)
     xticks, xticks_labels = get_xticks()
     create_plot(xticks, xticks_labels, aggregated_data, "memcached")
 
