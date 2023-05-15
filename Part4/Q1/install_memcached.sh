@@ -10,3 +10,7 @@ sleep 10
 sudo taskset -acp 0 $(pgrep memcached)
 sleep 10
 sudo systemctl status memcached
+
+sudo apt --yes --force-yes install python3-pip
+pip3 install psutil
+python3 cpu_usage.py > usage.txt &
