@@ -13,11 +13,15 @@ class Scheduler:
         self.logger = SchedulerLogger()
         self.parsec_handler = DockerContainerHandler(self.logger)
         self.memcached_handler = MemcachedHandler(self.logger)
+        self.start_jobs()
         self.weights = weights
         self.parsec_shares = 2.5
         self.memcached = 1.5
         self.set_parsec_shares(2.5)
 
+    def start_jobs(self):
+        for name in images.keys():
+            self.parsec_handler.create_container(name)
 
     def compute_next_shares(self):
         memcached_util = self.memcached_handler.get_core_usage()
@@ -36,4 +40,3 @@ if __name__ == "__main__":
     while not scheduler.parsec_handler.is_finished():
         time.sleep(0.1)
     print("Finished")
-    
