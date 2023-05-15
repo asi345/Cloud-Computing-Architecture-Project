@@ -12,11 +12,5 @@ sleep 10
 sudo systemctl status memcached
 
 sudo apt --yes --force-yes install python3-pip
-pip3 install psutil docker
-
-docker pull anakli/parsec:dedup-native-reduced
-docker pull anakli/parsec:splash2x-fft-native-reduced
-docker pull anakli/parsec:blackscholes-native-reduced
-docker pull anakli/parsec:canneal-native-reduced
-docker pull anakli/parsec:freqmine-native-reduced
-docker pull anakli/parsec:ferret-native-reduced
+pip3 install psutil
+python3 cpu_usage.py > usage.txt &
