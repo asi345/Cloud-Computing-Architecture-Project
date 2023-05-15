@@ -177,19 +177,16 @@ class MemcachedHandler:
 
     def get_memcached_pid(self):
         """Returns the memcached process."""
-        while True:
-            for process in psutil.process_iter():
-                if "memcached" in process.name():
-                    return process.pid
-            time.sleep(0.1)
+        while not subprocess.getoutput("pidof memcached"):
+            time.sleep(0.05)
             print("Waiting for memcached to run.")
 
-        return None
+        return int(subprocess.getoutput("pidof memcached"))
 
     def update_memcached_cores(self, cores):
         cmd = f"sudo taskset -acp {cores} {self.pid}"
         subprocess.run(cmd.split(" "), stderr=subprocess.STDOUT, stdout=subprocess.STDOUT)
-        logger.update_cores(Job("memcached"))
+        self.logger.update_cores(Job("memcached"))
         return
 
     def get_core_usage(self):

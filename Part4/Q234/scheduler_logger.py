@@ -30,7 +30,7 @@ class SchedulerLogger:
                               args=args).strip() + "\n")
         self.file.flush()
 
-    def job_start(self, job: Job, initial_cores: list[str], initial_threads: int) -> None:
+    def job_start(self, job: Job, initial_cores, initial_threads: int) -> None:
         assert job != Job.SCHEDULER, "You don't have to log SCHEDULER here"
 
         self._log("start", job, "["+(",".join(str(i) for i in initial_cores))+"] "+str(initial_threads))
@@ -40,7 +40,7 @@ class SchedulerLogger:
 
         self._log("end", job)
 
-    def update_cores(self, job: Job, cores: list[str]) -> None:
+    def update_cores(self, job: Job, cores) -> None:
         assert job != Job.SCHEDULER, "You don't have to log SCHEDULER here"
 
         self._log("update_cores", job, "["+(",".join(str(i) for i in cores))+"]")
