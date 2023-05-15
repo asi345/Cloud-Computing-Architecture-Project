@@ -11,13 +11,6 @@ sudo taskset -acp 0 $(pgrep memcached)
 sleep 10
 sudo systemctl status memcached
 
-sudo apt --yes install python3-pip
-pip3 install psutil docker
-
-docker pull anakli/cca:parsec_blackscholes
-docker pull anakli/cca:parsec_canneal
-docker pull anakli/cca:parsec_dedup
-docker pull anakli/cca:parsec_ferret
-docker pull anakli/cca:parsec_freqmine
-docker pull anakli/cca:splash2x_radix
-docker pull anakli/cca:parsec_vips
+sudo apt --yes --force-yes install python3-pip
+pip3 install psutil
+python3 cpu_usage.py > usage.txt &

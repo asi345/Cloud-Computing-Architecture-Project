@@ -28,6 +28,7 @@ class SchedulerLogger:
         self.file.write(
             LOG_STRING.format(timestamp=datetime.now().isoformat(), event=event, job_name=job_name.value,
                               args=args).strip() + "\n")
+        self.file.flush()
 
     def job_start(self, job: Job, initial_cores: list[str], initial_threads: int) -> None:
         assert job != Job.SCHEDULER, "You don't have to log SCHEDULER here"

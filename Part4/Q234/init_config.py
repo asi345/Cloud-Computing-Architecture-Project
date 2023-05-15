@@ -9,17 +9,17 @@ images = {
 }
 
 threads = {
-    "dedup": 2,
+    "dedup": 1,
     "blackscholes": 2,
     "canneal": 2,
-    "ferret": 2,
-    "freqmine": 2,
-    "radix": 2,
-    "vips": 2
+    "ferret": 4,
+    "freqmine": 4,
+    "radix": 4,
+    "vips": 4,
 }
 
 cores = {
-    "dedup": "0,1,2,3,4,5,6,7",
+    "dedup": "0,1,2,3",
     "blackscholes": "0,1,2,3",
     "canneal": "0,1,2,3",
     "ferret": "0,1,2,3",
@@ -27,3 +27,15 @@ cores = {
     "radix": "0,1,2,3",
     "vips": "0,1,2,3"
 }
+
+weights = {
+    "dedup": 10,
+    "blackscholes": 10,
+    "canneal": 10,
+    "ferret": 10,
+    "freqmine": 10,
+    "radix": 10,
+    "vips": 10
+}
+
+MAX_MEMORY = 7.636
