@@ -4,13 +4,13 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Thu May 11 19:36:41 UTC 2023
+  System information as of Mon May 15 18:33:05 UTC 2023
 
-  System load:  0.01               Users logged in:        0
-  Usage of /:   3.2% of 123.88GB   IP address for ens4:    10.0.16.3
+  System load:  0.84               Users logged in:        0
+  Usage of /:   3.2% of 123.88GB   IP address for ens4:    10.0.16.5
   Memory usage: 1%                 IP address for docker0: 172.17.0.1
   Swap usage:   0%                 IP address for cbr0:    100.96.1.1
-  Processes:    243
+  Processes:    250
 
 
 216 packages can be updated.
@@ -28,58 +28,84 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Thu May 11 19:36:44 UTC 2023
+  System information as of Mon May 15 18:33:08 UTC 2023
 
-  System load:  0.04               Users logged in:        0
-  Usage of /:   3.0% of 123.88GB   IP address for ens4:    10.0.16.4
-  Memory usage: 1%                 IP address for docker0: 172.17.0.1
-  Swap usage:   0%                 IP address for cbr0:    100.96.3.1
-  Processes:    143
+  System load:  0.1                Processes:              143
+  Usage of /:   3.1% of 123.88GB   Users logged in:        0
+  Memory usage: 1%                 IP address for ens4:    10.0.16.2
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
 
 
-218 packages can be updated.
-176 of these updates are security updates.
+210 packages can be updated.
+168 of these updates are security updates.
 To see these additional updates run: apt list --upgradable
 
 New release '20.04.6 LTS' available.
 Run 'do-release-upgrade' to upgrade to it.
 
 
-pid 19971's current affinity list: 0-3
-pid 19971's new affinity list: 1
-pid 19989's current affinity list: 0-3
-pid 19989's new affinity list: 1
-pid 19990's current affinity list: 0-3
-pid 19990's new affinity list: 1
-pid 19992's current affinity list: 0-3
-pid 19992's new affinity list: 1
-pid 19993's current affinity list: 0-3
-pid 19993's new affinity list: 1
-pid 19996's current affinity list: 0-3
-pid 19996's new affinity list: 1
-pid 19997's current affinity list: 0-3
-pid 19997's new affinity list: 1
+*** System restart required ***
+pid 19548's current affinity list: 0-3
+pid 19548's new affinity list: 0,1
+pid 19563's current affinity list: 0-3
+pid 19563's new affinity list: 0,1
+pid 19565's current affinity list: 0-3
+pid 19565's new affinity list: 0,1
+pid 19566's current affinity list: 0-3
+pid 19566's new affinity list: 0,1
+pid 19569's current affinity list: 0-3
+pid 19569's new affinity list: 0,1
+pid 19570's current affinity list: 0-3
+pid 19570's new affinity list: 0,1
+pid 19572's current affinity list: 0-3
+pid 19572's new affinity list: 0,1
+pid 19573's current affinity list: 0-3
+pid 19573's new affinity list: 0,1
 ● memcached.service - memcached daemon
    Loaded: loaded (/lib/systemd/system/memcached.service; enabled; vendor preset: enabled)
-   Active: active (running) since Thu 2023-05-11 19:36:44 UTC; 20s ago
+   Active: active (running) since Mon 2023-05-15 18:33:08 UTC; 20s ago
      Docs: man:memcached(1)
- Main PID: 19971 (memcached)
-    Tasks: 7 (limit: 4915)
+ Main PID: 19548 (memcached)
+    Tasks: 8 (limit: 4915)
    CGroup: /system.slice/memcached.service
-           └─19971 /usr/bin/memcached -m 1024 -p 11211 -t 1 -u memcache -l 10.0.16.4 -P /var/run/memcached/memcached.pid
+           └─19548 /usr/bin/memcached -m 1024 -p 11211 -t 2 -u memcache -l 10.0.16.2 -P /var/run/memcached/memcached.pid
 
-May 11 19:36:44 memcache-server-ft9g systemd[1]: Started memcached daemon.
+May 15 18:33:08 memcache-server-dtf7 systemd[1]: Started memcached daemon.
 Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
 
  * Documentation:  https://help.ubuntu.com
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Thu May 11 19:37:07 UTC 2023
+  System information as of Mon May 15 18:33:31 UTC 2023
 
-  System load:  0.0                Processes:              127
+  System load:  0.55               Users logged in:        0
+  Usage of /:   3.2% of 123.88GB   IP address for ens4:    10.0.16.5
+  Memory usage: 1%                 IP address for docker0: 172.17.0.1
+  Swap usage:   0%                 IP address for cbr0:    100.96.1.1
+  Processes:    247
+
+
+216 packages can be updated.
+174 of these updates are security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.6 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Mon May 15 18:33:31 UTC 2023
+
+  System load:  0.54               Processes:              124
   Usage of /:   3.1% of 123.88GB   Users logged in:        0
-  Memory usage: 8%                 IP address for ens4:    10.0.16.2
+  Memory usage: 5%                 IP address for ens4:    10.0.16.3
   Swap usage:   0%                 IP address for docker0: 172.17.0.1
 
 
@@ -92,30 +118,78 @@ Run 'do-release-upgrade' to upgrade to it.
 
 
 *** System restart required ***
-Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
-
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-  System information as of Thu May 11 19:37:07 UTC 2023
-
-  System load:  0.06               Users logged in:        0
-  Usage of /:   3.2% of 123.88GB   IP address for ens4:    10.0.16.3
-  Memory usage: 1%                 IP address for docker0: 172.17.0.1
-  Swap usage:   0%                 IP address for cbr0:    100.96.1.1
-  Processes:    244
-
-
-216 packages can be updated.
-174 of these updates are security updates.
-To see these additional updates run: apt list --upgradable
-
-New release '20.04.6 LTS' available.
-Run 'do-release-upgrade' to upgrade to it.
-
-
-*** System restart required ***
-Local QPS = 3938.2 (19691 / 5.0s) - 19691.0, 0.0
+Local QPS = 3929.0 (19645 / 5.0s) - 19645.0, 0.0
 #type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
-read      402.9   135.5   187.4   267.6   298.4   393.8   429.7   451.0   465.8   485.9   509.5   550.1   674.4  1225.7  6995.3   3938.2
+read      350.2   150.3   173.5   246.5   269.2   339.0   367.0   382.5   393.6   404.7   425.6   462.0   581.9  2859.1  8150.7   3929.0
+Local QPS = 9007.0 (45035 / 5.0s) - 45035.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      378.2   124.9   173.5   236.1   257.3   375.3   416.2   435.6   451.2   467.3   493.3   535.8   640.8   853.9  3296.4   9007.0
+Local QPS = 14059.4 (70297 / 5.0s) - 70297.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      393.6   134.0   173.5   229.2   248.2   384.1   442.3   469.0   490.2   513.5   544.9   589.4   714.4  1138.1  3171.4  14059.4
+Local QPS = 18986.0 (94930 / 5.0s) - 94930.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      389.4   154.1   160.7   224.4   241.1   370.1   440.4   474.7   499.9   526.9   557.3   601.7   704.5  1159.3  3921.0  18986.0
+Local QPS = 23968.0 (119840 / 5.0s) - 119840.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      392.2   165.3   160.7   222.5   239.4   367.0   439.8   479.5   509.4   540.9   575.4   622.4   736.4  1106.9  5541.7  23968.0
+Local QPS = 28919.8 (144599 / 5.0s) - 144599.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      397.6   163.7   160.7   222.3   239.9   371.9   440.6   483.2   516.3   550.7   587.1   634.9   762.1  1458.8  3688.0  28919.8
+Local QPS = 34149.6 (170748 / 5.0s) - 170748.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      391.8   162.1   160.7   221.3   237.2   361.5   429.9   471.9   509.3   548.6   589.1   639.9   774.0  1588.8  3839.8  34149.6
+Local QPS = 39112.2 (195561 / 5.0s) - 195561.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      390.3   155.1   160.7   219.5   235.2   364.1   430.3   469.6   503.5   543.2   584.9   638.0   761.3  1286.3  3915.2  39112.2
+Local QPS = 44080.0 (220400 / 5.0s) - 220400.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      385.5   169.7   160.7   217.9   233.1   358.8   424.5   464.2   495.9   534.2   577.6   631.4   769.1  1156.1  3557.8  44080.0
+Local QPS = 48922.6 (244613 / 5.0s) - 244613.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      381.0   161.9   160.7   217.2   232.0   353.0   415.9   455.4   487.6   528.0   574.0   632.0   762.9  1326.0  4037.1  48922.6
+Local QPS = 54098.6 (270493 / 5.0s) - 270493.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      373.2   149.0   160.7   215.7   229.4   342.7   406.8   446.5   476.9   517.9   564.5   623.8   763.4  1325.0  3949.5  54098.6
+Local QPS = 58873.4 (294367 / 5.0s) - 294367.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      364.4   157.2   160.7   212.3   225.9   327.9   392.9   433.7   466.9   510.7   561.5   627.0   770.8  1244.8  3256.4  58873.4
+Local QPS = 63713.8 (318570 / 5.0s) - 318570.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      353.7   147.4   160.7   211.8   224.8   318.1   377.5   415.6   446.6   488.4   539.8   603.2   736.9  1381.7  3225.3  63713.8
+Local QPS = 69053.4 (345267 / 5.0s) - 345267.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      351.0   149.2   160.7   212.2   225.2   316.8   373.3   409.2   437.0   477.1   530.9   596.7   733.2  1433.1  3111.2  69053.4
+Local QPS = 74219.8 (371099 / 5.0s) - 371099.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      344.2   166.6   160.7   210.4   223.2   309.5   363.8   399.1   428.2   466.9   521.7   590.4   715.8  1309.5  4739.5  74219.8
+Local QPS = 79076.4 (395382 / 5.0s) - 395382.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      345.7   155.7   160.7   211.6   224.1   311.8   367.0   400.9   428.9   465.4   518.5   589.0   736.5  1328.9  4133.3  79076.4
+Local QPS = 83888.4 (419442 / 5.0s) - 419442.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      349.1   145.6   160.7   211.8   224.8   316.4   372.7   406.4   433.7   470.0   521.8   592.7   739.2  1262.7  4539.4  83888.4
+Local QPS = 88791.6 (443958 / 5.0s) - 443958.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      343.4   163.6   160.7   211.7   224.5   312.3   364.4   396.5   422.6   457.1   505.3   577.7   725.0  1156.6  4458.4  88791.6
+Local QPS = 93844.0 (469220 / 5.0s) - 469220.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      336.2   145.8   160.7   210.8   223.4   306.5   356.0   386.6   410.3   442.9   491.5   564.6   708.3  1109.0  3155.5  93844.0
+Local QPS = 98960.0 (494800 / 5.0s) - 494800.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      343.6   138.2   160.7   214.4   227.1   314.8   365.6   395.9   419.9   451.5   497.9   568.7   715.0  1260.1  3390.4  98960.0
+Local QPS = 103842.8 (519214 / 5.0s) - 519214.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      333.2   132.0   148.8   212.2   224.8   307.4   354.4   382.7   403.8   432.4   473.9   542.1   681.3  1059.9  3532.2 103842.8
+Local QPS = 108762.8 (543814 / 5.0s) - 543814.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      341.0   134.0   160.7   214.9   228.1   317.3   364.3   391.7   412.7   440.2   482.4   546.8   693.6  1088.8  3294.5 108762.8
+Local QPS = 113886.0 (569430 / 5.0s) - 569430.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      332.6   128.0   160.7   214.5   227.0   309.0   352.5   378.4   398.6   425.1   463.5   528.8   678.5  1269.5  3815.7 113886.0
+Local QPS = 118961.0 (594805 / 5.0s) - 594805.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      340.9   167.1   148.8   219.2   232.0   317.5   361.6   387.8   407.2   433.5   471.1   536.5   688.4  1113.6  5024.3 118961.0
+Local QPS = 123794.6 (618973 / 5.0s) - 618973.0, 0.0
+#type       avg     std     min      p5     p10     p50     p67     p75     p80     p85     p90     p95     p99    p999   p9999 QPS
+read      350.1   141.4   160.7   221.4   235.9   327.9   373.6   400.6   422.4   449.7   488.6   548.5   694.9  1237.4  4019.6 123794.6
