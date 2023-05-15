@@ -5,7 +5,7 @@ Launching parsec.dedup...
 [PARSEC] Setting up run directory.
 [PARSEC] Unpacking benchmark input 'native'.
 FC-6-x86_64-disc1.iso
-[PARSEC] Running 'time /parsec/pkgs/kernels/dedup/inst/amd64-linux.gcc/bin/dedup -c -p -v -t 2 -i FC-6-x86_64-disc1.iso -o output.dat.ddp':
+[PARSEC] Running 'time /parsec/pkgs/kernels/dedup/inst/amd64-linux.gcc/bin/dedup -c -p -v -t 1 -i FC-6-x86_64-disc1.iso -o output.dat.ddp':
 [PARSEC] [---------- Beginning of output ----------]
 PARSEC Benchmark Suite Version 3.0-beta-20150206
 Total input size:                      671.58 MB
@@ -18,9 +18,9 @@ Data size after deduplication:         658.95 MB (compression factor: 1.02x)
 Data size after compression:           630.26 MB (compression factor: 1.05x)
 Output overhead:                         1.10%
 
-real	0m52.774s
-user	0m36.975s
-sys	0m5.692s
+real	1m12.031s
+user	0m39.844s
+sys	0m5.188s
 [PARSEC] [----------    End of output    ----------]
 [PARSEC]
 [PARSEC] BIBLIOGRAPHY

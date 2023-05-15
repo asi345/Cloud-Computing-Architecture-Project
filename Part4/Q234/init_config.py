@@ -28,4 +28,14 @@ cores = {
     "vips": "0,1,2,3"
 }
 
+weights = {
+    "dedup": 10,
+    "blackscholes": 10,
+    "canneal": 10,
+    "ferret": 10,
+    "freqmine": 10,
+    "radix": 10,
+    "vips": 10
+}
+
 MAX_MEMORY = 7.636

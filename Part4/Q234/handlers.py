@@ -173,6 +173,7 @@ class MemcachedHandler:
     def __init__(self, logger: SchedulerLogger):
         self.pid = self.get_memcached_pid
         self.process = psutil.Process(self.pid)
+        self.logger = SchedulerLogger
 
     def get_memcached_pid(self):
         """Returns the memcached process."""
@@ -185,6 +186,7 @@ class MemcachedHandler:
     def update_memcached_cores(self, cores):
         cmd = f"sudo taskset -acp {cores} {self.pid}"
         subprocess.run(cmd.split(" "), stderr=subprocess.STDOUT, stdout=subprocess.STDOUT)
+        logger.update_cores(Job("memcached"))
         return
 
     def get_core_usage(self):
