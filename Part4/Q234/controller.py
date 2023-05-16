@@ -38,5 +38,6 @@ class Scheduler:
 if __name__ == "__main__":
     scheduler = Scheduler()
     while not scheduler.parsec_handler.is_finished():
+        scheduler.set_parsec_shares(2.5)
         time.sleep(0.1)
     print("Finished")
