@@ -39,14 +39,14 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	False
+master-europe-west3-a-j6lt	control-plane	False
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Node	master-europe-west3-a-lv6l													node "master-europe-west3-a-lv6l" of role "control-plane" is not ready
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Node	master-europe-west3-a-j6lt													node "master-europe-west3-a-j6lt" of role "control-plane" is not ready
 
 Validation Failed
 INSTANCE GROUPS
@@ -58,14 +58,14 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	False
+master-europe-west3-a-j6lt	control-plane	False
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Node	master-europe-west3-a-lv6l													node "master-europe-west3-a-lv6l" of role "control-plane" is not ready
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Node	master-europe-west3-a-j6lt													node "master-europe-west3-a-j6lt" of role "control-plane" is not ready
 
 Validation Failed
 INSTANCE GROUPS
@@ -77,14 +77,14 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	False
+master-europe-west3-a-j6lt	control-plane	False
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Node	master-europe-west3-a-lv6l													node "master-europe-west3-a-lv6l" of role "control-plane" is not ready
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Node	master-europe-west3-a-j6lt													node "master-europe-west3-a-j6lt" of role "control-plane" is not ready
 
 Validation Failed
 INSTANCE GROUPS
@@ -96,18 +96,19 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	True
+master-europe-west3-a-j6lt	control-plane	True
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Node	master-europe-west3-a-lv6l													node "master-europe-west3-a-lv6l" of role "control-plane" is not ready
-Pod	kube-system/coredns-5d479c4f64-xlg6j												system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
-Pod	kube-system/dns-controller-776bc7555-bjjld											system-cluster-critical pod "dns-controller-776bc7555-bjjld" is pending
-Pod	kube-system/kops-controller-bg6bz												system-cluster-critical pod "kops-controller-bg6bz" is pending
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Node	master-europe-west3-a-j6lt													node "master-europe-west3-a-j6lt" of role "control-plane" is not ready
+Pod	kube-system/coredns-5bd5f764db-6965x												system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp											system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
+Pod	kube-system/dns-controller-69b6bd6dd5-x5fhx											system-cluster-critical pod "dns-controller-69b6bd6dd5-x5fhx" is pending
+Pod	kube-system/etcd-manager-events-master-europe-west3-a-j6lt									system-cluster-critical pod "etcd-manager-events-master-europe-west3-a-j6lt" is pending
+Pod	kube-system/kops-controller-jzxzd												system-cluster-critical pod "kops-controller-jzxzd" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -119,18 +120,20 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	True
+master-europe-west3-a-j6lt	control-plane	True
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Node	master-europe-west3-a-lv6l													control-plane node "master-europe-west3-a-lv6l" is missing kube-apiserver pod
-Pod	kube-system/coredns-5d479c4f64-xlg6j												system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
-Pod	kube-system/dns-controller-776bc7555-bjjld											system-cluster-critical pod "dns-controller-776bc7555-bjjld" is pending
-Pod	kube-system/kops-controller-bg6bz												system-cluster-critical pod "kops-controller-bg6bz" is pending
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Node	master-europe-west3-a-j6lt													node "master-europe-west3-a-j6lt" of role "control-plane" is not ready
+Pod	kube-system/coredns-5bd5f764db-6965x												system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp											system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
+Pod	kube-system/dns-controller-69b6bd6dd5-x5fhx											system-cluster-critical pod "dns-controller-69b6bd6dd5-x5fhx" is pending
+Pod	kube-system/kube-apiserver-master-europe-west3-a-j6lt										system-cluster-critical pod "kube-apiserver-master-europe-west3-a-j6lt" is pending
+Pod	kube-system/kube-proxy-master-europe-west3-a-j6lt										system-node-critical pod "kube-proxy-master-europe-west3-a-j6lt" is pending
+Pod	kube-system/metadata-proxy-v0.12-cs5l2												system-node-critical pod "metadata-proxy-v0.12-cs5l2" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -142,18 +145,16 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	True
+master-europe-west3-a-j6lt	control-plane	True
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Node	master-europe-west3-a-lv6l													control-plane node "master-europe-west3-a-lv6l" is missing kube-apiserver pod
-Pod	kube-system/coredns-5d479c4f64-xlg6j												system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
-Pod	kube-system/kube-apiserver-master-europe-west3-a-lv6l										system-cluster-critical pod "kube-apiserver-master-europe-west3-a-lv6l" is pending
-Pod	kube-system/metadata-proxy-v0.12-jppzd												system-node-critical pod "metadata-proxy-v0.12-jppzd" is pending
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Node	master-europe-west3-a-j6lt													control-plane node "master-europe-west3-a-j6lt" is missing kube-controller-manager pod
+Pod	kube-system/coredns-5bd5f764db-6965x												system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp											system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -165,15 +166,16 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	True
+master-europe-west3-a-j6lt	control-plane	True
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Pod	kube-system/coredns-5d479c4f64-xlg6j												system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Node	master-europe-west3-a-j6lt													control-plane node "master-europe-west3-a-j6lt" is missing kube-controller-manager pod
+Pod	kube-system/coredns-5bd5f764db-6965x												system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp											system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -185,15 +187,16 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	True
+master-europe-west3-a-j6lt	control-plane	True
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Pod	kube-system/coredns-5d479c4f64-xlg6j												system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Node	master-europe-west3-a-j6lt													control-plane node "master-europe-west3-a-j6lt" is missing kube-controller-manager pod
+Pod	kube-system/coredns-5bd5f764db-6965x												system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp											system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -205,15 +208,16 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	True
+master-europe-west3-a-j6lt	control-plane	True
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Pod	kube-system/coredns-5d479c4f64-xlg6j												system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Node	master-europe-west3-a-j6lt													control-plane node "master-europe-west3-a-j6lt" is missing kube-controller-manager pod
+Pod	kube-system/coredns-5bd5f764db-6965x												system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp											system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -225,15 +229,16 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	True
+master-europe-west3-a-j6lt	control-plane	True
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Pod	kube-system/coredns-5d479c4f64-xlg6j												system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Node	master-europe-west3-a-j6lt													control-plane node "master-europe-west3-a-j6lt" is missing kube-controller-manager pod
+Pod	kube-system/coredns-5bd5f764db-6965x												system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp											system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -245,15 +250,15 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	True
+master-europe-west3-a-j6lt	control-plane	True
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Pod	kube-system/coredns-5d479c4f64-xlg6j												system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Pod	kube-system/coredns-5bd5f764db-6965x												system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp											system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -265,15 +270,15 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	True
+master-europe-west3-a-j6lt	control-plane	True
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Pod	kube-system/coredns-5d479c4f64-xlg6j												system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Pod	kube-system/coredns-5bd5f764db-6965x												system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp											system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -285,15 +290,15 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	True
+master-europe-west3-a-j6lt	control-plane	True
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Pod	kube-system/coredns-5d479c4f64-xlg6j												system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Pod	kube-system/coredns-5bd5f764db-6965x												system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp											system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -305,15 +310,15 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	True
+master-europe-west3-a-j6lt	control-plane	True
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Pod	kube-system/coredns-5d479c4f64-xlg6j												system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Pod	kube-system/coredns-5bd5f764db-6965x												system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp											system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -325,15 +330,15 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-master-europe-west3-a-lv6l	control-plane	True
+master-europe-west3-a-j6lt	control-plane	True
 
 VALIDATION ERRORS
 KIND	NAME																MESSAGE
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-lgc6" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-4nnd" has not yet joined cluster
-Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-vxnh" has not yet joined cluster
-Pod	kube-system/coredns-5d479c4f64-xlg6j												system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv											system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-agent-hs67" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5		machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/memcache-server-hrkm" has not yet joined cluster
+Pod	kube-system/coredns-5bd5f764db-6965x												system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp											system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -345,21 +350,44 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-client-agent-lgc6		node		False
-client-measure-4nnd		node		False
-master-europe-west3-a-lv6l	control-plane	True
-memcache-server-vxnh		node		False
+client-agent-hs67		node		False
+master-europe-west3-a-j6lt	control-plane	True
+memcache-server-hrkm		node		False
+
+VALIDATION ERRORS
+KIND	NAME															MESSAGE
+Machine	https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5	machine "https://www.googleapis.com/compute/v1/projects/cca-eth-2023-group-13/zones/europe-west3-a/instances/client-measure-s2h5" has not yet joined cluster
+Node	client-agent-hs67													node "client-agent-hs67" of role "node" is not ready
+Node	memcache-server-hrkm													node "memcache-server-hrkm" of role "node" is not ready
+Pod	kube-system/coredns-5bd5f764db-6965x											system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp										system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
+Pod	kube-system/metadata-proxy-v0.12-2sxbb											system-node-critical pod "metadata-proxy-v0.12-2sxbb" is pending
+Pod	kube-system/metadata-proxy-v0.12-mvhg8											system-node-critical pod "metadata-proxy-v0.12-mvhg8" is pending
+
+Validation Failed
+INSTANCE GROUPS
+NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
+client-agent		Node		e2-standard-16	1	1	europe-west3
+client-measure		Node		e2-standard-2	1	1	europe-west3
+master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
+memcache-server		Node		n2d-highmem-4	1	1	europe-west3
+
+NODE STATUS
+NAME				ROLE		READY
+client-agent-hs67		node		False
+client-measure-s2h5		node		False
+master-europe-west3-a-j6lt	control-plane	True
+memcache-server-hrkm		node		True
 
 VALIDATION ERRORS
 KIND	NAME						MESSAGE
-Node	client-agent-lgc6				node "client-agent-lgc6" of role "node" is not ready
-Node	client-measure-4nnd				node "client-measure-4nnd" of role "node" is not ready
-Node	memcache-server-vxnh				node "memcache-server-vxnh" of role "node" is not ready
-Pod	kube-system/coredns-5d479c4f64-xlg6j		system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv	system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
-Pod	kube-system/metadata-proxy-v0.12-dc28v		system-node-critical pod "metadata-proxy-v0.12-dc28v" is pending
-Pod	kube-system/metadata-proxy-v0.12-lrxl8		system-node-critical pod "metadata-proxy-v0.12-lrxl8" is pending
-Pod	kube-system/metadata-proxy-v0.12-tskvh		system-node-critical pod "metadata-proxy-v0.12-tskvh" is pending
+Node	client-agent-hs67				node "client-agent-hs67" of role "node" is not ready
+Node	client-measure-s2h5				node "client-measure-s2h5" of role "node" is not ready
+Node	memcache-server-hrkm				node "memcache-server-hrkm" of role "node" is not ready
+Pod	kube-system/coredns-5bd5f764db-6965x		system-cluster-critical pod "coredns-5bd5f764db-6965x" is pending
+Pod	kube-system/coredns-autoscaler-85bb5dddb-r9jpp	system-cluster-critical pod "coredns-autoscaler-85bb5dddb-r9jpp" is pending
+Pod	kube-system/metadata-proxy-v0.12-mvhg8		system-node-critical pod "metadata-proxy-v0.12-mvhg8" is pending
+Pod	kube-system/metadata-proxy-v0.12-qmsrm		system-node-critical pod "metadata-proxy-v0.12-qmsrm" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -371,18 +399,15 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-client-agent-lgc6		node		True
-client-measure-4nnd		node		True
-master-europe-west3-a-lv6l	control-plane	True
-memcache-server-vxnh		node		True
+client-agent-hs67		node		True
+client-measure-s2h5		node		True
+master-europe-west3-a-j6lt	control-plane	True
+memcache-server-hrkm		node		True
 
 VALIDATION ERRORS
-KIND	NAME						MESSAGE
-Pod	kube-system/coredns-5d479c4f64-xlg6j		system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv	system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
-Pod	kube-system/metadata-proxy-v0.12-dc28v		system-node-critical pod "metadata-proxy-v0.12-dc28v" is pending
-Pod	kube-system/metadata-proxy-v0.12-lrxl8		system-node-critical pod "metadata-proxy-v0.12-lrxl8" is pending
-Pod	kube-system/metadata-proxy-v0.12-tskvh		system-node-critical pod "metadata-proxy-v0.12-tskvh" is pending
+KIND	NAME					MESSAGE
+Pod	kube-system/metadata-proxy-v0.12-mvhg8	system-node-critical pod "metadata-proxy-v0.12-mvhg8" is pending
+Pod	kube-system/metadata-proxy-v0.12-qmsrm	system-node-critical pod "metadata-proxy-v0.12-qmsrm" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -394,16 +419,14 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-client-agent-lgc6		node		True
-client-measure-4nnd		node		True
-master-europe-west3-a-lv6l	control-plane	True
-memcache-server-vxnh		node		True
+client-agent-hs67		node		True
+client-measure-s2h5		node		True
+master-europe-west3-a-j6lt	control-plane	True
+memcache-server-hrkm		node		True
 
 VALIDATION ERRORS
-KIND	NAME						MESSAGE
-Pod	kube-system/coredns-5d479c4f64-xlg6j		system-cluster-critical pod "coredns-5d479c4f64-xlg6j" is pending
-Pod	kube-system/coredns-autoscaler-557ccb4c66-tvlwv	system-cluster-critical pod "coredns-autoscaler-557ccb4c66-tvlwv" is pending
-Pod	kube-system/metadata-proxy-v0.12-tskvh		system-node-critical pod "metadata-proxy-v0.12-tskvh" is pending
+KIND	NAME					MESSAGE
+Pod	kube-system/metadata-proxy-v0.12-qmsrm	system-node-critical pod "metadata-proxy-v0.12-qmsrm" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -415,15 +438,14 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-client-agent-lgc6		node		True
-client-measure-4nnd		node		True
-master-europe-west3-a-lv6l	control-plane	True
-memcache-server-vxnh		node		True
+client-agent-hs67		node		True
+client-measure-s2h5		node		True
+master-europe-west3-a-j6lt	control-plane	True
+memcache-server-hrkm		node		True
 
 VALIDATION ERRORS
-KIND	NAME						MESSAGE
-Pod	kube-system/kube-proxy-memcache-server-vxnh	system-node-critical pod "kube-proxy-memcache-server-vxnh" is pending
-Pod	kube-system/metadata-proxy-v0.12-tskvh		system-node-critical pod "metadata-proxy-v0.12-tskvh" is pending
+KIND	NAME					MESSAGE
+Pod	kube-system/metadata-proxy-v0.12-qmsrm	system-node-critical pod "metadata-proxy-v0.12-qmsrm" is pending
 
 Validation Failed
 INSTANCE GROUPS
@@ -435,29 +457,10 @@ memcache-server		Node		n2d-highmem-4	1	1	europe-west3
 
 NODE STATUS
 NAME				ROLE		READY
-client-agent-lgc6		node		True
-client-measure-4nnd		node		True
-master-europe-west3-a-lv6l	control-plane	True
-memcache-server-vxnh		node		True
-
-VALIDATION ERRORS
-KIND	NAME						MESSAGE
-Pod	kube-system/kube-proxy-client-measure-4nnd	system-node-critical pod "kube-proxy-client-measure-4nnd" is pending
-
-Validation Failed
-INSTANCE GROUPS
-NAME			ROLE		MACHINETYPE	MIN	MAX	SUBNETS
-client-agent		Node		e2-standard-16	1	1	europe-west3
-client-measure		Node		e2-standard-2	1	1	europe-west3
-master-europe-west3-a	ControlPlane	e2-standard-2	1	1	europe-west3
-memcache-server		Node		n2d-highmem-4	1	1	europe-west3
-
-NODE STATUS
-NAME				ROLE		READY
-client-agent-lgc6		node		True
-client-measure-4nnd		node		True
-master-europe-west3-a-lv6l	control-plane	True
-memcache-server-vxnh		node		True
+client-agent-hs67		node		True
+client-measure-s2h5		node		True
+master-europe-west3-a-j6lt	control-plane	True
+memcache-server-hrkm		node		True
 
 Your cluster part4.k8s.local is ready
 Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
@@ -466,11 +469,11 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Mon May 15 21:22:52 UTC 2023
+  System information as of Tue May 16 19:55:56 UTC 2023
 
-  System load:  0.46               Processes:              136
+  System load:  0.75               Processes:              135
   Usage of /:   2.9% of 123.88GB   Users logged in:        0
-  Memory usage: 5%                 IP address for ens4:    10.0.16.2
+  Memory usage: 5%                 IP address for ens4:    10.0.16.5
   Swap usage:   0%                 IP address for docker0: 172.17.0.1
 
 
@@ -483,8 +486,8 @@ Run 'do-release-upgrade' to upgrade to it.
 
 
 Hit:1 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic InRelease
-Hit:2 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates InRelease
-Hit:3 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:2 http://security.ubuntu.com/ubuntu bionic-security InRelease
+Hit:3 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates InRelease
 Hit:4 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-backports InRelease
 Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
 
@@ -492,13 +495,12 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Mon May 15 21:22:52 UTC 2023
+  System information as of Tue May 16 19:55:56 UTC 2023
 
-  System load:  0.34               Users logged in:        0
-  Usage of /:   3.0% of 123.88GB   IP address for ens4:    10.0.16.4
-  Memory usage: 1%                 IP address for docker0: 172.17.0.1
-  Swap usage:   0%                 IP address for cbr0:    100.96.1.1
-  Processes:    318
+  System load:  0.2                Processes:              293
+  Usage of /:   2.9% of 123.88GB   Users logged in:        0
+  Memory usage: 1%                 IP address for ens4:    10.0.16.2
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
 
 218 packages can be updated.
 176 of these updates are security updates.
@@ -519,8 +521,8 @@ Hit:3 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-backports InRelea
 Hit:4 http://security.ubuntu.com/ubuntu bionic-security InRelease
 Reading package lists...Reading package lists...
 Reading package lists...
-
-Building dependency tree...Reading package lists...
+Building dependency tree...
+Reading package lists...
 Building dependency tree...
 Reading state information...
 
@@ -558,6 +560,27 @@ The following packages will be upgraded:
 Need to get 50.3 MB of archives.
 After this operation, 167 MB of additional disk space will be used.
 Get:1 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6 amd64 2.27-3ubuntu1.6 [2831 kB]
+Get:2 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-common amd64 2.30-21ubuntu1~18.04.8 [197 kB]
+Get:3 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libbinutils amd64 2.30-21ubuntu1~18.04.8 [488 kB]
+Get:4 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-21ubuntu1~18.04.8 [1839 kB]
+Get:5 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils amd64 2.30-21ubuntu1~18.04.8 [3388 B]
+Get:6 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7-base amd64 7.5.0-3ubuntu1~18.04 [18.3 kB]
+Get:7 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libisl19 amd64 0.19-1 [551 kB]
+Get:8 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libmpc3 amd64 1.1.0-1 [40.8 kB]
+Get:9 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp-7 amd64 7.5.0-3ubuntu1~18.04 [8591 kB]
+Get:10 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp amd64 4:7.4.0-1ubuntu2.3 [27.7 kB]
+Get:11 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcc1-0 amd64 8.4.0-1ubuntu1~18.04 [39.4 kB]
+Get:12 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgomp1 amd64 8.4.0-1ubuntu1~18.04 [76.5 kB]
+Get:13 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libitm1 amd64 8.4.0-1ubuntu1~18.04 [27.9 kB]
+Get:14 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libatomic1 amd64 8.4.0-1ubuntu1~18.04 [9192 B]
+Get:15 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libasan4 amd64 7.5.0-3ubuntu1~18.04 [358 kB]
+Get:16 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 liblsan0 amd64 8.4.0-1ubuntu1~18.04 [133 kB]
+Get:17 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libtsan0 amd64 8.4.0-1ubuntu1~18.04 [288 kB]
+Get:18 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libubsan0 amd64 7.5.0-3ubuntu1~18.04 [126 kB]
+Get:19 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcilkrts5 amd64 7.5.0-3ubuntu1~18.04 [42.5 kB]
+Get:20 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmpx2 amd64 8.4.0-1ubuntu1~18.04 [11.6 kB]
+Get:21 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libquadmath0 amd64 8.4.0-1ubuntu1~18.04 [134 kB]
+Get:22 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgcc-7-dev amd64 7.5.0-3ubuntu1~18.04 [2378 kB]
 The following package was automatically installed and is no longer required:
   libnuma1
 Use 'sudo apt autoremove' to remove it.
@@ -577,10 +600,7 @@ Suggested packages:
   libmpx2-dbg libquadmath0-dbg git-daemon-run | git-daemon-sysvinit git-doc
   git-el git-email git-gui gitk gitweb git-cvs git-mediawiki git-svn glibc-doc
   libstdc++-7-doc make-doc
-Get:2 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-common amd64 2.30-21ubuntu1~18.04.8 [197 kB]
-Get:3 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libbinutils amd64 2.30-21ubuntu1~18.04.8 [488 kB]
-Get:4 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-21ubuntu1~18.04.8 [1839 kB]
-Get:5 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils amd64 2.30-21ubuntu1~18.04.8 [3388 B]
+Get:23 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7 amd64 7.5.0-3ubuntu1~18.04 [9381 kB]
 The following NEW packages will be installed:
   binutils binutils-common binutils-x86-64-linux-gnu cpp cpp-7 g++ g++-7 gcc
   gcc-7 gcc-7-base libasan4 libatomic1 libbinutils libc-dev-bin libc6-dev
@@ -590,47 +610,31 @@ The following NEW packages will be installed:
   libsodium23 libstdc++-7-dev libtsan0 libubsan0 libzmq3-dev libzmq5
   linux-libc-dev make manpages-dev
 The following packages will be upgraded:
-Get:6 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7-base amd64 7.5.0-3ubuntu1~18.04 [18.3 kB]
-Get:7 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libisl19 amd64 0.19-1 [551 kB]
   git libc6
-Get:8 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libmpc3 amd64 1.1.0-1 [40.8 kB]
-Get:9 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp-7 amd64 7.5.0-3ubuntu1~18.04 [8591 kB]
 2 upgraded, 41 newly installed, 0 to remove and 207 not upgraded.
 Need to get 50.3 MB of archives.
 After this operation, 167 MB of additional disk space will be used.
 Get:1 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6 amd64 2.27-3ubuntu1.6 [2831 kB]
 Get:2 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-common amd64 2.30-21ubuntu1~18.04.8 [197 kB]
 Get:3 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libbinutils amd64 2.30-21ubuntu1~18.04.8 [488 kB]
-Get:10 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp amd64 4:7.4.0-1ubuntu2.3 [27.7 kB]
-Get:11 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcc1-0 amd64 8.4.0-1ubuntu1~18.04 [39.4 kB]
-Get:12 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgomp1 amd64 8.4.0-1ubuntu1~18.04 [76.5 kB]
-Get:13 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libitm1 amd64 8.4.0-1ubuntu1~18.04 [27.9 kB]
 Get:4 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils-x86-64-linux-gnu amd64 2.30-21ubuntu1~18.04.8 [1839 kB]
-Get:14 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libatomic1 amd64 8.4.0-1ubuntu1~18.04 [9192 B]
-Get:15 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libasan4 amd64 7.5.0-3ubuntu1~18.04 [358 kB]
-Get:16 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 liblsan0 amd64 8.4.0-1ubuntu1~18.04 [133 kB]
-Get:17 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libtsan0 amd64 8.4.0-1ubuntu1~18.04 [288 kB]
-Get:18 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libubsan0 amd64 7.5.0-3ubuntu1~18.04 [126 kB]
-Get:19 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcilkrts5 amd64 7.5.0-3ubuntu1~18.04 [42.5 kB]
-Get:20 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmpx2 amd64 8.4.0-1ubuntu1~18.04 [11.6 kB]
-Get:21 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libquadmath0 amd64 8.4.0-1ubuntu1~18.04 [134 kB]
-Get:22 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgcc-7-dev amd64 7.5.0-3ubuntu1~18.04 [2378 kB]
+Get:24 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc amd64 4:7.4.0-1ubuntu2.3 [5184 B]
+Get:25 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc-dev-bin amd64 2.27-3ubuntu1.6 [71.9 kB]
+Get:26 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-211.222 [991 kB]
+Get:27 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6-dev amd64 2.27-3ubuntu1.6 [2587 kB]
 Get:5 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 binutils amd64 2.30-21ubuntu1~18.04.8 [3388 B]
 Get:6 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7-base amd64 7.5.0-3ubuntu1~18.04 [18.3 kB]
 Get:7 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libisl19 amd64 0.19-1 [551 kB]
 Get:8 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libmpc3 amd64 1.1.0-1 [40.8 kB]
 Get:9 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp-7 amd64 7.5.0-3ubuntu1~18.04 [8591 kB]
-Get:23 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7 amd64 7.5.0-3ubuntu1~18.04 [9381 kB]
-Get:24 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc amd64 4:7.4.0-1ubuntu2.3 [5184 B]
-Get:25 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc-dev-bin amd64 2.27-3ubuntu1.6 [71.9 kB]
-Get:26 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-211.222 [991 kB]
+Get:28 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libstdc++-7-dev amd64 7.5.0-3ubuntu1~18.04 [1471 kB]
+Get:29 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++-7 amd64 7.5.0-3ubuntu1~18.04 [9697 kB]
 Get:10 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 cpp amd64 4:7.4.0-1ubuntu2.3 [27.7 kB]
 Get:11 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libcc1-0 amd64 8.4.0-1ubuntu1~18.04 [39.4 kB]
 Get:12 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgomp1 amd64 8.4.0-1ubuntu1~18.04 [76.5 kB]
 Get:13 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libitm1 amd64 8.4.0-1ubuntu1~18.04 [27.9 kB]
 Get:14 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libatomic1 amd64 8.4.0-1ubuntu1~18.04 [9192 B]
 Get:15 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libasan4 amd64 7.5.0-3ubuntu1~18.04 [358 kB]
-Get:27 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6-dev amd64 2.27-3ubuntu1.6 [2587 kB]
 Get:16 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 liblsan0 amd64 8.4.0-1ubuntu1~18.04 [133 kB]
 Get:17 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libtsan0 amd64 8.4.0-1ubuntu1~18.04 [288 kB]
 Get:18 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libubsan0 amd64 7.5.0-3ubuntu1~18.04 [126 kB]
@@ -638,31 +642,32 @@ Get:19 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd
 Get:20 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmpx2 amd64 8.4.0-1ubuntu1~18.04 [11.6 kB]
 Get:21 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libquadmath0 amd64 8.4.0-1ubuntu1~18.04 [134 kB]
 Get:22 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgcc-7-dev amd64 7.5.0-3ubuntu1~18.04 [2378 kB]
-Get:28 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libstdc++-7-dev amd64 7.5.0-3ubuntu1~18.04 [1471 kB]
 Get:23 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc-7 amd64 7.5.0-3ubuntu1~18.04 [9381 kB]
-Get:29 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++-7 amd64 7.5.0-3ubuntu1~18.04 [9697 kB]
 Get:30 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++ amd64 4:7.4.0-1ubuntu2.3 [1568 B]
 Get:31 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 git amd64 1:2.17.1-1ubuntu0.18 [3990 kB]
+Get:32 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-core-2.1-6 amd64 2.1.8-stable-4build1 [85.9 kB]
+Get:33 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-extra-2.1-6 amd64 2.1.8-stable-4build1 [56.2 kB]
+Get:34 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-pthreads-2.1-6 amd64 2.1.8-stable-4build1 [5228 B]
+Get:35 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-openssl-2.1-6 amd64 2.1.8-stable-4build1 [11.8 kB]
+Get:36 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-dev amd64 2.1.8-stable-4build1 [261 kB]
+Get:37 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/universe amd64 libnorm1 amd64 1.5r6+dfsg1-6 [224 kB]
+Get:38 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/universe amd64 libpgm-5.2-0 amd64 5.2.122~dfsg-2 [157 kB]
+Get:39 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libsodium23 amd64 1.0.16-2 [143 kB]
+Get:40 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libzmq5 amd64 4.2.5-1ubuntu0.2 [221 kB]
+Get:41 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libzmq3-dev amd64 4.2.5-1ubuntu0.2 [400 kB]
+Get:42 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 make amd64 4.1-9.1ubuntu1 [154 kB]
+Get:43 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 manpages-dev all 4.15-1 [2217 kB]
 Get:24 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 gcc amd64 4:7.4.0-1ubuntu2.3 [5184 B]
 Get:25 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc-dev-bin amd64 2.27-3ubuntu1.6 [71.9 kB]
 Get:26 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 linux-libc-dev amd64 4.15.0-211.222 [991 kB]
 Get:27 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libc6-dev amd64 2.27-3ubuntu1.6 [2587 kB]
 Get:28 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libstdc++-7-dev amd64 7.5.0-3ubuntu1~18.04 [1471 kB]
-Get:32 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-core-2.1-6 amd64 2.1.8-stable-4build1 [85.9 kB]
-Get:33 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-extra-2.1-6 amd64 2.1.8-stable-4build1 [56.2 kB]
-Get:34 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-pthreads-2.1-6 amd64 2.1.8-stable-4build1 [5228 B]
-Get:35 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-openssl-2.1-6 amd64 2.1.8-stable-4build1 [11.8 kB]
-Get:36 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-dev amd64 2.1.8-stable-4build1 [261 kB]
-Get:37 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/universe amd64 libnorm1 amd64 1.5r6+dfsg1-6 [224 kB]
-Get:38 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/universe amd64 libpgm-5.2-0 amd64 5.2.122~dfsg-2 [157 kB]
-Get:39 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libsodium23 amd64 1.0.16-2 [143 kB]
-Get:40 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libzmq5 amd64 4.2.5-1ubuntu0.2 [221 kB]
 Get:29 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++-7 amd64 7.5.0-3ubuntu1~18.04 [9697 kB]
-Get:41 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libzmq3-dev amd64 4.2.5-1ubuntu0.2 [400 kB]
-Get:42 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 make amd64 4.1-9.1ubuntu1 [154 kB]
-Get:43 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 manpages-dev all 4.15-1 [2217 kB]
+Fetched 50.3 MB in 2s (22.8 MB/s)
 Get:30 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 g++ amd64 4:7.4.0-1ubuntu2.3 [1568 B]
 Get:31 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 git amd64 1:2.17.1-1ubuntu0.18 [3990 kB]
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
+Preparing to unpack .../libc6_2.27-3ubuntu1.6_amd64.deb ...
 Get:32 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-core-2.1-6 amd64 2.1.8-stable-4build1 [85.9 kB]
 Get:33 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-extra-2.1-6 amd64 2.1.8-stable-4build1 [56.2 kB]
 Get:34 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-pthreads-2.1-6 amd64 2.1.8-stable-4build1 [5228 B]
@@ -675,34 +680,35 @@ Get:40 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe
 Get:41 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 libzmq3-dev amd64 4.2.5-1ubuntu0.2 [400 kB]
 Get:42 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 make amd64 4.1-9.1ubuntu1 [154 kB]
 Get:43 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic/main amd64 manpages-dev all 4.15-1 [2217 kB]
-Fetched 50.3 MB in 1s (49.2 MB/s)
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
-Preparing to unpack .../libc6_2.27-3ubuntu1.6_amd64.deb ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
 debconf: falling back to frontend: Readline
 Unpacking libc6:amd64 (2.27-3ubuntu1.6) over (2.27-3ubuntu1.4) ...
+Fetched 50.3 MB in 2s (23.5 MB/s)
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
+Preparing to unpack .../libc6_2.27-3ubuntu1.6_amd64.deb ...
 Setting up libc6:amd64 (2.27-3ubuntu1.6) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
 debconf: falling back to frontend: Readline
-Fetched 50.3 MB in 2s (28.7 MB/s)
-Selecting previously unselected package binutils-common:amd64.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... (Reading database ... 70%(Reading database ... 75%(Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 80%(Reading database ... 85%(Reading database ... 60%(Reading database ... 90%(Reading database ... 65%(Reading database ... 70%(Reading database ... 95%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
-Preparing to unpack .../00-binutils-common_2.30-21ubuntu1~18.04.8_amd64.deb ...
-Unpacking binutils-common:amd64 (2.30-21ubuntu1~18.04.8) ...
-(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
-Preparing to unpack .../libc6_2.27-3ubuntu1.6_amd64.deb ...
-Selecting previously unselected package libbinutils:amd64.
-Preparing to unpack .../01-libbinutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
-Unpacking libbinutils:amd64 (2.30-21ubuntu1~18.04.8) ...
 debconf: unable to initialize frontend: Dialog
 debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
 debconf: falling back to frontend: Readline
+Unpacking libc6:amd64 (2.27-3ubuntu1.6) over (2.27-3ubuntu1.4) ...
+Selecting previously unselected package binutils-common:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
+Preparing to unpack .../00-binutils-common_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking binutils-common:amd64 (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package libbinutils:amd64.
+Preparing to unpack .../01-libbinutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking libbinutils:amd64 (2.30-21ubuntu1~18.04.8) ...
 Selecting previously unselected package binutils-x86-64-linux-gnu.
 Preparing to unpack .../02-binutils-x86-64-linux-gnu_2.30-21ubuntu1~18.04.8_amd64.deb ...
 Unpacking binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.8) ...
-Unpacking libc6:amd64 (2.27-3ubuntu1.6) over (2.27-3ubuntu1.4) ...
+Setting up libc6:amd64 (2.27-3ubuntu1.6) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
+debconf: falling back to frontend: Readline
 Selecting previously unselected package binutils.
 Preparing to unpack .../03-binutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
 Unpacking binutils (2.30-21ubuntu1~18.04.8) ...
@@ -712,56 +718,94 @@ Unpacking gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) ...
 Selecting previously unselected package libisl19:amd64.
 Preparing to unpack .../05-libisl19_0.19-1_amd64.deb ...
 Unpacking libisl19:amd64 (0.19-1) ...
-Setting up libc6:amd64 (2.27-3ubuntu1.6) ...
+Selecting previously unselected package binutils-common:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
+Preparing to unpack .../00-binutils-common_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking binutils-common:amd64 (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package libmpc3:amd64.
+Preparing to unpack .../06-libmpc3_1.1.0-1_amd64.deb ...
+Unpacking libmpc3:amd64 (1.1.0-1) ...
+Selecting previously unselected package libbinutils:amd64.
+Preparing to unpack .../01-libbinutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking libbinutils:amd64 (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package cpp-7.
+Preparing to unpack .../07-cpp-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking cpp-7 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package binutils-x86-64-linux-gnu.
+Preparing to unpack .../02-binutils-x86-64-linux-gnu_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package binutils.
+Preparing to unpack .../03-binutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
+Unpacking binutils (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package gcc-7-base:amd64.
+Preparing to unpack .../04-gcc-7-base_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libisl19:amd64.
+Preparing to unpack .../05-libisl19_0.19-1_amd64.deb ...
+Unpacking libisl19:amd64 (0.19-1) ...
 Selecting previously unselected package libmpc3:amd64.
 Preparing to unpack .../06-libmpc3_1.1.0-1_amd64.deb ...
 Unpacking libmpc3:amd64 (1.1.0-1) ...
 Selecting previously unselected package cpp-7.
 Preparing to unpack .../07-cpp-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
 Unpacking cpp-7 (7.5.0-3ubuntu1~18.04) ...
-debconf: unable to initialize frontend: Dialog
-debconf: (Dialog frontend will not work on a dumb terminal, an emacs shell buffer, or without a controlling terminal.)
-debconf: falling back to frontend: Readline
-Selecting previously unselected package binutils-common:amd64.
-(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
-Preparing to unpack .../00-binutils-common_2.30-21ubuntu1~18.04.8_amd64.deb ...
-Unpacking binutils-common:amd64 (2.30-21ubuntu1~18.04.8) ...
-Selecting previously unselected package libbinutils:amd64.
-Preparing to unpack .../01-libbinutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
-Unpacking libbinutils:amd64 (2.30-21ubuntu1~18.04.8) ...
-Selecting previously unselected package binutils-x86-64-linux-gnu.
-Preparing to unpack .../02-binutils-x86-64-linux-gnu_2.30-21ubuntu1~18.04.8_amd64.deb ...
-Unpacking binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.8) ...
-Selecting previously unselected package binutils.
-Preparing to unpack .../03-binutils_2.30-21ubuntu1~18.04.8_amd64.deb ...
-Unpacking binutils (2.30-21ubuntu1~18.04.8) ...
-Selecting previously unselected package gcc-7-base:amd64.
-Preparing to unpack .../04-gcc-7-base_7.5.0-3ubuntu1~18.04_amd64.deb ...
-Unpacking gcc-7-base:amd64 (7.5.0-3ubuntu1~18.04) ...
-Selecting previously unselected package libisl19:amd64.
-Preparing to unpack .../05-libisl19_0.19-1_amd64.deb ...
-Unpacking libisl19:amd64 (0.19-1) ...
 Selecting previously unselected package cpp.
 Preparing to unpack .../08-cpp_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
 Unpacking cpp (4:7.4.0-1ubuntu2.3) ...
 Selecting previously unselected package libcc1-0:amd64.
 Preparing to unpack .../09-libcc1-0_8.4.0-1ubuntu1~18.04_amd64.deb ...
 Unpacking libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...
-Selecting previously unselected package libmpc3:amd64.
-Preparing to unpack .../06-libmpc3_1.1.0-1_amd64.deb ...
-Unpacking libmpc3:amd64 (1.1.0-1) ...
 Selecting previously unselected package libgomp1:amd64.
 Preparing to unpack .../10-libgomp1_8.4.0-1ubuntu1~18.04_amd64.deb ...
 Unpacking libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
-Selecting previously unselected package cpp-7.
-Preparing to unpack .../07-cpp-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
-Unpacking cpp-7 (7.5.0-3ubuntu1~18.04) ...
 Selecting previously unselected package libitm1:amd64.
 Preparing to unpack .../11-libitm1_8.4.0-1ubuntu1~18.04_amd64.deb ...
 Unpacking libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
 Selecting previously unselected package libatomic1:amd64.
 Preparing to unpack .../12-libatomic1_8.4.0-1ubuntu1~18.04_amd64.deb ...
 Unpacking libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libasan4:amd64.
+Preparing to unpack .../13-libasan4_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package liblsan0:amd64.
+Preparing to unpack .../14-liblsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libtsan0:amd64.
+Preparing to unpack .../15-libtsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libubsan0:amd64.
+Preparing to unpack .../16-libubsan0_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libcilkrts5:amd64.
+Preparing to unpack .../17-libcilkrts5_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package libmpx2:amd64.
+Preparing to unpack .../18-libmpx2_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libquadmath0:amd64.
+Preparing to unpack .../19-libquadmath0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libgcc-7-dev:amd64.
+Preparing to unpack .../20-libgcc-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
+Selecting previously unselected package cpp.
+Preparing to unpack .../08-cpp_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
+Unpacking cpp (4:7.4.0-1ubuntu2.3) ...
+Selecting previously unselected package libcc1-0:amd64.
+Preparing to unpack .../09-libcc1-0_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libgomp1:amd64.
+Preparing to unpack .../10-libgomp1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libitm1:amd64.
+Preparing to unpack .../11-libitm1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libatomic1:amd64.
+Preparing to unpack .../12-libatomic1_8.4.0-1ubuntu1~18.04_amd64.deb ...
+Unpacking libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package gcc-7.
+Preparing to unpack .../21-gcc-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking gcc-7 (7.5.0-3ubuntu1~18.04) ...
 Selecting previously unselected package libasan4:amd64.
 Preparing to unpack .../13-libasan4_7.5.0-3ubuntu1~18.04_amd64.deb ...
 Unpacking libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
@@ -789,48 +833,9 @@ Unpacking libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
 Selecting previously unselected package gcc-7.
 Preparing to unpack .../21-gcc-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
 Unpacking gcc-7 (7.5.0-3ubuntu1~18.04) ...
-Selecting previously unselected package cpp.
-Preparing to unpack .../08-cpp_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
-Unpacking cpp (4:7.4.0-1ubuntu2.3) ...
-Selecting previously unselected package libcc1-0:amd64.
-Preparing to unpack .../09-libcc1-0_8.4.0-1ubuntu1~18.04_amd64.deb ...
-Unpacking libcc1-0:amd64 (8.4.0-1ubuntu1~18.04) ...
-Selecting previously unselected package libgomp1:amd64.
-Preparing to unpack .../10-libgomp1_8.4.0-1ubuntu1~18.04_amd64.deb ...
-Unpacking libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
-Selecting previously unselected package libitm1:amd64.
-Preparing to unpack .../11-libitm1_8.4.0-1ubuntu1~18.04_amd64.deb ...
-Unpacking libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
-Selecting previously unselected package libatomic1:amd64.
-Preparing to unpack .../12-libatomic1_8.4.0-1ubuntu1~18.04_amd64.deb ...
-Unpacking libatomic1:amd64 (8.4.0-1ubuntu1~18.04) ...
-Selecting previously unselected package libasan4:amd64.
-Preparing to unpack .../13-libasan4_7.5.0-3ubuntu1~18.04_amd64.deb ...
-Unpacking libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
-Selecting previously unselected package liblsan0:amd64.
-Preparing to unpack .../14-liblsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
-Unpacking liblsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
-Selecting previously unselected package libtsan0:amd64.
-Preparing to unpack .../15-libtsan0_8.4.0-1ubuntu1~18.04_amd64.deb ...
-Unpacking libtsan0:amd64 (8.4.0-1ubuntu1~18.04) ...
-Selecting previously unselected package libubsan0:amd64.
-Preparing to unpack .../16-libubsan0_7.5.0-3ubuntu1~18.04_amd64.deb ...
-Unpacking libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...
-Selecting previously unselected package libcilkrts5:amd64.
-Preparing to unpack .../17-libcilkrts5_7.5.0-3ubuntu1~18.04_amd64.deb ...
-Unpacking libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...
-Selecting previously unselected package libmpx2:amd64.
-Preparing to unpack .../18-libmpx2_8.4.0-1ubuntu1~18.04_amd64.deb ...
-Unpacking libmpx2:amd64 (8.4.0-1ubuntu1~18.04) ...
-Selecting previously unselected package libquadmath0:amd64.
-Preparing to unpack .../19-libquadmath0_8.4.0-1ubuntu1~18.04_amd64.deb ...
-Unpacking libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...
 Selecting previously unselected package gcc.
 Preparing to unpack .../22-gcc_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
 Unpacking gcc (4:7.4.0-1ubuntu2.3) ...
-Selecting previously unselected package libgcc-7-dev:amd64.
-Preparing to unpack .../20-libgcc-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
-Unpacking libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
 Selecting previously unselected package libc-dev-bin.
 Preparing to unpack .../23-libc-dev-bin_2.27-3ubuntu1.6_amd64.deb ...
 Unpacking libc-dev-bin (2.27-3ubuntu1.6) ...
@@ -840,35 +845,32 @@ Unpacking linux-libc-dev:amd64 (4.15.0-211.222) ...
 Selecting previously unselected package libc6-dev:amd64.
 Preparing to unpack .../25-libc6-dev_2.27-3ubuntu1.6_amd64.deb ...
 Unpacking libc6-dev:amd64 (2.27-3ubuntu1.6) ...
-Selecting previously unselected package gcc-7.
-Preparing to unpack .../21-gcc-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
-Unpacking gcc-7 (7.5.0-3ubuntu1~18.04) ...
 Selecting previously unselected package libstdc++-7-dev:amd64.
 Preparing to unpack .../26-libstdc++-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
 Unpacking libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
-Selecting previously unselected package g++-7.
-Preparing to unpack .../27-g++-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
-Unpacking g++-7 (7.5.0-3ubuntu1~18.04) ...
 Selecting previously unselected package gcc.
 Preparing to unpack .../22-gcc_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
 Unpacking gcc (4:7.4.0-1ubuntu2.3) ...
 Selecting previously unselected package libc-dev-bin.
 Preparing to unpack .../23-libc-dev-bin_2.27-3ubuntu1.6_amd64.deb ...
 Unpacking libc-dev-bin (2.27-3ubuntu1.6) ...
+Selecting previously unselected package g++-7.
+Preparing to unpack .../27-g++-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking g++-7 (7.5.0-3ubuntu1~18.04) ...
 Selecting previously unselected package linux-libc-dev:amd64.
 Preparing to unpack .../24-linux-libc-dev_4.15.0-211.222_amd64.deb ...
 Unpacking linux-libc-dev:amd64 (4.15.0-211.222) ...
 Selecting previously unselected package libc6-dev:amd64.
 Preparing to unpack .../25-libc6-dev_2.27-3ubuntu1.6_amd64.deb ...
 Unpacking libc6-dev:amd64 (2.27-3ubuntu1.6) ...
+Selecting previously unselected package libstdc++-7-dev:amd64.
+Preparing to unpack .../26-libstdc++-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
+Unpacking libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
 Selecting previously unselected package g++.
 Preparing to unpack .../28-g++_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
 Unpacking g++ (4:7.4.0-1ubuntu2.3) ...
 Preparing to unpack .../29-git_1%3a2.17.1-1ubuntu0.18_amd64.deb ...
 Unpacking git (1:2.17.1-1ubuntu0.18) over (1:2.17.1-1ubuntu0.7) ...
-Selecting previously unselected package libstdc++-7-dev:amd64.
-Preparing to unpack .../26-libstdc++-7-dev_7.5.0-3ubuntu1~18.04_amd64.deb ...
-Unpacking libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
 Selecting previously unselected package g++-7.
 Preparing to unpack .../27-g++-7_7.5.0-3ubuntu1~18.04_amd64.deb ...
 Unpacking g++-7 (7.5.0-3ubuntu1~18.04) ...
@@ -899,20 +901,20 @@ Unpacking libsodium23:amd64 (1.0.16-2) ...
 Selecting previously unselected package libzmq5:amd64.
 Preparing to unpack .../38-libzmq5_4.2.5-1ubuntu0.2_amd64.deb ...
 Unpacking libzmq5:amd64 (4.2.5-1ubuntu0.2) ...
-Selecting previously unselected package libzmq3-dev:amd64.
-Preparing to unpack .../39-libzmq3-dev_4.2.5-1ubuntu0.2_amd64.deb ...
-Unpacking libzmq3-dev:amd64 (4.2.5-1ubuntu0.2) ...
-Selecting previously unselected package make.
-Preparing to unpack .../40-make_4.1-9.1ubuntu1_amd64.deb ...
-Unpacking make (4.1-9.1ubuntu1) ...
-Selecting previously unselected package manpages-dev.
-Preparing to unpack .../41-manpages-dev_4.15-1_all.deb ...
-Unpacking manpages-dev (4.15-1) ...
 Selecting previously unselected package g++.
 Preparing to unpack .../28-g++_4%3a7.4.0-1ubuntu2.3_amd64.deb ...
 Unpacking g++ (4:7.4.0-1ubuntu2.3) ...
+Selecting previously unselected package libzmq3-dev:amd64.
+Preparing to unpack .../39-libzmq3-dev_4.2.5-1ubuntu0.2_amd64.deb ...
+Unpacking libzmq3-dev:amd64 (4.2.5-1ubuntu0.2) ...
 Preparing to unpack .../29-git_1%3a2.17.1-1ubuntu0.18_amd64.deb ...
+Selecting previously unselected package make.
+Preparing to unpack .../40-make_4.1-9.1ubuntu1_amd64.deb ...
+Unpacking make (4.1-9.1ubuntu1) ...
 Unpacking git (1:2.17.1-1ubuntu0.18) over (1:2.17.1-1ubuntu0.7) ...
+Selecting previously unselected package manpages-dev.
+Preparing to unpack .../41-manpages-dev_4.15-1_all.deb ...
+Unpacking manpages-dev (4.15-1) ...
 Setting up libquadmath0:amd64 (8.4.0-1ubuntu1~18.04) ...
 Setting up libgomp1:amd64 (8.4.0-1ubuntu1~18.04) ...
 Setting up libpgm-5.2-0:amd64 (5.2.122~dfsg-2) ...
@@ -933,48 +935,48 @@ Setting up libevent-pthreads-2.1-6:amd64 (2.1.8-stable-4build1) ...
 Setting up libmpc3:amd64 (1.1.0-1) ...
 Setting up libc-dev-bin (2.27-3ubuntu1.6) ...
 Setting up manpages-dev (4.15-1) ...
+Selecting previously unselected package libevent-core-2.1-6:amd64.
 Setting up libc6-dev:amd64 (2.27-3ubuntu1.6) ...
+Preparing to unpack .../30-libevent-core-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-core-2.1-6:amd64 (2.1.8-stable-4build1) ...
 Setting up git (1:2.17.1-1ubuntu0.18) ...
 Setting up libitm1:amd64 (8.4.0-1ubuntu1~18.04) ...
+Selecting previously unselected package libevent-extra-2.1-6:amd64.
 Setting up libevent-extra-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Preparing to unpack .../31-libevent-extra-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-extra-2.1-6:amd64 (2.1.8-stable-4build1) ...
 Setting up libisl19:amd64 (0.19-1) ...
 Setting up libzmq5:amd64 (4.2.5-1ubuntu0.2) ...
 Setting up libasan4:amd64 (7.5.0-3ubuntu1~18.04) ...
 Setting up libbinutils:amd64 (2.30-21ubuntu1~18.04.8) ...
+Selecting previously unselected package libevent-pthreads-2.1-6:amd64.
 Setting up libcilkrts5:amd64 (7.5.0-3ubuntu1~18.04) ...
+Preparing to unpack .../32-libevent-pthreads-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-pthreads-2.1-6:amd64 (2.1.8-stable-4build1) ...
 Setting up libubsan0:amd64 (7.5.0-3ubuntu1~18.04) ...
 Setting up libzmq3-dev:amd64 (4.2.5-1ubuntu0.2) ...
 Setting up libgcc-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
 Setting up cpp-7 (7.5.0-3ubuntu1~18.04) ...
-Setting up libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
-Setting up libevent-dev (2.1.8-stable-4build1) ...
-Setting up binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.8) ...
-Selecting previously unselected package libevent-core-2.1-6:amd64.
-Preparing to unpack .../30-libevent-core-2.1-6_2.1.8-stable-4build1_amd64.deb ...
-Setting up cpp (4:7.4.0-1ubuntu2.3) ...
-Unpacking libevent-core-2.1-6:amd64 (2.1.8-stable-4build1) ...
-Setting up binutils (2.30-21ubuntu1~18.04.8) ...
-Setting up gcc-7 (7.5.0-3ubuntu1~18.04) ...
-Selecting previously unselected package libevent-extra-2.1-6:amd64.
-Setting up g++-7 (7.5.0-3ubuntu1~18.04) ...
-Preparing to unpack .../31-libevent-extra-2.1-6_2.1.8-stable-4build1_amd64.deb ...
-Unpacking libevent-extra-2.1-6:amd64 (2.1.8-stable-4build1) ...
-Setting up gcc (4:7.4.0-1ubuntu2.3) ...
-Setting up g++ (4:7.4.0-1ubuntu2.3) ...
-Selecting previously unselected package libevent-pthreads-2.1-6:amd64.
-Preparing to unpack .../32-libevent-pthreads-2.1-6_2.1.8-stable-4build1_amd64.deb ...
-Unpacking libevent-pthreads-2.1-6:amd64 (2.1.8-stable-4build1) ...
-update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
-Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 Selecting previously unselected package libevent-openssl-2.1-6:amd64.
 Preparing to unpack .../33-libevent-openssl-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Setting up libstdc++-7-dev:amd64 (7.5.0-3ubuntu1~18.04) ...
 Unpacking libevent-openssl-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up libevent-dev (2.1.8-stable-4build1) ...
+Setting up binutils-x86-64-linux-gnu (2.30-21ubuntu1~18.04.8) ...
+Setting up cpp (4:7.4.0-1ubuntu2.3) ...
 Selecting previously unselected package libevent-dev.
 Preparing to unpack .../34-libevent-dev_2.1.8-stable-4build1_amd64.deb ...
 Unpacking libevent-dev (2.1.8-stable-4build1) ...
+Setting up binutils (2.30-21ubuntu1~18.04.8) ...
+Setting up gcc-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up g++-7 (7.5.0-3ubuntu1~18.04) ...
+Setting up gcc (4:7.4.0-1ubuntu2.3) ...
 Selecting previously unselected package libnorm1:amd64.
+Setting up g++ (4:7.4.0-1ubuntu2.3) ...
 Preparing to unpack .../35-libnorm1_1.5r6+dfsg1-6_amd64.deb ...
 Unpacking libnorm1:amd64 (1.5r6+dfsg1-6) ...
+update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 Selecting previously unselected package libpgm-5.2-0:amd64.
 Preparing to unpack .../36-libpgm-5.2-0_5.2.122~dfsg-2_amd64.deb ...
 Unpacking libpgm-5.2-0:amd64 (5.2.122~dfsg-2) ...
@@ -1041,13 +1043,13 @@ Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
 Reading package lists...
 g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o mcperf.o mcperf.cc
 Processing triggers for libc-bin (2.27-3ubuntu1.4) ...
-g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o cmdline.o cmdline.cc
 Reading package lists...
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o cmdline.o cmdline.cc
 g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o log.o log.cc
 g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o distributions.o distributions.cc
+g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o mcperf.o mcperf.cc
 g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o util.o util.cc
 g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o Connection.o Connection.cc
-g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o mcperf.o mcperf.cc
 g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o Generator.o Generator.cc
 g++  -g -std=c++0x -D_GNU_SOURCE -O3    -c -o cpu_stat_thread.o cpu_stat_thread.cc
 export LD_RUN_PATH= && g++ -o mcperf  mcperf.o cmdline.o log.o distributions.o util.o Connection.o Generator.o cpu_stat_thread.o   -lzmq -levent -lpthread -lrt  
@@ -1065,13 +1067,13 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Mon May 15 21:23:35 UTC 2023
+  System information as of Tue May 16 19:56:40 UTC 2023
 
-  System load:  0.29               Users logged in:        0
+  System load:  0.25               Users logged in:        0
   Usage of /:   3.0% of 123.88GB   IP address for ens4:    10.0.16.3
   Memory usage: 1%                 IP address for docker0: 172.17.0.1
   Swap usage:   0%                 IP address for cbr0:    100.96.2.1
-  Processes:    173
+  Processes:    172
 
 
 218 packages can be updated.
@@ -1110,7 +1112,7 @@ Get:1 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd6
 Get:2 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmemcachedutil2 amd64 1.0.18-4.2ubuntu0.18.04.1 [9532 B]
 Get:3 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 memcached amd64 1.5.6-0ubuntu1.2 [109 kB]
 Get:4 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmemcached-tools amd64 1.0.18-4.2ubuntu0.18.04.1 [72.9 kB]
-Fetched 275 kB in 0s (4223 kB/s)
+Fetched 275 kB in 0s (4179 kB/s)
 Selecting previously unselected package libmemcached11:amd64.
 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65565 files and directories currently installed.)
 Preparing to unpack .../libmemcached11_1.0.18-4.2ubuntu0.18.04.1_amd64.deb ...
@@ -1135,24 +1137,24 @@ Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 Processing triggers for ureadahead (0.100.0-21) ...
 ● memcached.service - memcached daemon
    Loaded: loaded (/lib/systemd/system/memcached.service; enabled; vendor preset: enabled)
-   Active: active (running) since Mon 2023-05-15 21:23:39 UTC; 1s ago
+   Active: active (running) since Tue 2023-05-16 19:56:44 UTC; 1s ago
      Docs: man:memcached(1)
- Main PID: 8021 (memcached)
+ Main PID: 8218 (memcached)
     Tasks: 10 (limit: 4915)
    CGroup: /system.slice/memcached.service
-           └─8021 /usr/bin/memcached -m 64 -p 11211 -u memcache -l 127.0.0.1 -P /var/run/memcached/memcached.pid
+           └─8218 /usr/bin/memcached -m 64 -p 11211 -u memcache -l 127.0.0.1 -P /var/run/memcached/memcached.pid
 
-May 15 21:23:39 memcache-server-vxnh systemd[1]: Started memcached daemon.
+May 16 19:56:44 memcache-server-hrkm systemd[1]: Started memcached daemon.
 ● memcached.service - memcached daemon
    Loaded: loaded (/lib/systemd/system/memcached.service; enabled; vendor preset: enabled)
-   Active: active (running) since Mon 2023-05-15 21:23:41 UTC; 10s ago
+   Active: active (running) since Tue 2023-05-16 19:56:45 UTC; 10s ago
      Docs: man:memcached(1)
- Main PID: 8251 (memcached)
+ Main PID: 8455 (memcached)
     Tasks: 8 (limit: 4915)
    CGroup: /system.slice/memcached.service
-           └─8251 /usr/bin/memcached -m 1024 -p 11211 -t 2 -u memcache -l 10.0.16.3 -P /var/run/memcached/memcached.pid
+           └─8455 /usr/bin/memcached -m 1024 -p 11211 -t 2 -u memcache -l 10.0.16.3 -P /var/run/memcached/memcached.pid
 
-May 15 21:23:41 memcache-server-vxnh systemd[1]: Started memcached daemon.
+May 16 19:56:45 memcache-server-hrkm systemd[1]: Started memcached daemon.
 Reading package lists...
 Building dependency tree...
 Reading state information...
@@ -1265,7 +1267,7 @@ Get:62 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd
 Get:63 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3-setuptools all 39.0.1-2ubuntu0.1 [248 kB]
 Get:64 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 python3-wheel all 0.30.0-0.2ubuntu0.1 [36.7 kB]
 Get:65 http://europe-west3.gce.archive.ubuntu.com/ubuntu bionic-updates/main amd64 python3-xdg all 0.25-4ubuntu1.1 [31.3 kB]
-Fetched 99.7 MB in 13s (7754 kB/s)
+Fetched 99.7 MB in 3s (38.7 MB/s)
 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 65638 files and directories currently installed.)
 Preparing to unpack .../libc6_2.27-3ubuntu1.6_amd64.deb ...
 debconf: unable to initialize frontend: Dialog
@@ -1541,18 +1543,18 @@ Collecting websocket-client>=0.32.0 (from docker)
   Downloading https://files.pythonhosted.org/packages/35/21/8614b6de7c35d0bc584da13c45b8b08e404eee28a0504c1d00f5e1aa0a23/websocket_client-1.3.1-py3-none-any.whl (54kB)
 Collecting charset-normalizer~=2.0.0; python_version >= "3" (from requests!=2.18.0,>=2.14.2->docker)
   Downloading https://files.pythonhosted.org/packages/06/b3/24afc8868eba069a7f03650ac750a778862dc34941a4bebeb58706715726/charset_normalizer-2.0.12-py3-none-any.whl
-Collecting idna<4,>=2.5; python_version >= "3" (from requests!=2.18.0,>=2.14.2->docker)
-  Downloading https://files.pythonhosted.org/packages/fc/34/3030de6f1370931b9dbb4dad48f6ab1015ab1d32447850b9fc94e60097be/idna-3.4-py3-none-any.whl (61kB)
 Collecting urllib3<1.27,>=1.21.1 (from requests!=2.18.0,>=2.14.2->docker)
   Downloading https://files.pythonhosted.org/packages/7b/f5/890a0baca17a61c1f92f72b81d3c31523c99bec609e60c292ea55b387ae8/urllib3-1.26.15-py2.py3-none-any.whl (140kB)
 Collecting certifi>=2017.4.17 (from requests!=2.18.0,>=2.14.2->docker)
   Downloading https://files.pythonhosted.org/packages/9d/19/59961b522e6757f0c9097e4493fa906031b95b3ebe9360b2c3083561a6b4/certifi-2023.5.7-py3-none-any.whl (156kB)
+Collecting idna<4,>=2.5; python_version >= "3" (from requests!=2.18.0,>=2.14.2->docker)
+  Downloading https://files.pythonhosted.org/packages/fc/34/3030de6f1370931b9dbb4dad48f6ab1015ab1d32447850b9fc94e60097be/idna-3.4-py3-none-any.whl (61kB)
 Building wheels for collected packages: psutil
   Running setup.py bdist_wheel for psutil: started
   Running setup.py bdist_wheel for psutil: finished with status 'done'
   Stored in directory: /home/ubuntu/.cache/pip/wheels/b5/9d/ae/400da2e6992e85aa9b2ea20b904d445fe68c1a890f8788bc7e
 Successfully built psutil
-Installing collected packages: psutil, charset-normalizer, idna, urllib3, certifi, requests, websocket-client, docker
+Installing collected packages: psutil, charset-normalizer, urllib3, certifi, idna, requests, websocket-client, docker
 Successfully installed certifi-2023.5.7 charset-normalizer-2.0.12 docker-5.0.3 idna-3.4 psutil-5.9.5 requests-2.27.1 urllib3-1.26.15 websocket-client-1.3.1
 Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
 
@@ -1560,9 +1562,9 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Mon May 15 21:24:35 UTC 2023
+  System information as of Tue May 16 19:57:28 UTC 2023
 
-  System load:  0.61               Users logged in:        0
+  System load:  0.64               Users logged in:        0
   Usage of /:   3.2% of 123.88GB   IP address for ens4:    10.0.16.3
   Memory usage: 1%                 IP address for docker0: 172.17.0.1
   Swap usage:   0%                 IP address for cbr0:    100.96.2.1
@@ -1584,13 +1586,12 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Mon May 15 21:24:35 UTC 2023
+  System information as of Tue May 16 19:57:28 UTC 2023
 
-  System load:  0.25               Users logged in:        0
-  Usage of /:   3.1% of 123.88GB   IP address for ens4:    10.0.16.4
-  Memory usage: 1%                 IP address for docker0: 172.17.0.1
-  Swap usage:   0%                 IP address for cbr0:    100.96.1.1
-  Processes:    319
+  System load:  0.22               Processes:              296
+  Usage of /:   3.1% of 123.88GB   Users logged in:        0
+  Memory usage: 1%                 IP address for ens4:    10.0.16.2
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
 
 
 216 packages can be updated.
@@ -1608,11 +1609,11 @@ Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1036-gcp x86_64)
  * Management:     https://landscape.canonical.com
  * Support:        https://ubuntu.com/advantage
 
-  System information as of Mon May 15 21:24:35 UTC 2023
+  System information as of Tue May 16 19:57:28 UTC 2023
 
-  System load:  0.29               Processes:              136
+  System load:  0.42               Processes:              135
   Usage of /:   3.1% of 123.88GB   Users logged in:        0
-  Memory usage: 6%                 IP address for ens4:    10.0.16.2
+  Memory usage: 6%                 IP address for ens4:    10.0.16.5
   Swap usage:   0%                 IP address for docker0: 172.17.0.1
 
 
