@@ -14,13 +14,13 @@ class DockerContainerHandler:
         self.logger = logger
         self.containers = {}
 
-    def create_container(self, name: str, cpu_period: int = 100000, cpu_quota: int = 100000) -> docker.models.containers.Container:
+    def create_container(self, name: str, cpu_period: int = 100000, cpu_quota: int = 10000) -> docker.models.containers.Container:
         """Create a Docker container with the specified name and configuration."""
         config = {
             "auto_remove": False,
             "command": f"./run -a run -S {'splash2x' if name == 'radix' else 'parsec'} -p {name} -i native -n {threads[name]}",
-            #"cpu_quota": cpu_quota,
-            #"cpu_period": cpu_period,
+            "cpu_quota": cpu_quota,
+            "cpu_period": cpu_period,
             "cpuset_cpus": cores[name],
             "detach": True,
             "image": images[name],

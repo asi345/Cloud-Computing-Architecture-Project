@@ -30,7 +30,7 @@ class Scheduler:
     def set_parsec_shares(self, shares):
         total_weight = sum([self.weights[key] for key in self.parsec_handler.containers.keys()])
         self.current_parsec_shares = shares
-        for container in self.parsec_handler.containers:
+        for container in self.parsec_handler.containers.values():
             container.reload()
             self.parsec_handler.update_cpu_shares(container, shares * self.weights[container.name] / total_weight)
         return
