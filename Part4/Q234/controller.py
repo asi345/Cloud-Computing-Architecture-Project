@@ -3,10 +3,20 @@ import json
 import psutil
 import subprocess
 import time
+import signal
 
 from handlers import DockerContainerHandler, MemcachedHandler
 from init_config import cores, images, threads, weights
 from scheduler_logger import SchedulerLogger, Job
+
+
+
+def kill_handler(signum, frame):
+
+
+signal.signal(signal.SIGINT, kill_handler)
+signal.signal(signal.SIGTERM, kill_handler)
+
 
 class Scheduler:
     def __init__(self):
@@ -41,6 +51,14 @@ class Scheduler:
 
 if __name__ == "__main__":
     scheduler = Scheduler()
+    def kill_handler(signum, frame):
+        for container in scheduler.parsec_handler.containers:
+            scheduler.parsec_handler.remove_container(container)
+
+    signal.signal(signal.SIGINT, kill_handler)
+    signal.signal(signal.SIGTERM, kill_handler)
+    signal.signal(signal.SIGKILL, kill_handler)
+    
     while not scheduler.parsec_handler.is_finished():
         scheduler.set_parsec_shares(2.0)
         time.sleep(0.25)
