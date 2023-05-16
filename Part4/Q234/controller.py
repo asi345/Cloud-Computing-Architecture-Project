@@ -15,9 +15,10 @@ class Scheduler:
         self.memcached_handler = MemcachedHandler(self.logger)
         self.start_jobs()
         self.weights = weights
-        self.parsec_shares = 2.5
-        self.memcached = 1.5
+        self.parsec_shares = 2.0
+        self.memcached = 1.8
         self.set_parsec_shares(2.5)
+        self.running_containers = 7
 
     def start_jobs(self):
         for name in images.keys():
@@ -28,16 +29,19 @@ class Scheduler:
         total_util = psutil.cpu_percent(interval = None)
 
     def set_parsec_shares(self, shares):
-        total_weight = sum([self.weights[key] for key in self.parsec_handler.containers.keys()])
-        self.current_parsec_shares = shares
-        for container in self.parsec_handler.containers.values():
-            container.reload()
-            self.parsec_handler.update_cpu_shares(container, shares * self.weights[container.name] / total_weight)
+        num_current_containers = len(self.parsec_handler.containers)
+        if num_current_containers < self.running_containers:
+            self.running_containers = num_current_containers
+            total_weight = sum([self.weights[key] for key in self.parsec_handler.containers.keys()])
+            self.current_parsec_shares = shares
+            for container in self.parsec_handler.containers.values():
+                container.reload()
+                self.parsec_handler.update_cpu_shares(container, shares * self.weights[container.name] / total_weight)
         return
 
 if __name__ == "__main__":
     scheduler = Scheduler()
     while not scheduler.parsec_handler.is_finished():
-        scheduler.set_parsec_shares(2.5)
-        time.sleep(0.1)
+        scheduler.set_parsec_shares(2.0)
+        time.sleep(0.25)
     print("Finished")
