@@ -21,6 +21,7 @@ signal.signal(signal.SIGTERM, kill_handler)
 class Scheduler:
     def __init__(self):
         self.logger = SchedulerLogger()
+        self.running_containers = 7
         self.parsec_handler = DockerContainerHandler(self.logger)
         self.memcached_handler = MemcachedHandler(self.logger)
         self.start_jobs()
@@ -28,7 +29,6 @@ class Scheduler:
         self.parsec_shares = 2.0
         self.memcached = 1.8
         self.set_parsec_shares(2.5)
-        self.running_containers = 7
 
     def start_jobs(self):
         for name in images.keys():
@@ -58,7 +58,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, kill_handler)
     signal.signal(signal.SIGTERM, kill_handler)
     signal.signal(signal.SIGKILL, kill_handler)
-    
+
     while not scheduler.parsec_handler.is_finished():
         scheduler.set_parsec_shares(2.0)
         time.sleep(0.25)
