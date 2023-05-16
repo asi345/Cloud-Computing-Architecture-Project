@@ -10,14 +10,6 @@ from init_config import cores, images, threads, weights
 from scheduler_logger import SchedulerLogger, Job
 
 
-
-def kill_handler(signum, frame):
-
-
-signal.signal(signal.SIGINT, kill_handler)
-signal.signal(signal.SIGTERM, kill_handler)
-
-
 class Scheduler:
     def __init__(self):
         self.logger = SchedulerLogger()
