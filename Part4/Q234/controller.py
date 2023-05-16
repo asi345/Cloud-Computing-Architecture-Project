@@ -32,7 +32,6 @@ class Scheduler:
         total_util = psutil.cpu_percent(interval = None)
 
     def set_parsec_shares(self, shares):
-        self.running_containers = num_current_containers
         total_weight = sum([self.weights[key] for key in self.parsec_handler.containers.keys()])
         self.current_parsec_shares = shares
         for container in self.parsec_handler.containers.values():
