@@ -4,6 +4,7 @@ import psutil
 import subprocess
 import time
 import signal
+import sys
 
 from handlers import DockerContainerHandler, MemcachedHandler
 from init_config import cores, images, threads, weights
@@ -20,7 +21,7 @@ class Scheduler:
         self.weights = weights
         self.parsec_shares = 2.0
         self.memcached = 1.8
-        self.set_parsec_shares(2.5)
+        self.set_parsec_shares(2.0)
 
     def start_jobs(self):
         for name in images.keys():
@@ -31,25 +32,24 @@ class Scheduler:
         total_util = psutil.cpu_percent(interval = None)
 
     def set_parsec_shares(self, shares):
-        num_current_containers = len(self.parsec_handler.containers)
-        if num_current_containers < self.running_containers:
-            self.running_containers = num_current_containers
-            total_weight = sum([self.weights[key] for key in self.parsec_handler.containers.keys()])
-            self.current_parsec_shares = shares
-            for container in self.parsec_handler.containers.values():
-                container.reload()
-                self.parsec_handler.update_cpu_shares(container, shares * self.weights[container.name] / total_weight)
+        self.running_containers = num_current_containers
+        total_weight = sum([self.weights[key] for key in self.parsec_handler.containers.keys()])
+        self.current_parsec_shares = shares
+        for container in self.parsec_handler.containers.values():
+            container.reload()
+            self.parsec_handler.update_cpu_shares(container, shares * self.weights[container.name] / total_weight)
         return
 
 if __name__ == "__main__":
     scheduler = Scheduler()
-    def kill_handler(signum, frame):
+    def signal_handler(signum, frame):
         for container in scheduler.parsec_handler.containers:
             scheduler.parsec_handler.remove_container(container)
+        sys.exit(0)
 
-    signal.signal(signal.SIGINT, kill_handler)
-    signal.signal(signal.SIGTERM, kill_handler)
-    signal.signal(signal.SIGKILL, kill_handler)
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
+
 
     while not scheduler.parsec_handler.is_finished():
         scheduler.set_parsec_shares(2.0)
