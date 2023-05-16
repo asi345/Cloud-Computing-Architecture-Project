@@ -50,8 +50,6 @@ class DockerContainerHandler:
                 self.remove_container(container)
 
         if not self.containers:
-            self.logger.job_end(Job("memcached"))
-            subprocess.run(["kill", "-9", str(subprocess.getoutput("pidof memcached"))])
             self.logger.end()
             return True
         return False
