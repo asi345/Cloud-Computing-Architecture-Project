@@ -50,9 +50,10 @@ class DockerContainerHandler:
                 self.remove_container(container)
 
         if not self.containers:
+            self.logger.job_end(Job("memcached"))
+            subprocess.run(["kill", "-9", str(subprocess.getoutput("pidof memcached"))])
             self.logger.end()
             return True
-
         return False
 
     def pause_container(self, container: docker.models.containers.Container) -> bool:
@@ -181,6 +182,7 @@ class MemcachedHandler:
             time.sleep(0.05)
             print("Waiting for memcached to run.")
 
+        self.logger.job_start(Job("memcached"))
         return int(subprocess.getoutput("pidof memcached"))
 
     def update_memcached_cores(self, cores):
