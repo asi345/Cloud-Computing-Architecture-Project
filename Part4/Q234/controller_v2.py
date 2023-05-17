@@ -11,7 +11,7 @@ from handlers import DockerContainerHandler, MemcachedHandler
 from init_config import cores, images, threads, weights
 from scheduler_logger import SchedulerLogger, Job
 
-ORDER = ["ferret", "freqmine", "canneal", "vips", "blackscholes", "radix", "dedup"]
+ORDER = ["radix", "ferret", "freqmine", "canneal", "vips", "blackscholes", "dedup"]
 
 class Scheduler:
     def __init__(self):
@@ -34,16 +34,16 @@ class Scheduler:
     
     def update_state(self):
         if not self.allow_second_core:
-            util = sum(list(psutil.cpu_percent(interval=None, percpu=True)[:2]))
-            if util < 130.0:
+            util = sum(list(psutil.cpu_percent(interval=None, percpu=True))[:2])
+            if util < 100.0:
                 self.memcached_handler.update_memcached_cores("0")
                 self.allow_second_core = True
                 cont = self.parsec_handler.containers[ORDER[self.current_job]]
                 self.parsec_handler.update_cores(cont, "1,2,3")
         elif self.allow_second_core:
-            util = sum(list(psutil.cpu_percent(interval=None, percpu=True)[:1]))
-            if util > 90.0:
-                self.memcached_handler.update_memcached_cores("0, 1")
+            util = sum(list(psutil.cpu_percent(interval=None, percpu=True))[:1])
+            if util > 80.0:
+                self.memcached_handler.update_memcached_cores("0,1")
                 self.allow_second_core = False
                 cont = self.parsec_handler.containers[ORDER[self.current_job]]
                 self.parsec_handler.update_cores(cont, "2,3")
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     while not scheduler.is_finished():
         scheduler.schedule_next_job()
         scheduler.update_state()
-        print(f"Currently running {ORDER[scheduler.current_job]}")
+        #print(f"Currently running {ORDER[scheduler.current_job]}")
         time.sleep(0.2)
         
     print("Finished")

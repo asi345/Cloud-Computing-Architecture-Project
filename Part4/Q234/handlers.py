@@ -25,6 +25,8 @@ class DockerContainerHandler:
             "detach": True,
             "image": images[name],
             "name": name,
+            "mem_limit": "20g",
+            "memswap_limit": -1
         }
         container = self.client.containers.run(**config)
         self.logger.job_start(Job(container.name), initial_cores=cores[name].split(","), initial_threads=threads[name])
@@ -180,12 +182,12 @@ class MemcachedHandler:
             time.sleep(0.05)
             print("Waiting for memcached to run.")
 
-        self.logger.job_start(Job("memcached"), ['0', '1', '2', '3'], 2)
+        self.logger.job_start(Job("memcached"), ['0', '1'], 2)
         return int(subprocess.getoutput("pidof memcached"))
 
     def update_memcached_cores(self, cores):
         cmd = f"sudo taskset -acp {cores} {self.pid}"
-        subprocess.run(cmd.split(" "), stderr=subprocess.STDOUT, stdout=subprocess.STDOUT)
+        subprocess.run(cmd.split(" "), stdout=subprocess.DEVNULL, stderr=subprocess.STDOUT)
         self.logger.update_cores(Job("memcached"), cores.split(","))
         return
 
