@@ -19,8 +19,8 @@ class DockerContainerHandler:
         config = {
             "auto_remove": False,
             "command": f"./run -a run -S {'splash2x' if name == 'radix' else 'parsec'} -p {name} -i native -n {threads[name]}",
-            "cpu_quota": cpu_quota,
-            "cpu_period": cpu_period,
+            #"cpu_quota": cpu_quota,
+            #"cpu_period": cpu_period,
             "cpuset_cpus": cores[name],
             "detach": True,
             "image": images[name],
@@ -186,7 +186,7 @@ class MemcachedHandler:
     def update_memcached_cores(self, cores):
         cmd = f"sudo taskset -acp {cores} {self.pid}"
         subprocess.run(cmd.split(" "), stderr=subprocess.STDOUT, stdout=subprocess.STDOUT)
-        self.logger.update_cores(Job("memcached"))
+        self.logger.update_cores(Job("memcached"), cores.split(","))
         return
 
     def get_core_usage(self):
@@ -198,12 +198,12 @@ class MemcachedHandler:
 if __name__ == "__main__":
     handler = DockerContainerHandler(SchedulerLogger())
     handler.create_container("dedup")
-    handler.create_container("radix")
-    handler.create_container("ferret")
-    handler.create_container("freqmine")
-    handler.create_container("canneal")
-    handler.create_container("vips")
-    handler.create_container("blackscholes")
+    #handler.create_container("radix")
+    #handler.create_container("ferret")
+    #handler.create_container("freqmine")
+    #handler.create_container("canneal")
+    #handler.create_container("vips")
+    #handler.create_container("blackscholes")
     while not handler.is_finished():
         time.sleep(0.5)
         print(handler.get_all_containers_resource_usage())
