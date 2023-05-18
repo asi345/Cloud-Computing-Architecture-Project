@@ -17,10 +17,10 @@ pip3 install psutil docker
 
 sudo usermod -aG docker ubuntu
 
-docker pull anakli/cca:parsec_blackscholes
-docker pull anakli/cca:parsec_canneal
-docker pull anakli/cca:parsec_dedup
-docker pull anakli/cca:parsec_ferret
-docker pull anakli/cca:parsec_freqmine
-docker pull anakli/cca:splash2x_radix
-docker pull anakli/cca:parsec_vips
+sudo docker pull anakli/cca:parsec_blackscholes
+sudo docker pull anakli/cca:parsec_canneal
+sudo docker pull anakli/cca:parsec_dedup
+sudo docker pull anakli/cca:parsec_ferret
+sudo docker pull anakli/cca:parsec_freqmine
+sudo docker pull anakli/cca:splash2x_radix
+sudo docker pull anakli/cca:parsec_vips

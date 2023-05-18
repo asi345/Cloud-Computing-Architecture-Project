@@ -21,17 +21,17 @@ gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$AGENT_NAME --zo
 gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEASURE_NAME --zone europe-west3-a < ./init_memcached.sh
 gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEMCACHED_NAME --zone europe-west3-a < ./install_memcached.sh
 
+gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEMCACHED_NAME --zone europe-west3-a < ./run_scheduler.sh &
 gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$AGENT_NAME --zone europe-west3-a < ./run_agent.sh &
-gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEASURE_NAME --zone europe-west3-a < ./run_measure.sh &
-gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEMCACHED_NAME --zone europe-west3-a < ./run_scheduler.sh
+gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEASURE_NAME --zone europe-west3-a < ./run_measure.sh
 
 sleep 10
 
 #gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$AGENT_NAME --zone europe-west3-a < ./stop_mcperf.sh &
 #gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEASURE_NAME --zone europe-west3-a < ./stop_mcperf.sh &
 
-#gcloud compute scp ubuntu@$MEASURE_NAME:~/memcache-perf-dynamic/memcached_output.txt ./memcached_output.txt --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
-gcloud compute scp ubuntu@$MEMCACHED_NAME:~/log20230517_154711.txt ./ --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
+gcloud compute scp ubuntu@$MEASURE_NAME:~/memcache-perf-dynamic/memcached_output.txt ./memcached_output.txt --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
+#gcloud compute scp ubuntu@$MEMCACHED_NAME:~/log20230518_171509.txt ./ --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
 #gcloud compute scp ubuntu@$MEMCACHED_NAME:~/logs/*.txt ./logs/ --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
 
 #kops delete cluster --name part4.k8s.local --yes
