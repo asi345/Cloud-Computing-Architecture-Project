@@ -9,23 +9,23 @@ images = {
 }
 
 threads = {
-    "dedup": 1,
-    "blackscholes": 2,
-    "canneal": 2,
-    "ferret": 4,
-    "freqmine": 4,
-    "radix": 4,
-    "vips": 4,
+    "dedup": 3,
+    "blackscholes": 3,
+    "canneal": 3,
+    "ferret": 3,
+    "freqmine": 3,
+    "radix": 2,
+    "vips": 3,
 }
 
 cores = {
-    "dedup": "0,1,2,3",
-    "blackscholes": "0,1,2,3",
-    "canneal": "0,1,2,3",
-    "ferret": "0,1,2,3",
-    "freqmine": "0,1,2,3",
-    "radix": "0,1,2,3",
-    "vips": "0,1,2,3"
+    "dedup": "2,3",
+    "blackscholes": "2,3",
+    "canneal": "2,3",
+    "ferret": "2,3",
+    "freqmine": "2,3",
+    "radix": "2,3",
+    "vips": "2,3"
 }
 
 weights = {

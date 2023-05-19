@@ -9,8 +9,6 @@ import sys
 from handlers import DockerContainerHandler, MemcachedHandler
 from init_config import cores, images, threads, weights
 from scheduler_logger import SchedulerLogger, Job
-
-
 class Scheduler:
     def __init__(self):
         self.logger = SchedulerLogger()
@@ -48,7 +46,6 @@ if __name__ == "__main__":
 
     signal.signal(signal.SIGINT, signal_handler)
     signal.signal(signal.SIGTERM, signal_handler)
-
 
     while not scheduler.parsec_handler.is_finished():
         scheduler.set_parsec_shares(2.0)

@@ -1,2 +1,2 @@
 cd ~/
-python3 controller.py
+sudo python3 controller_v2.py
