@@ -21,7 +21,7 @@ UTILISATION_NAMES = list(map(lambda x: 'results2/' + x, UTILISATION_NAMES))  # a
 RUNS = 2
 
 MARKERS = ['o', '<', '^', 'v', 's', 'X', 'D']
-COLORS = ['darkgreen', 'tab:olive', 'darkblue', 'purple', 'red', 'darkorange', 'aqua']
+COLORS = ['darkgreen', 'darkorange', 'darkblue', 'purple', 'red', 'tab:olive', 'aqua']
 
 PRIORITY = [2, 7, 3, 4, 5, 6, 5]  # zorder for error bars and lines
 
@@ -105,13 +105,12 @@ def compute_metrics_utilisation(s1, runs) -> pd.DataFrame:
     return df
 
 
-def create_plot(xticks, xtick_labels, measured_statistics, measured_utilisation, label):
+def create_plot(xticks, xtick_labels, measured_statistics, measured_utilisation, label, name):
 
     fig, ax = plt.subplots(figsize=(12, 12))
 
     # label_str = label_mapping(label)
     label_str = 'C = 1' if label == 'C1' else 'C = 2'
-    print(label_str)
     s = measured_statistics[label]
     error_bar = ax.errorbar(s['QPS'], s['p95'], yerr=s['y_std'], xerr=s['x_std'],
                                  fmt=MARKERS[0],
@@ -147,10 +146,10 @@ def create_plot(xticks, xtick_labels, measured_statistics, measured_utilisation,
     plt.xlabel(r"\bf{Queries Per Second} $(QPS)$", size=15)
     plt.ylabel(r'$\bf{95}^{th}$ \bf{Percentile Latency (ms)}', rotation=0, size=15)
     ax.yaxis.set_label_coords(0.0, 1.03)
-    plt.suptitle(r"\bf{\textit{Measured Tail Latency of Memcached}}",
-                 x=0.535,
+    plt.suptitle(r"\bf{\textit{Measured Tail Latency of Memcached and CPU Utilisation} }",
+                 x=0.485,
                  y=0.9,
-                 fontsize=36)
+                 fontsize=20)
     plt.title("\n" "\n" "\n"
               r"\bf{Average across }" + f"{RUNS}" + r"\bf{ runs. }", loc='left', pad=60, size=18)
 
@@ -158,9 +157,6 @@ def create_plot(xticks, xtick_labels, measured_statistics, measured_utilisation,
     # axes adjustments
     plt.ylim([0, 2])
 
-    # plt.yscale('linear')
-    # plt.xscale('log', base=2)
-    # coordinates diplayed on axes
     ax.set_xticks(xticks)
     ax.set_xticklabels(xtick_labels, fontsize=14)
 
@@ -173,7 +169,8 @@ def create_plot(xticks, xtick_labels, measured_statistics, measured_utilisation,
 
     ax2 = ax.twinx()
     ax2.set_ylabel(r'\bf{CPU Utilisation (\%)}', rotation=0, size=15)
-    ax2.yaxis.set_label_coords(1.0, 1.03)
+    ax2.yaxis.set_label_coords(1.0, 1.05)
+
     if label == 'C1':
         ax2.set_ylim([0, 100])
         ax2.set_yticks([0, 20, 40, 60, 80, 100])
@@ -188,6 +185,8 @@ def create_plot(xticks, xtick_labels, measured_statistics, measured_utilisation,
 
     ax2.plot(s['QPS'], utilisation, color=COLORS[1], linewidth=2, zorder=PRIORITY[1], label=r'CPU Utilisation')
     ax2.fill_between(s['QPS'], utilisation - std, utilisation + std, color=COLORS[1], alpha=0.2)
+    ax.axhline(y=1, color='red', linestyle='--', linewidth=2, zorder=2)
+    plt.annotate(r"\bf{SLO Objective}", xy=(0.8, .47), xycoords='axes fraction', size=14)
     # Combine the legend handles and labels from both plots
     handles, labels = ax.get_legend_handles_labels()
     handles2, labels2 = ax2.get_legend_handles_labels()
@@ -197,7 +196,7 @@ def create_plot(xticks, xtick_labels, measured_statistics, measured_utilisation,
     # Create a legend with the combined handles and labels
     plt.legend(handles, labels, prop={'size': 14.5}, loc='upper left')
     plt.tight_layout()
-    plt.savefig('plot_2_' + label + '.pdf')
+    plt.savefig('Q1' + name + label + '.pdf')
     plt.close()
 
 
@@ -208,9 +207,8 @@ if __name__ == '__main__':
     xticks, xticks_labels = get_xticks(stop=130000)
     utilisation = get_data(UTILISATION_NAMES, preprocess_utilisation, RUNS)
     aggregated_utilisation = aggregate_data(utilisation, compute_metrics_utilisation, RUNS)
-    print(aggregated_utilisation)
 
     # ------------------ PLOT ------------------
     labels = aggregated_utilisation.keys()
     for i, label in enumerate(labels):
-        create_plot(xticks, xticks_labels, aggregated_data, aggregated_utilisation, label)
+        create_plot(xticks, xticks_labels, aggregated_data, aggregated_utilisation, label, "PART4")

@@ -25,9 +25,9 @@ FILE_NAMES = list(map(lambda x: 'results/' + x, FILE_NAMES))  # add path to file
 RUNS = 3
 
 MARKERS = ['o', '<', '^', 'v', 's', 'X', 'D']
-COLORS = ['darkgreen', 'tab:olive', 'darkblue', 'purple', 'red', 'darkorange', 'aqua']
+COLORS = ['darkgreen', 'tab:olive', 'darkorange', 'purple', 'red', 'darkorange', 'aqua']
 
-PRIORITY = [2, 7, 3, 4, 5, 6, 5]  # zorder for error bars and lines
+PRIORITY = [3, 7, 3, 4, 5, 6, 5]  # zorder for error bars and lines
 
 
 # ------------------ FUNCTIONS ------------------
@@ -156,15 +156,18 @@ def create_plot(xticks, xtick_labels, measured_statistics, name):
         error_bar[2][1].set_path_effects([path_effects.Stroke(linewidth=4, foreground='black'),
                                           path_effects.Normal()])
 
+    plt.axhline(y=1, color='red', linestyle='--', linewidth=2, zorder=2)
+    plt.annotate(r"\bf{SLO Objective}", xy=(0.8, .52), xycoords='axes fraction', size=14)
     # move title and labeling
     ax = plt.gca()
+
     plt.xlabel(r"\bf{Queries Per Second} $(QPS)$", size=15)
     plt.ylabel(r'$\bf{95}^{th}$ \bf{Percentile Latency (ms)}', rotation=0, size=15)
-    ax.yaxis.set_label_coords(0.0, 1.03)
+    ax.yaxis.set_label_coords(0.05, 1.03)
     plt.suptitle(r"\bf{\textit{Measured Tail Latency of Memcached}}",
-                 x=0.535,
+                 x=0.315,
                  y=0.9,
-                 fontsize=36)
+                 fontsize=20)
     plt.title("\n" "\n" "\n"
               r"\bf{Average across }" + f"{RUNS}" + r"\bf{ runs. }", loc='left', pad=60, size=18)
     plt.legend(prop={'size': 14.5}, loc='upper left')
@@ -183,9 +186,10 @@ def create_plot(xticks, xtick_labels, measured_statistics, name):
     # plt.xscale('log', base=2)
     # grid and background
     ax.set_facecolor((0.92, 0.92, 0.92))
+    plt.tight_layout()
     plt.grid(axis='y', color='white', linewidth=2.0)
     plt.grid(axis='x', color='white', linewidth=2.0)
-    plt.savefig('plot_1_' + name + '.pdf')
+    plt.savefig('Q1' + name + '.pdf')
     plt.close()
 
 
@@ -252,7 +256,7 @@ def main():
     data = get_data(FILE_NAMES, preprocess_data, RUNS)
     aggregated_data = aggregate_data(data, compute_metrics, RUNS)
     xticks, xticks_labels = get_xticks()
-    create_plot(xticks, xticks_labels, aggregated_data, "memcached")
+    create_plot(xticks, xticks_labels, aggregated_data, "PART1")
 
 
 if __name__ == "__main__":
