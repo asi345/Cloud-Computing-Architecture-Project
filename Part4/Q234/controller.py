@@ -44,9 +44,6 @@ if __name__ == "__main__":
             scheduler.parsec_handler.remove_container(container)
         sys.exit(0)
 
-    signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
-
     while not scheduler.parsec_handler.is_finished():
         scheduler.set_parsec_shares(2.0)
         time.sleep(0.25)
