@@ -1,8 +1,26 @@
 import numpy as np
 import pandas as pd
-
+from matplotlib import pyplot as plt
 
 jobs_list = ["memcached", "dedup", "radix", "canneal", "ferret", "blackscholes", "freqmine", "vips"]
+
+JOB_COLORS = {
+    'dedup': '#CCACCA',
+    'ferret': '#AACCCA',
+    'freqmine': '#0CCA00',
+    'vips': '#CC0A00',
+    'canneal': '#CCCCAA',
+    'blackscholes': '#CCA000',
+    'radix': '#00CCA0'
+}
+
+plt.rcParams.update({
+    "text.usetex": True,
+    "font.family": "sans-serif",
+    "font.sans-serif": "Helvetica",
+    "font.size": 16,
+    "errorbar.capsize": 4
+})
 
 
 def array_to_time_string(array) -> list[str]:
@@ -112,7 +130,6 @@ def get_memcached_data(file_name, run) -> pd.DataFrame:
 
 
 def get_parsec_data(file_name, run) -> dict:
-
     # append the run number to the file name
     file = file_name + f"{run}.txt"
 
@@ -173,10 +190,89 @@ def get_parsec_data(file_name, run) -> dict:
             data[job]['start_time'] = (job_start_time - memcached_start_time).total_seconds()
             data[job]['end_time'] = (job_start_time - memcached_start_time).total_seconds() + df['time'].max()
 
-    # Convert timestamps to seconds
-    # df['start_time'] = pd.to_datetime(df['start_time']).astype(int) // 10 ** 9
-    # df['end_time'] = pd.to_datetime(df['end_time']).astype(int) // 10 ** 9
-    print(data)
-    # df['elapsed_time'] = df['end_time'] - df['start_time']
-    # Print the resulting dataframe
     return data
+
+
+def annotate_plot(annotations, ax, ax2, default_offset_x=10, default_offset_y=2.4, offset_x=-55, offset_y=2.3):
+    # Add annotations to the plot
+    print(annotations)
+    for key, value in annotations.items():
+        if value['text'] == r'\bf{radix}':
+            x = offset_x
+        else:
+            x = default_offset_x
+        if value['text'] == r'\bf{blackscholes}':
+            y = offset_y
+        else:
+            y = default_offset_y
+        ax.annotate(value['text'], (key, y), (x, y),
+                    xycoords='data', textcoords='offset points',
+                    color=value['color'], fontsize=20)
+        ax2.axvline(x=key, color=value['color'], linestyle='--', linewidth=2.5, zorder=0)
+
+
+def configure_xticks(annotations, ax, max_end_time, min_start_time):
+    xticks = ax.get_xticks()
+    xticks_jobs = list(annotations.keys())
+
+    xticks = np.append(xticks, xticks_jobs)
+    # xticks = xticks_jobs
+    xticks.sort()
+    new_xticks = []
+    for x in xticks:
+        if x == min_start_time or x == max_end_time:
+            continue
+        new_xticks.append(x)
+    ax.set_xticks(new_xticks)
+    return new_xticks
+
+
+def create_parsec_annotations(parsec_data, job_colors):
+    texts = list(parsec_data.keys())
+    texts = [x for x in texts if x != 'memcached']
+    colors = []
+    x_positions = []
+    max_end_time = 0
+    min_start_time = 100000
+    for job in texts:
+        colors.append(job_colors[job])
+        x_positions.append(parsec_data[job]['start_time'])
+        max_end_time = max(parsec_data[job]['end_time'], max_end_time)
+        min_start_time = min(parsec_data[job]['start_time'], min_start_time)
+    # Create the annotations dictionary dynamically
+    annotations = {}
+    for i in range(len(texts)):
+        x = x_positions[i]
+        text = texts[i]
+        text = r'\bf{' + text + '}'
+        color = colors[i]
+        annotations[x] = {'text': text, 'color': color}
+    return annotations, max_end_time, min_start_time
+
+
+def add_annotated_text_plot(ax, max_end_time, min_start_time, intervals_placement, relative_offset_xticks, run):
+    new_ax = ax.twiny()
+    new_ax.spines["bottom"].set_linewidth(2)
+    new_ax.spines["bottom"].set_color('red')
+    new_ax.spines["bottom"].set_position(("axes", -0.05))
+    new_ax.set_xlim(ax.get_xlim())
+    new_ax.set_xticks([])
+    new_ax.spines["bottom"].set_bounds(min_start_time, max_end_time)
+    new_ax.annotate(r'\bf{[}', xy=intervals_placement[run][0], textcoords='offset points',
+                    xycoords='axes fraction', ha='center', va='top', size=16,
+                    color='red')
+    # round to 2 decimal places
+    min_start_time = str(round(min_start_time, 2))
+    max_end_time = str(round(max_end_time, 2))
+    new_ax.annotate(r'\bf{' + min_start_time + r'}', xy=(0.045, -0.07), textcoords='offset points',
+                    xycoords='axes fraction', ha='center', va='top', size=16,
+                    color='red')
+    new_ax.annotate(r'\bf{]}', xy=intervals_placement[run][1], textcoords='offset points',
+                    xycoords='axes fraction', ha='center', va='top', size=16,
+                    color='red')
+    new_ax.annotate(r'\bf{' + max_end_time + r'}', xy=(relative_offset_xticks[run], -0.07), textcoords='offset points',
+                    xycoords='axes fraction', ha='center', va='top', size=16,
+                    color='red')
+    new_ax.annotate(r'\bf{PARSEC Jobs Execution Time}', xy=(0.4, -0.07), textcoords='offset points',
+                    xycoords='axes fraction', ha='center', va='top', size=16,
+                    color='red')
