@@ -31,7 +31,7 @@ sleep 10
 #gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEASURE_NAME --zone europe-west3-a < ./stop_mcperf.sh &
 
 gcloud compute scp ubuntu@$MEASURE_NAME:~/memcache-perf-dynamic/memcached_output.txt ./memcached_output.txt --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
-#gcloud compute scp ubuntu@$MEMCACHED_NAME:~/log20230521_102851.txt ./ --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
 #gcloud compute scp ubuntu@$MEMCACHED_NAME:~/logs/*.txt ./logs/ --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
+#gcloud compute scp ubuntu@$MEMCACHED_NAME:~/log20230521_133350.txt ./ --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
 
 #kops delete cluster --name part4.k8s.local --yes
