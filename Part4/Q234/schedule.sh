@@ -17,8 +17,8 @@ gcloud compute scp ./handlers.py ubuntu@$MEMCACHED_NAME:~/ --zone europe-west3-a
 gcloud compute scp ./scheduler_logger.py ubuntu@$MEMCACHED_NAME:~/ --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
 gcloud compute scp ./init_config.py ubuntu@$MEMCACHED_NAME:~/ --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
 
-gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEASURE_NAME --zone europe-west3-a < ./init_memcached.sh
-gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$AGENT_NAME --zone europe-west3-a < ./init_memcached.sh &
+gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEASURE_NAME --zone europe-west3-a < ./init_memcached.sh &
+gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$AGENT_NAME --zone europe-west3-a < ./init_memcached.sh
 gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEMCACHED_NAME --zone europe-west3-a < ./install_memcached.sh
 
 gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEMCACHED_NAME --zone europe-west3-a < ./run_scheduler.sh &
@@ -31,7 +31,7 @@ sleep 10
 #gcloud compute ssh --ssh-key-file ~/.ssh/cloud-computing ubuntu@$MEASURE_NAME --zone europe-west3-a < ./stop_mcperf.sh &
 
 gcloud compute scp ubuntu@$MEASURE_NAME:~/memcache-perf-dynamic/memcached_output.txt ./memcached_output.txt --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
-#gcloud compute scp ubuntu@$MEMCACHED_NAME:~/log20230520_100547.txt ./ --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
+#gcloud compute scp ubuntu@$MEMCACHED_NAME:~/log20230521_102851.txt ./ --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
 #gcloud compute scp ubuntu@$MEMCACHED_NAME:~/logs/*.txt ./logs/ --zone europe-west3-a --ssh-key-file ~/.ssh/cloud-computing
 
 #kops delete cluster --name part4.k8s.local --yes
