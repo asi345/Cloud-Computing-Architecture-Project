@@ -64,6 +64,6 @@ if __name__ == "__main__":
         scheduler.schedule_next_job()
         scheduler.update_state()
         #print(f"Currently running {ORDER[scheduler.current_job]}")
-        time.sleep(0.2)
+        time.sleep(0.05)
         
     print("Finished")

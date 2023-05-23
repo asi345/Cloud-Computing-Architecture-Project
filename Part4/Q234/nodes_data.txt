@@ -1,5 +1,5 @@
 NAME                         STATUS   ROLES                AGE     VERSION    INTERNAL-IP   EXTERNAL-IP      OS-IMAGE             KERNEL-VERSION   CONTAINER-RUNTIME
-client-agent-32v6            Ready    node                 95s     v1.23.16   10.0.16.4     35.242.209.214   Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
-client-measure-d8t2          Ready    node                 95s     v1.23.16   10.0.16.2     35.246.150.81    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
-master-europe-west3-a-ld5d   Ready    control-plane,node   4m20s   v1.23.16   10.0.16.5     34.159.224.26    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
-memcache-server-nwd5         Ready    node                 92s     v1.23.16   10.0.16.3     34.107.104.70    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+client-agent-6s2b            Ready    node                 8m22s   v1.23.16   10.0.16.2     34.159.240.139   Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+client-measure-sdwc          Ready    node                 8m21s   v1.23.16   10.0.16.3     34.141.28.104    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+master-europe-west3-a-0l2f   Ready    control-plane,node   10m     v1.23.16   10.0.16.5     34.107.61.175    Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
+memcache-server-zl9l         Ready    node                 8m22s   v1.23.16   10.0.16.4     35.234.103.186   Ubuntu 18.04.5 LTS   5.4.0-1036-gcp   docker://20.10.17
