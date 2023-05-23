@@ -1,3 +1,5 @@
+import argparse
+
 from utils import *
 
 # -----------GLOBALS-------------
@@ -9,17 +11,7 @@ COLORS = ['darkgreen', 'tab:olive', 'blue', 'purple', 'red', 'darkorange', 'aqua
 
 PRIORITY = [2, 7, 3, 4, 5, 6, 5]  # zorder for error bars and lines
 
-parsec_file_name = "results/log_"
-memcached_file_name = "results/memcached_output_"
-
-INTERVALS_PLACEMENT = [((0.045, -0.04), (0.807, -0.04)),
-                       ((0.045, -0.04), (0.84, -0.04)),
-                       ((0.045, -0.04), (0.7, -0.04))]
-
-RELATIVE_OFFSET_XTICKS = [0.803, 0.84, 0.7]
-
-
-def create_parsec_plot(parsec_data, memcached_data, run):
+def create_parsec_plot(parsec_data, memcached_data, run, q_num):
     fig, ax = plt.subplots(figsize=(20, 12))
     plt.grid(axis='y', color='white', linewidth=2.0, zorder=0)
     plt.grid(axis='x', color='white', linewidth=2.0, zorder=0)
@@ -64,7 +56,7 @@ def create_parsec_plot(parsec_data, memcached_data, run):
 
     run_num = str(run + 1)
     type = 'B' + run_num
-    plt.suptitle(r"\bf{\textit{" + f"{type}" + r"  -  Controller policy performance under various PARSEC workloads}}",
+    plt.suptitle(r"\bf{\textit{" + f"{type}" + r"  -  Controller policy performance under various PARSEC workloads" + ' (QPS interval = ' + str(qps_interval) + 's)}' + "}",
                  x=0.5,
                  y=0.97,
                  fontsize=20)
@@ -88,11 +80,39 @@ def create_parsec_plot(parsec_data, memcached_data, run):
 
     add_annotated_text_plot(ax, max_end_time, min_start_time, INTERVALS_PLACEMENT, RELATIVE_OFFSET_XTICKS, run)
     plt.tight_layout()
-    plt.savefig('B' + run_num + 'Q3.pdf')
+    plt.savefig('B' + run_num + 'Q' + q_num + '.pdf')
     plt.close()
 
 
 if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(description='Plot memcached data')
+    parser.add_argument('-q', type=str, help='Question to run', required=True)
+
+    args = parser.parse_args()
+
+    if args.q == '3':
+        results_path = 'Q3'
+        INTERVALS_PLACEMENT = [((0.045, -0.04), (0.766, -0.04)),
+                               ((0.045, -0.04), (0.764, -0.04)),
+                               ((0.045, -0.04), (0.705, -0.04))]
+
+        RELATIVE_OFFSET_XTICKS = [0.77, 0.77, 0.708]
+        qps_interval = 10
+    elif args.q == '4':
+        results_path = 'Q4'
+        INTERVALS_PLACEMENT = [((0.045, -0.04), (0.766, -0.04)),
+                               ((0.045, -0.04), (0.764, -0.04)),
+                               ((0.045, -0.04), (0.705, -0.04))]
+
+        RELATIVE_OFFSET_XTICKS = [0.77, 0.77, 0.708]
+        qps_interval = 7
+    else:
+        raise ValueError('Invalid question number')
+
+    memcached_file_name = f'{results_path}/memcached_'
+    parsec_file_name = f'{results_path}/log_'
+
     for run in range(RUNS):
         parsec_data = get_parsec_data(parsec_file_name, run)
         memcached_data = get_memcached_data(memcached_file_name, run)
@@ -107,4 +127,4 @@ if __name__ == "__main__":
         # create the time column which is cumulative sum of 10-second intervals
         time_intervals = np.linspace(0, 1200, 120, endpoint=True)
         memcached_data['time'] = time_intervals
-        create_parsec_plot(parsec_data, memcached_data, run)
+        create_parsec_plot(parsec_data, memcached_data, run, args.q)

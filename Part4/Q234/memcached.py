@@ -1,19 +1,13 @@
+import argparse
+
 from utils import *
 
 # -----------GLOBALS-------------
 
 
 RUNS = 3
-FILE_NAME = "results/memcached_output_"
-parsec_file_name = "results/log_"
 
-INTERVALS_PLACEMENT = [((0.045, -0.04), (0.807, -0.04)),
-                       ((0.045, -0.04), (0.84, -0.04)),
-                       ((0.045, -0.04), (0.7, -0.04))]
-
-RELATIVE_OFFSET_XTICKS = [0.803, 0.84, 0.7]
-
-def create_memcached_plot(xticks, xtick_labels, data, parsec_data, run):
+def create_memcached_plot(xticks, xtick_labels, data, parsec_data, run, q_num):
     fig, ax = plt.subplots(figsize=(20, 12))
     plt.grid(axis='y', color='white', linewidth=2.0, zorder=0)
     plt.grid(axis='x', color='white', linewidth=2.0, zorder=0)
@@ -60,7 +54,7 @@ def create_memcached_plot(xticks, xtick_labels, data, parsec_data, run):
     # setup plotting related styling
     run_num = str(run + 1)
     type = 'A' + run_num
-    plt.suptitle(r"\bf{\textit{" + f"{type}" + r"  -  Measured Tail Latency of Memcached with Dynamic Load}}",
+    plt.suptitle(r"\bf{\textit{" + f"{type}" + r"  -  Measured Tail Latency of Memcached with Dynamic Load" + ' (QPS interval = ' + str(qps_interval) + 's)}' + "}",
                  x=0.5,
                  y=0.97,
                  fontsize=20)
@@ -79,18 +73,49 @@ def create_memcached_plot(xticks, xtick_labels, data, parsec_data, run):
     ax.set_facecolor((0.92, 0.92, 0.92))
     add_annotated_text_plot(ax, max_end_time, min_start_time, INTERVALS_PLACEMENT, RELATIVE_OFFSET_XTICKS, run)
     plt.tight_layout()
-    plt.savefig('A' + run_num + 'Q3.pdf')
+    plt.savefig('A' + run_num + 'Q' + q_num +'.pdf')
     plt.close()
 
 
 if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser(description='Plot memcached data')
+    parser.add_argument('-q', type=str, help='Question to run', required=True)
+
+    args = parser.parse_args()
+
+    if args.q == '3':
+        results_path = 'Q3'
+        INTERVALS_PLACEMENT = [((0.045, -0.04), (0.766, -0.04)),
+                               ((0.045, -0.04), (0.764, -0.04)),
+                               ((0.045, -0.04), (0.705, -0.04))]
+
+        RELATIVE_OFFSET_XTICKS = [0.77, 0.77, 0.708]
+        qps_interval = 10
+    elif args.q == '4':
+        results_path = 'Q4'
+        INTERVALS_PLACEMENT = [((0.045, -0.04), (0.766, -0.04)),
+                               ((0.045, -0.04), (0.764, -0.04)),
+                               ((0.045, -0.04), (0.705, -0.04))]
+
+        RELATIVE_OFFSET_XTICKS = [0.77, 0.77, 0.708]
+        qps_interval = 7
+    else:
+        raise ValueError('Invalid question number')
+
+    FILE_NAME = f'{results_path}/memcached_'
+    parsec_file_name = f'{results_path}/log_'
+
     for run in range(RUNS):
         parsec_data = get_parsec_data(parsec_file_name, run)
         memcached_data = get_memcached_data(FILE_NAME, run)
         max_time = parsec_data['memcached']['df']['time'].max()
         # add x seconds to max time, so it reaches 20 minutes
-        max_time += (20 * 60 - max_time)
-        xticks, xtick_labels = get_xticks(max_time, step=120)
+        max_time += (1200 - max_time)
+
+        # compute step in terms of qps_interval
+        step = 1200 // qps_interval
+        xticks, xtick_labels = get_xticks(max_time, step=step)
         # each row in memcached_data is a 10-second interval so trim it to 20 minutes
-        memcached_data = memcached_data.iloc[:120, :]
-        create_memcached_plot(xticks, xtick_labels, memcached_data, parsec_data, run)
+        memcached_data = memcached_data.iloc[:step, :]
+        create_memcached_plot(xticks, xtick_labels, memcached_data, parsec_data, run, args.q)

@@ -1,3 +1,5 @@
+import os
+
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
@@ -124,7 +126,8 @@ def get_memcached_data(file_name, run) -> pd.DataFrame:
     # append the run number to the file name
     file = file_name + f"{run}.txt"
 
-    assert "memcached" in file_name and file_name.startswith("results")
+    assert "memcached" in file_name
+    assert os.path.exists(file)
 
     return preprocess_memcached(file)
 
