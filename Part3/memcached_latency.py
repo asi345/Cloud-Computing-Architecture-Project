@@ -42,9 +42,9 @@ JOB_COLORS = {
 }
 XY_LABELS = [
     [
-        [(0.118608, 0.015), (0.1635, 0.015), (0.1635, 0.015), (0.22233, 0.015), (0.3352, 0.015), (0.536551, 0.015)],
-        [(0.122, 0.015), (0.2415, 0.015), (0.6183, 0.015), (0.706169, 0.015)],
-        [(0.122, 0.015), (0.1941, 0.015), (0.2659, 0.015), (0.5805, 0.015)],
+        [(0.06, 0.015), (0.11, 0.015), (0.11, 0.015), (0.1783, 0.015), (0.307, 0.015), (0.536551, 0.015)],
+        [(0.063, 0.015), (0.2, 0.015), (0.63, 0.015), (0.731, 0.015)],
+        [(0.063, 0.015), (0.146, 0.015), (0.2275, 0.015), (0.5875, 0.015)],
     ],
     [
         [(0.0941, 0.015), (0.107, 0.015), (0.1534, 0.015), (0.1565, 0.015), (0.3142, 0.015), (0.5071, 0.015)],
@@ -52,9 +52,9 @@ XY_LABELS = [
         [(0.107, 0.015), (0.182, 0.015), (0.2575, 0.015), (0.565, 0.015)],
     ],
     [
-        [(0.1306, 0.015), (0.1635, 0.015), (0.1635, 0.015), (0.1885, 0.015), (0.288, 0.015), (0.5685, 0.015)],
-        [(0.197, 0.015), (0.22, 0.015), (0.615, 0.015), (0.709, 0.015)],
-        [(0.141, 0.015), (0.182, 0.015), (0.192, 0.015), (0.596, 0.015)],
+        [(0.0595, 0.015), (0.0952, 0.015), (0.0952, 0.015), (0.1232, 0.015), (0.239, 0.015), (0.5588, 0.015)],
+        [(0.135, 0.015), (0.1608, 0.015), (0.6123, 0.015), (0.7205, 0.015)],
+        [(0.07, 0.015), (0.117, 0.015), (0.1285, 0.015), (0.5908, 0.015)],
     ]
 ]
 
@@ -65,19 +65,19 @@ for runs in XY_LABELS:
 
 
 NODE_POS = [
-    (0.25, -0.6),
-    (0.25, -0.4),
-    (0.25, -0.2)
+    (-0.03, -0.6),
+    (-0.03, -0.4),
+    (-0.03, -0.2)
 ]
 
 JOB_STR_OFFSETS = {
-    'dedup': (0.15, -0.2),
-    'ferret': (0.1, -0.2),
-    'freqmine': (0.14, -0.4),
-    'vips': (0.085, -0.4),
-    'canneal': (0., -0.6),
-    'blackscholes': (0.125, -0.6),
-    'radix': (0.055, -0.6)
+    'dedup': (0.9475, -0.2),
+    'ferret': (0.895, -0.2),
+    'freqmine': (0.94, -0.4),
+    'vips': (0.883, -0.4),
+    'canneal': (0.7985, -0.6),
+    'blackscholes': (0.928, -0.6),
+    'radix': (0.855, -0.6)
 }
 
 RUNS = 3
@@ -113,11 +113,13 @@ def preprocess_data(file_name) -> pd.DataFrame:
 
     # Add cumulative elapsed time to the DataFrame
     data['cumulative_time'] = cumulative_time
+    data['service_start'] = pd.to_datetime(data['ts_start'], unit='ms')
 
-    data = data[['p95', 'elapsed_time', 'cumulative_time']]
+    data = data[['p95', 'elapsed_time', 'cumulative_time', 'service_start']]
     data['elapsed_time'] = data['elapsed_time'] / 1000  # convert to seconds
     data['cumulative_time'] = data['cumulative_time'] / 1000  # convert to seconds
     data['p95'] = data['p95'] / 1000  # convert to seconds
+
     return data
 
 
@@ -195,21 +197,25 @@ def create_plot(xtick, data, run_number):
     ax.set_ylim((0., 2.))
     # plot vertical line at y = 1.
     ax.axhline(y=1., color='red', linestyle='--', linewidth=2)
-    ax.annotate(r'\bf{SLO Objective}', xy=(260, 1.15), xytext=(260, 1.1), color='black', fontfamily='sans-serif')
+
     # Add a horizontal line at y=0.5
     # ax.annotate('', xy=(-.5, 0), xytext=(289.5, 0),
     #             arrowprops=dict(color='red', arrowstyle='-', lw=2))
-    generate_horizontal_line(ax, -0.5, 289.5, 0., color='red')
+    end_hz_line = data['cumulative_time'].max() + 0.5
+    generate_horizontal_line(ax, -0.5, end_hz_line, 0., color='red')
+    ax.annotate(r'\bf{SLO Objective}',
+                xy=(end_hz_line - 30, 1.15),
+                xytext=(end_hz_line - 30, 1.1), color='black', fontfamily='sans-serif')
     ax.annotate('[', xy=(-0.45, 0.015), xytext=(-0.45, -0.015), color='red')
-    ax.annotate(']', xy=(288.45, 0.015), xytext=(288.45, -0.015), color='red')
-    ax.annotate(r'\bf{289}', xy=(286, 0.0), xytext=(286, -0.09), color='red', fontfamily='sans-serif')
+    ax.annotate(']', xy=(end_hz_line -1.2, 0.015), xytext=(end_hz_line -1.2, -0.015), color='red')
+    ax.annotate(r'\bf{' + f'{end_hz_line:.0f}' + '}', xy=(end_hz_line - 4, -0.0), xytext=(end_hz_line - 4, -0.16), color='red', fontfamily='sans-serif')
     # ax.spines['bottom'].set_color('red')
     # ax.axvspan(0, 300, color='red', alpha=0.2)
     # # Create a new twinx axis for each node
     axes = [ax]
     nodes = xtick.__reversed__()
     colors = ['r', 'g', 'b']
-    assert len(xtick.keys()) == len(colors)
+    assert len(xtick.keys()) == len(colors)  # make sure we have enough colors
 
     # xy_offset = [(0.2, -0.95), (0.2, -0.65), (0.2, -0.35)]
     for i, node in enumerate(nodes):
@@ -250,6 +256,7 @@ def create_plot(xtick, data, run_number):
             for k, xtick_label in enumerate(xtick_labels):
                 x_position = NODE_POS[i][0] + xy_labels[i][k][0]
                 y_position = NODE_POS[i][1] + xy_labels[i][k][1]
+
                 position = (x_position, y_position)
                 new_ax.annotate(xtick_label, xy=position, textcoords='offset points',
                                 xycoords='axes fraction', ha='center', va='top', size=12,
@@ -257,13 +264,15 @@ def create_plot(xtick, data, run_number):
 
             if run_number == 1:
                 if node == 'node-c-8core':
-                    new_ax.set_xticks([100, 104, 120, 170, 232])
-                    for tick in plt.gca().xaxis.get_ticklabels():
-                        tick.set_rotation(45)
+                    new_ax.set_xticks([0, 4, 20, 70, 132])
+
 
             if run_number == 2:
                 if node == 'node-a-2core':
-                    new_ax.set_xticks([115, 130, 260])
+                    print('xtick bounds', xtick_bounds)
+                    new_ax.set_xticks([3, 16, 19, 148])
+                    for tick in plt.gca().xaxis.get_ticklabels():
+                        tick.set_rotation(45)
 
         # place annotation for node
         node_str = r'$\texttt{' + node + '}$'
@@ -316,25 +325,43 @@ def get_job_run_times():
     return job_run_times
 
 
-def normalize_job_run_times(job_run_times, memcached_run_times):
-    # for each dataframe, normalize the start_time and finish_time of each row by the start_time of entry 'memcached' in
-    # the 'job' column
-    normalized_job_run_times = []
-    for i, df in enumerate(job_run_times):
-        start_time = pd.to_datetime(df['start_time'])
-        finish_time = pd.to_datetime(df['finish_time'])
-        memcached_start_time = pd.to_datetime(df[df['job'] == 'memcached']['start_time'].values[0])
+def normalize_job_run_times(job_run_times, memcached_runs):
+    # for each dataframe, normalize the start_time and finish_time of each row by the minimum start_time of the jobs
 
-        start_time = (start_time - memcached_start_time).dt.total_seconds().astype(float)
-        finish_time = (finish_time - memcached_start_time).dt.total_seconds().astype(float)
+    normalized_job_run_times = []
+    normalized_memcached_runs = []
+    for i, df in enumerate(job_run_times):
+        memcached_run = memcached_runs[i]
+
+        start_time = pd.to_datetime(df[df['job'] != 'memcached']['start_time'])
+        min_start_time = start_time.min()
+        memcached_start_time = memcached_run['service_start'].loc[0]
+
+        elapsed_time = min_start_time - memcached_start_time # elapsed time from memcached start time to first job start time
+
+        finish_time = pd.to_datetime(df['finish_time'])
+        start_time = (start_time - min_start_time).dt.total_seconds().astype(float)
+        finish_time = (finish_time - min_start_time).dt.total_seconds().astype(float)
         df['start_time'] = start_time
         df['finish_time'] = finish_time
 
-        df.loc[df['job'] == 'memcached', 'finish_time'] = memcached_run_times[i]
+        df = df[df['job'] != 'memcached']
+        # df.loc[df['job'] == 'memcached', 'finish_time'] = memcached_run_times[i]
+        # remove the rows in the memcached dataframe which have a cumulative time < minimum start_time of the jobs
 
+        memcached_run = memcached_run[memcached_run['cumulative_time'] >= elapsed_time.total_seconds()]
+
+        # recalculate cumulative time based on elapsed time for memcached and reset index
+        cumulative_time = memcached_run['elapsed_time'].cumsum()
+        memcached_run['cumulative_time'] = cumulative_time
+        memcached_run['service_end'] = memcached_run['service_start'] + pd.to_timedelta(cumulative_time, unit='s')
+        print(memcached_run)
+        print(df)
+        memcached_run = memcached_run.reset_index(drop=True)
         normalized_job_run_times.append(df)
+        normalized_memcached_runs.append(memcached_run)
 
-    return normalized_job_run_times
+    return normalized_job_run_times, normalized_memcached_runs
 
 
 def compute_xticks_run(df, machine_job_offsets):
@@ -407,18 +434,18 @@ def compute_metrics(normalized_job_run_times):
         }
     return results
 
+
 def main():
     memcached_runs = get_data_memcached()
     job_run_times = get_job_run_times()
-
     memcached_runs_total_time = [df['cumulative_time'].max() for df in memcached_runs]
-    normalized_job_run_times = normalize_job_run_times(job_run_times, memcached_runs_total_time)
-
+    normalized_job_run_times, normalized_memcached_runs = normalize_job_run_times(job_run_times, memcached_runs)
     machine_job_offsets = compute_offsets_from_machine_job_allocations()
     xticks = compute_xticks(normalized_job_run_times, machine_job_offsets)
-    create_plots(xticks, memcached_runs)
-    results = compute_metrics(normalized_job_run_times)
-    print(results)
+
+    create_plots(xticks, normalized_memcached_runs)
+    # results = compute_metrics(normalized_job_run_times)
+
 
 if __name__ == "__main__":
     main()
