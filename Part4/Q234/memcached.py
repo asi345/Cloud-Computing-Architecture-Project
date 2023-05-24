@@ -9,26 +9,31 @@ RUNS = 3
 
 def create_memcached_plot(xticks, xtick_labels, data, parsec_data, run, q_num):
     fig, ax = plt.subplots(figsize=(20, 12))
-    plt.grid(axis='y', color='white', linewidth=2.0, zorder=0)
-    plt.grid(axis='x', color='white', linewidth=2.0, zorder=0)
+
     # label_str = label_mapping(label)
     labels = [r'$\bf{95}^{th}$ \bf{Percentile Latency (ms)}', r'\bf{QPS}']
 
     # Sample input data
     annotations, max_end_time, min_start_time = create_parsec_annotations(parsec_data, JOB_COLORS)
+    print(len(data))
+    print(len(xticks))
     # add line to connect markers
-    ax.scatter(xticks, data['p95'], color='darkorange', marker='x', s=100, zorder=9)
-    ax.plot(xticks, data['p95'], color='darkorange', linewidth=3.5, label=labels[0], zorder=9)
+    ax.scatter(xticks, data['p95'], color='blue', marker='x', s=100, zorder=9)
+    ax.plot(xticks, data['p95'], color='blue', linewidth=3.5, label=labels[0], zorder=9)
     ax.set_xlabel(r"\bf{Time} $(s)$", size=15)
     ax.set_ylabel(r'$\bf{95}^{th}$ \bf{Percentile Latency (ms)}', rotation=0, size=15)
-
     ax.yaxis.set_label_coords(0.0, 1.01)
     ax.xaxis.set_label_coords(0.5, -0.11)
     ax.set_ylim([0, 2])
 
     ax2 = ax.twinx()
-    ax2.scatter(xticks, data['QPS'], color='darkblue', marker='o', s=50, zorder=9, alpha=0.6)
-    ax2.plot(xticks, data['QPS'], color='darkblue', linewidth=2, label=labels[1], zorder=9, alpha=0.6)
+    ax2.set_axisbelow(True)
+    ax.grid(axis='y', color='white', linewidth=2.0, zorder=3)
+
+    # ax2.scatter(xticks, data['QPS'], color='darkblue', marker='o', s=50, zorder=9, alpha=0.6)
+    # ax2.plot(xticks, data['QPS'], color='darkblue', linewidth=2, label=labels[1], zorder=9, alpha=0.6)
+    ax2.fill_between(xticks, data['QPS'], color='darkorange', alpha=0.2, zorder=2, label=labels[1])
+
     ax2.set_ylabel(r'\bf{QPS}', rotation=0, size=15)
     ax2.set_ylim([0, 130000])
     yticks, yticks_labels = get_yticks(130000)
@@ -39,9 +44,20 @@ def create_memcached_plot(xticks, xtick_labels, data, parsec_data, run, q_num):
     # formatting xticks
     xticks_jobs = list(annotations.keys())
     xticks_jobs.sort()
-    xticks_jobs.append(1200)
-    ax.set_xticks(xticks_jobs)
-    xtick_labels = [f"${str(int(x))}s$" for x in xticks_jobs]
+    interval = np.arange(200, 1400, 200)
+    xticks_jobs = np.concatenate((xticks_jobs, interval))
+    xticks_jobs.sort()
+    # pop the elements which have absolute difference less than 20
+    xticks = []
+    for i in range(len(xticks_jobs)):
+        if i == 0:
+            xticks.append(xticks_jobs[i])
+        else:
+            if abs(xticks_jobs[i] - xticks_jobs[i - 1]) > 20:
+                xticks.append(xticks_jobs[i])
+    # xticks_jobs.sort()
+    ax.set_xticks(xticks)
+    xtick_labels = [f"${str(int(x))}$" for x in xticks]
     ax.set_xticklabels(xtick_labels, ha='center', size=16)
     # new_xticks = configure_xticks(annotations, ax2, max_end_time, min_start_time)
     # new_xticks = new_xticks[1:-1]
@@ -70,6 +86,8 @@ def create_memcached_plot(xticks, xtick_labels, data, parsec_data, run, q_num):
     # plt.gcf().autofmt_xdate()
     # Create a legend with the combined handles and labels
     plt.legend(handles, labels, prop={'size': 14.5}, loc='upper right')
+    plt.gcf().autofmt_xdate()
+
     ax.set_facecolor((0.92, 0.92, 0.92))
     add_annotated_text_plot(ax, max_end_time, min_start_time, INTERVALS_PLACEMENT, RELATIVE_OFFSET_XTICKS, run)
     plt.tight_layout()
@@ -94,12 +112,12 @@ if __name__ == "__main__":
         qps_interval = 10
     elif args.q == '4':
         results_path = 'Q4'
-        INTERVALS_PLACEMENT = [((0.045, -0.04), (0.766, -0.04)),
-                               ((0.045, -0.04), (0.764, -0.04)),
-                               ((0.045, -0.04), (0.705, -0.04))]
+        INTERVALS_PLACEMENT = [((0.045, -0.04), (0.663, -0.04)),
+                               ((0.045, -0.04), (0.685, -0.04)),
+                               ((0.045, -0.04), (0.664, -0.04))]
 
-        RELATIVE_OFFSET_XTICKS = [0.77, 0.77, 0.708]
-        qps_interval = 7
+        RELATIVE_OFFSET_XTICKS = [0.67, 0.69, 0.67]
+        qps_interval = 8
     else:
         raise ValueError('Invalid question number')
 

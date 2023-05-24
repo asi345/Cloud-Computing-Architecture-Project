@@ -14,7 +14,7 @@ PRIORITY = [2, 7, 3, 4, 5, 6, 5]  # zorder for error bars and lines
 def create_parsec_plot(parsec_data, memcached_data, run, q_num):
     fig, ax = plt.subplots(figsize=(20, 12))
     plt.grid(axis='y', color='white', linewidth=2.0, zorder=0)
-    plt.grid(axis='x', color='white', linewidth=2.0, zorder=0)
+    # plt.grid(axis='x', color='white', linewidth=2.0, zorder=0)
     # label_str = label_mapping(label)
     labels = [r'\bf{CPU Cores}', r'\bf{QPS}']
 
@@ -37,11 +37,21 @@ def create_parsec_plot(parsec_data, memcached_data, run, q_num):
     ax.step(time, cores, color=COLORS[2], linewidth=2, zorder=8, label=labels[0], where='post')
     ax.set_xlabel(r"\bf{Time} $(s)$", size=18)
     ax.set_ylabel(r'\bf{CPU Cores}', rotation=0, size=18)
-    configure_xticks(annotations, ax, max_end_time, min_start_time)
-
+    xticks = configure_xticks(annotations, ax, max_end_time, min_start_time)
+    new_xticks = []
+    for i in range(len(xticks)):
+        if i == 0:
+            new_xticks.append(xticks[i])
+        else:
+            if abs(xticks[i] - xticks[i - 1]) > 20:
+                new_xticks.append(xticks[i])
+    ax.set_xticks(new_xticks)
     ax2 = ax.twinx()
-    ax2.scatter(memcached_data['time'], memcached_data['QPS'], color=COLORS[-2], marker=MARKERS[0], s=50, alpha=0.6)
-    ax2.plot(memcached_data['time'], memcached_data['QPS'], color=COLORS[-2], linewidth=2, label=labels[1], alpha=0.6)
+    # ax2.scatter(memcached_data['time'], memcached_data['QPS'], color=COLORS[-2], marker=MARKERS[0], s=50, alpha=0.6)
+    # ax2.plot(memcached_data['time'], memcached_data['QPS'], color=COLORS[-2], linewidth=2, label=labels[1], alpha=0.6)
+    # fill below the line
+    ax2.fill_between(memcached_data['time'], memcached_data['QPS'], color=COLORS[-2], alpha=0.2, zorder=1, label=labels[1])
+
     ax2.set_ylabel(r'\bf{QPS}', rotation=0, size=18)
     ax.set_ylim([0., 2.5])
     ax2.set_ylim([0, 130000])
@@ -101,12 +111,12 @@ if __name__ == "__main__":
         qps_interval = 10
     elif args.q == '4':
         results_path = 'Q4'
-        INTERVALS_PLACEMENT = [((0.045, -0.04), (0.766, -0.04)),
-                               ((0.045, -0.04), (0.764, -0.04)),
-                               ((0.045, -0.04), (0.705, -0.04))]
+        INTERVALS_PLACEMENT = [((0.045, -0.04), (0.663, -0.04)),
+                               ((0.045, -0.04), (0.685, -0.04)),
+                               ((0.045, -0.04), (0.664, -0.04))]
 
-        RELATIVE_OFFSET_XTICKS = [0.77, 0.77, 0.708]
-        qps_interval = 7
+        RELATIVE_OFFSET_XTICKS = [0.67, 0.69, 0.67]
+        qps_interval = 8
     else:
         raise ValueError('Invalid question number')
 
@@ -118,13 +128,14 @@ if __name__ == "__main__":
         memcached_data = get_memcached_data(memcached_file_name, run)
         max_time = parsec_data['memcached']['df']['time'].max()
         # add x seconds to max time, so it reaches 20 minutes
-        max_time += (20 * 60 - max_time)
-        xticks, xtick_labels = get_xticks(max_time, step=10)
-        print(max_time)
-        print(len(memcached_data))
+        max_time += (1200 - max_time)
+
+        # compute step in terms of qps_interval
+        step = 1200 // qps_interval
+        xticks, xtick_labels = get_xticks(max_time, step=step)
         # each row in memcached_data is a 10-second interval so trim it to 20 minutes
-        memcached_data = memcached_data.iloc[:120, :]
+        memcached_data = memcached_data.iloc[:step, :]
         # create the time column which is cumulative sum of 10-second intervals
-        time_intervals = np.linspace(0, 1200, 120, endpoint=True)
+        time_intervals = np.linspace(0, 1200, step, endpoint=True)
         memcached_data['time'] = time_intervals
         create_parsec_plot(parsec_data, memcached_data, run, args.q)
