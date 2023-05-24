@@ -1,7 +1,0 @@
-BLACKSCHOLES_NAME="parsec-blackscholes"
-CANNEAL_NAME="parsec-canneal"
-DEDUP_NAME="parsec-dedup"
-FERRET_NAME="parsec-ferret"
-FREQMINE_NAME="parsec-freqmine"
-RADIX_NAME="parsec-radix"
-VIPS_NAME="parsec-vips"

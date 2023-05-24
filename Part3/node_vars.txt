@@ -1,6 +1,0 @@
-AGENT_A_NAME="client-agent-2bxb"
-AGENT_A_INT_IP="10.0.16.4"
-AGENT_B_NAME="client-measure-8zqt"
-AGENT_B_INT_IP="10.0.16.3"
-MEASURE_NAME="master-europe-west3-a-0jsg"
-MEASURE_INT_IP="10.0.16.5"
