@@ -50,6 +50,7 @@ class Scheduler:
     
     def is_finished(self):
         if self.current_job == 7:
+            self.memcached_handler.update_memcached_cores("0,1")
             self.logger.end()
             return True 
         
@@ -59,11 +60,12 @@ class Scheduler:
 
 if __name__ == "__main__":
     scheduler = Scheduler()
-
+    time.sleep(2)
     while not scheduler.is_finished():
         scheduler.schedule_next_job()
         scheduler.update_state()
         #print(f"Currently running {ORDER[scheduler.current_job]}")
         time.sleep(0.05)
+    
         
     print("Finished")

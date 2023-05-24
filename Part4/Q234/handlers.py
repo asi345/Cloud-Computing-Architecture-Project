@@ -158,9 +158,12 @@ class DockerContainerHandler:
         if container == None:
             return None
 
-        container.reload()
-        container.update(cpuset_cpus = cores)
-        self.logger.update_cores(Job(container.name), cores.split(","))
+        try:
+            container.reload()
+            container.update(cpuset_cpus = cores)
+            self.logger.update_cores(Job(container.name), cores.split(","))
+        except:
+            pass
         return container
 
     def update_memory_limit(self, container: docker.models.containers.Container, fraction: float) -> docker.models.containers.Container:
