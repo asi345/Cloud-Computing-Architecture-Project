@@ -1,4 +1,4 @@
-# EASY 6.0 IS ON THE WAY
+# To Run Scripts
 
 ## PART 1
 
